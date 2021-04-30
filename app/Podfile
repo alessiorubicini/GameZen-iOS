@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'GameZen' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for GameZen
+  pod 'Alamofire', '~> 5.2' 
+
+  target 'GameZenTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GameZenUITests' do
+    # Pods for testing
+  end
+
+end

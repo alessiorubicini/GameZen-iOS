@@ -1,0 +1,873 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		54292D78C9082865F50D4AAF /* Pods_GameZen_GameZenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F424AC96504089B8D3F89B72 /* Pods_GameZen_GameZenUITests.framework */; };
+		6CD826E2BD13E6F3091C858B /* Pods_GameZenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A889E9E64B25E0F1CE8E3A2E /* Pods_GameZenTests.framework */; };
+		740496DBF9B67B74CF62872D /* Pods_GameZen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D410F4320471D96793023500 /* Pods_GameZen.framework */; };
+		CF353305263C8BBC00CC4A8E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353304263C8BBC00CC4A8E /* Product.swift */; };
+		CF353307263C8BD600CC4A8E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353306263C8BD600CC4A8E /* User.swift */; };
+		CF353309263C8BEB00CC4A8E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353308263C8BEB00CC4A8E /* Order.swift */; };
+		CF35330B263C8C0200CC4A8E /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330A263C8C0200CC4A8E /* Address.swift */; };
+		CF35330D263C8CF800CC4A8E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330C263C8CF800CC4A8E /* AppState.swift */; };
+		CF35330F263C8D1800CC4A8E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330E263C8D1800CC4A8E /* UserManager.swift */; };
+		CF353311263C8D3B00CC4A8E /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353310263C8D3B00CC4A8E /* CartManager.swift */; };
+		CF353313263C8D5700CC4A8E /* CatalogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353312263C8D5700CC4A8E /* CatalogManager.swift */; };
+		CF353315263C8D7B00CC4A8E /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353314263C8D7B00CC4A8E /* CatalogView.swift */; };
+		CF353317263C8D8400CC4A8E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353316263C8D8400CC4A8E /* CartView.swift */; };
+		CF353319263C8D8A00CC4A8E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353318263C8D8A00CC4A8E /* ProfileView.swift */; };
+		CF35331B263C8D9000CC4A8E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35331A263C8D9000CC4A8E /* SettingsView.swift */; };
+		CF35331F263C8EA700CC4A8E /* SwiftUIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = CF35331E263C8EA700CC4A8E /* SwiftUIComponents */; };
+		CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650E8A263C870E00B6C05A /* GameZenApp.swift */; };
+		CF650E8D263C870E00B6C05A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650E8C263C870E00B6C05A /* ContentView.swift */; };
+		CF650E8F263C870F00B6C05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF650E8E263C870F00B6C05A /* Assets.xcassets */; };
+		CF650E92263C870F00B6C05A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF650E91263C870F00B6C05A /* Preview Assets.xcassets */; };
+		CF650E9D263C870F00B6C05A /* GameZenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650E9C263C870F00B6C05A /* GameZenTests.swift */; };
+		CF650EA8263C870F00B6C05A /* GameZenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650EA7263C870F00B6C05A /* GameZenUITests.swift */; };
+		CFFA39B7263C89B900E62DB1 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = CFFA39B6263C89B900E62DB1 /* SwiftUIX */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF650E99263C870F00B6C05A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF650E7F263C870E00B6C05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF650E86263C870E00B6C05A;
+			remoteInfo = GameZen;
+		};
+		CF650EA4263C870F00B6C05A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF650E7F263C870E00B6C05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF650E86263C870E00B6C05A;
+			remoteInfo = GameZen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F1062F6724A185B398C8A64 /* Pods-GameZen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZen.debug.xcconfig"; path = "Target Support Files/Pods-GameZen/Pods-GameZen.debug.xcconfig"; sourceTree = "<group>"; };
+		10A216A2317E6EECC564C961 /* Pods-GameZen-GameZenUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZen-GameZenUITests.debug.xcconfig"; path = "Target Support Files/Pods-GameZen-GameZenUITests/Pods-GameZen-GameZenUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1411DB530B9CD08F33CAD5AA /* Pods-GameZenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZenTests.release.xcconfig"; path = "Target Support Files/Pods-GameZenTests/Pods-GameZenTests.release.xcconfig"; sourceTree = "<group>"; };
+		2DEC168DC589EA76C7AA1A0F /* Pods-GameZenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZenTests.debug.xcconfig"; path = "Target Support Files/Pods-GameZenTests/Pods-GameZenTests.debug.xcconfig"; sourceTree = "<group>"; };
+		82BA859789FFE3C81044907F /* Pods-GameZen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZen.release.xcconfig"; path = "Target Support Files/Pods-GameZen/Pods-GameZen.release.xcconfig"; sourceTree = "<group>"; };
+		A889E9E64B25E0F1CE8E3A2E /* Pods_GameZenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameZenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B23EF043FD72AB8A8075DD10 /* Pods-GameZen-GameZenUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZen-GameZenUITests.release.xcconfig"; path = "Target Support Files/Pods-GameZen-GameZenUITests/Pods-GameZen-GameZenUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CF353304263C8BBC00CC4A8E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		CF353306263C8BD600CC4A8E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CF353308263C8BEB00CC4A8E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		CF35330A263C8C0200CC4A8E /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		CF35330C263C8CF800CC4A8E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		CF35330E263C8D1800CC4A8E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		CF353310263C8D3B00CC4A8E /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		CF353312263C8D5700CC4A8E /* CatalogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogManager.swift; sourceTree = "<group>"; };
+		CF353314263C8D7B00CC4A8E /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		CF353316263C8D8400CC4A8E /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		CF353318263C8D8A00CC4A8E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CF35331A263C8D9000CC4A8E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CF35331C263C8DB500CC4A8E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CF650E87263C870E00B6C05A /* GameZen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameZen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF650E8A263C870E00B6C05A /* GameZenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameZenApp.swift; sourceTree = "<group>"; };
+		CF650E8C263C870E00B6C05A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CF650E8E263C870F00B6C05A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF650E91263C870F00B6C05A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CF650E93263C870F00B6C05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF650E98263C870F00B6C05A /* GameZenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameZenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF650E9C263C870F00B6C05A /* GameZenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameZenTests.swift; sourceTree = "<group>"; };
+		CF650E9E263C870F00B6C05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF650EA3263C870F00B6C05A /* GameZenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameZenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF650EA7263C870F00B6C05A /* GameZenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameZenUITests.swift; sourceTree = "<group>"; };
+		CF650EA9263C870F00B6C05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D410F4320471D96793023500 /* Pods_GameZen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameZen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F424AC96504089B8D3F89B72 /* Pods_GameZen_GameZenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameZen_GameZenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF650E84263C870E00B6C05A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				740496DBF9B67B74CF62872D /* Pods_GameZen.framework in Frameworks */,
+				CFFA39B7263C89B900E62DB1 /* SwiftUIX in Frameworks */,
+				CF35331F263C8EA700CC4A8E /* SwiftUIComponents in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF650E95263C870F00B6C05A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CD826E2BD13E6F3091C858B /* Pods_GameZenTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF650EA0263C870F00B6C05A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54292D78C9082865F50D4AAF /* Pods_GameZen_GameZenUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D5F030BA7B9C72358D50B51 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F1062F6724A185B398C8A64 /* Pods-GameZen.debug.xcconfig */,
+				82BA859789FFE3C81044907F /* Pods-GameZen.release.xcconfig */,
+				10A216A2317E6EECC564C961 /* Pods-GameZen-GameZenUITests.debug.xcconfig */,
+				B23EF043FD72AB8A8075DD10 /* Pods-GameZen-GameZenUITests.release.xcconfig */,
+				2DEC168DC589EA76C7AA1A0F /* Pods-GameZenTests.debug.xcconfig */,
+				1411DB530B9CD08F33CAD5AA /* Pods-GameZenTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		27807F043015D9FA95451644 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D410F4320471D96793023500 /* Pods_GameZen.framework */,
+				F424AC96504089B8D3F89B72 /* Pods_GameZen_GameZenUITests.framework */,
+				A889E9E64B25E0F1CE8E3A2E /* Pods_GameZenTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF3532FF263C8B2B00CC4A8E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CF650E8A263C870E00B6C05A /* GameZenApp.swift */,
+				CF650E93263C870F00B6C05A /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CF353300263C8B3A00CC4A8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF353304263C8BBC00CC4A8E /* Product.swift */,
+				CF353306263C8BD600CC4A8E /* User.swift */,
+				CF353308263C8BEB00CC4A8E /* Order.swift */,
+				CF35330A263C8C0200CC4A8E /* Address.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF353301263C8B4000CC4A8E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CF650E8C263C870E00B6C05A /* ContentView.swift */,
+				CF353314263C8D7B00CC4A8E /* CatalogView.swift */,
+				CF353316263C8D8400CC4A8E /* CartView.swift */,
+				CF353318263C8D8A00CC4A8E /* ProfileView.swift */,
+				CF35331A263C8D9000CC4A8E /* SettingsView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CF353302263C8B4600CC4A8E /* Style */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		CF353303263C8B6500CC4A8E /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				CF35330C263C8CF800CC4A8E /* AppState.swift */,
+				CF35330E263C8D1800CC4A8E /* UserManager.swift */,
+				CF353310263C8D3B00CC4A8E /* CartManager.swift */,
+				CF353312263C8D5700CC4A8E /* CatalogManager.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		CF650E7E263C870E00B6C05A = {
+			isa = PBXGroup;
+			children = (
+				CF35331C263C8DB500CC4A8E /* README.md */,
+				CF650E89263C870E00B6C05A /* App */,
+				CF650E9B263C870F00B6C05A /* AppTests */,
+				CF650EA6263C870F00B6C05A /* AppUITests */,
+				CF650E88263C870E00B6C05A /* Products */,
+				0D5F030BA7B9C72358D50B51 /* Pods */,
+				27807F043015D9FA95451644 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CF650E88263C870E00B6C05A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF650E87263C870E00B6C05A /* GameZen.app */,
+				CF650E98263C870F00B6C05A /* GameZenTests.xctest */,
+				CF650EA3263C870F00B6C05A /* GameZenUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF650E89263C870E00B6C05A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CF3532FF263C8B2B00CC4A8E /* Application */,
+				CF353303263C8B6500CC4A8E /* Logic */,
+				CF353300263C8B3A00CC4A8E /* Model */,
+				CF353302263C8B4600CC4A8E /* Style */,
+				CF353301263C8B4000CC4A8E /* UI */,
+				CF650E8E263C870F00B6C05A /* Assets.xcassets */,
+				CF650E90263C870F00B6C05A /* Preview Content */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CF650E90263C870F00B6C05A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CF650E91263C870F00B6C05A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF650E9B263C870F00B6C05A /* AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF650E9C263C870F00B6C05A /* GameZenTests.swift */,
+				CF650E9E263C870F00B6C05A /* Info.plist */,
+			);
+			path = AppTests;
+			sourceTree = "<group>";
+		};
+		CF650EA6263C870F00B6C05A /* AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CF650EA7263C870F00B6C05A /* GameZenUITests.swift */,
+				CF650EA9263C870F00B6C05A /* Info.plist */,
+			);
+			path = AppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF650E86263C870E00B6C05A /* GameZen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF650EAC263C870F00B6C05A /* Build configuration list for PBXNativeTarget "GameZen" */;
+			buildPhases = (
+				9CB932063DE399ECA8D0FC56 /* [CP] Check Pods Manifest.lock */,
+				CF650E83263C870E00B6C05A /* Sources */,
+				CF650E84263C870E00B6C05A /* Frameworks */,
+				CF650E85263C870E00B6C05A /* Resources */,
+				6B12F7141B9B9FA2C2638DCC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameZen;
+			packageProductDependencies = (
+				CFFA39B6263C89B900E62DB1 /* SwiftUIX */,
+				CF35331E263C8EA700CC4A8E /* SwiftUIComponents */,
+			);
+			productName = GameZen;
+			productReference = CF650E87263C870E00B6C05A /* GameZen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF650E97263C870F00B6C05A /* GameZenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF650EAF263C870F00B6C05A /* Build configuration list for PBXNativeTarget "GameZenTests" */;
+			buildPhases = (
+				9BA83F06B746B2DBDF38C4F4 /* [CP] Check Pods Manifest.lock */,
+				CF650E94263C870F00B6C05A /* Sources */,
+				CF650E95263C870F00B6C05A /* Frameworks */,
+				CF650E96263C870F00B6C05A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF650E9A263C870F00B6C05A /* PBXTargetDependency */,
+			);
+			name = GameZenTests;
+			productName = GameZenTests;
+			productReference = CF650E98263C870F00B6C05A /* GameZenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CF650EA2263C870F00B6C05A /* GameZenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF650EB2263C870F00B6C05A /* Build configuration list for PBXNativeTarget "GameZenUITests" */;
+			buildPhases = (
+				229C3A9DA9C6537CF59A6544 /* [CP] Check Pods Manifest.lock */,
+				CF650E9F263C870F00B6C05A /* Sources */,
+				CF650EA0263C870F00B6C05A /* Frameworks */,
+				CF650EA1263C870F00B6C05A /* Resources */,
+				D29CD80624906968B772DC91 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF650EA5263C870F00B6C05A /* PBXTargetDependency */,
+			);
+			name = GameZenUITests;
+			productName = GameZenUITests;
+			productReference = CF650EA3263C870F00B6C05A /* GameZenUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF650E7F263C870E00B6C05A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					CF650E86263C870E00B6C05A = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					CF650E97263C870F00B6C05A = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = CF650E86263C870E00B6C05A;
+					};
+					CF650EA2263C870F00B6C05A = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = CF650E86263C870E00B6C05A;
+					};
+				};
+			};
+			buildConfigurationList = CF650E82263C870E00B6C05A /* Build configuration list for PBXProject "GameZen" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF650E7E263C870E00B6C05A;
+			packageReferences = (
+				CFFA39B5263C89B900E62DB1 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				CF35331D263C8EA700CC4A8E /* XCRemoteSwiftPackageReference "SwiftUI-Components" */,
+			);
+			productRefGroup = CF650E88263C870E00B6C05A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF650E86263C870E00B6C05A /* GameZen */,
+				CF650E97263C870F00B6C05A /* GameZenTests */,
+				CF650EA2263C870F00B6C05A /* GameZenUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF650E85263C870E00B6C05A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF650E92263C870F00B6C05A /* Preview Assets.xcassets in Resources */,
+				CF650E8F263C870F00B6C05A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF650E96263C870F00B6C05A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF650EA1263C870F00B6C05A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		229C3A9DA9C6537CF59A6544 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameZen-GameZenUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B12F7141B9B9FA2C2638DCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameZen/Pods-GameZen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameZen/Pods-GameZen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GameZen/Pods-GameZen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BA83F06B746B2DBDF38C4F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameZenTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CB932063DE399ECA8D0FC56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameZen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D29CD80624906968B772DC91 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameZen-GameZenUITests/Pods-GameZen-GameZenUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameZen-GameZenUITests/Pods-GameZen-GameZenUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GameZen-GameZenUITests/Pods-GameZen-GameZenUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF650E83263C870E00B6C05A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF35330B263C8C0200CC4A8E /* Address.swift in Sources */,
+				CF353319263C8D8A00CC4A8E /* ProfileView.swift in Sources */,
+				CF353313263C8D5700CC4A8E /* CatalogManager.swift in Sources */,
+				CF353311263C8D3B00CC4A8E /* CartManager.swift in Sources */,
+				CF353307263C8BD600CC4A8E /* User.swift in Sources */,
+				CF35330D263C8CF800CC4A8E /* AppState.swift in Sources */,
+				CF650E8D263C870E00B6C05A /* ContentView.swift in Sources */,
+				CF35331B263C8D9000CC4A8E /* SettingsView.swift in Sources */,
+				CF353317263C8D8400CC4A8E /* CartView.swift in Sources */,
+				CF353309263C8BEB00CC4A8E /* Order.swift in Sources */,
+				CF353315263C8D7B00CC4A8E /* CatalogView.swift in Sources */,
+				CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */,
+				CF35330F263C8D1800CC4A8E /* UserManager.swift in Sources */,
+				CF353305263C8BBC00CC4A8E /* Product.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF650E94263C870F00B6C05A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF650E9D263C870F00B6C05A /* GameZenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF650E9F263C870F00B6C05A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF650EA8263C870F00B6C05A /* GameZenUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF650E9A263C870F00B6C05A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF650E86263C870E00B6C05A /* GameZen */;
+			targetProxy = CF650E99263C870F00B6C05A /* PBXContainerItemProxy */;
+		};
+		CF650EA5263C870F00B6C05A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF650E86263C870E00B6C05A /* GameZen */;
+			targetProxy = CF650EA4263C870F00B6C05A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CF650EAA263C870F00B6C05A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CF650EAB263C870F00B6C05A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF650EAD263C870F00B6C05A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F1062F6724A185B398C8A64 /* Pods-GameZen.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
+				DEVELOPMENT_TEAM = FXED6Z9HSN;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.AlessioRubicini.GameZen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CF650EAE263C870F00B6C05A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82BA859789FFE3C81044907F /* Pods-GameZen.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
+				DEVELOPMENT_TEAM = FXED6Z9HSN;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.AlessioRubicini.GameZen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CF650EB0263C870F00B6C05A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DEC168DC589EA76C7AA1A0F /* Pods-GameZenTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FXED6Z9HSN;
+				INFOPLIST_FILE = AppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.AlessioRubicini.GameZenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameZen.app/GameZen";
+			};
+			name = Debug;
+		};
+		CF650EB1263C870F00B6C05A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1411DB530B9CD08F33CAD5AA /* Pods-GameZenTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FXED6Z9HSN;
+				INFOPLIST_FILE = AppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.AlessioRubicini.GameZenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameZen.app/GameZen";
+			};
+			name = Release;
+		};
+		CF650EB3263C870F00B6C05A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10A216A2317E6EECC564C961 /* Pods-GameZen-GameZenUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FXED6Z9HSN;
+				INFOPLIST_FILE = AppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.AlessioRubicini.GameZenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GameZen;
+			};
+			name = Debug;
+		};
+		CF650EB4263C870F00B6C05A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B23EF043FD72AB8A8075DD10 /* Pods-GameZen-GameZenUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FXED6Z9HSN;
+				INFOPLIST_FILE = AppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.AlessioRubicini.GameZenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GameZen;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF650E82263C870E00B6C05A /* Build configuration list for PBXProject "GameZen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF650EAA263C870F00B6C05A /* Debug */,
+				CF650EAB263C870F00B6C05A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF650EAC263C870F00B6C05A /* Build configuration list for PBXNativeTarget "GameZen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF650EAD263C870F00B6C05A /* Debug */,
+				CF650EAE263C870F00B6C05A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF650EAF263C870F00B6C05A /* Build configuration list for PBXNativeTarget "GameZenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF650EB0263C870F00B6C05A /* Debug */,
+				CF650EB1263C870F00B6C05A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF650EB2263C870F00B6C05A /* Build configuration list for PBXNativeTarget "GameZenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF650EB3263C870F00B6C05A /* Debug */,
+				CF650EB4263C870F00B6C05A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF35331D263C8EA700CC4A8E /* XCRemoteSwiftPackageReference "SwiftUI-Components" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alessiorubicini/SwiftUI-Components";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "1.0.0-beta.1";
+			};
+		};
+		CFFA39B5263C89B900E62DB1 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF35331E263C8EA700CC4A8E /* SwiftUIComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF35331D263C8EA700CC4A8E /* XCRemoteSwiftPackageReference "SwiftUI-Components" */;
+			productName = SwiftUIComponents;
+		};
+		CFFA39B6263C89B900E62DB1 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFFA39B5263C89B900E62DB1 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CF650E7F263C870E00B6C05A /* Project object */;
+}

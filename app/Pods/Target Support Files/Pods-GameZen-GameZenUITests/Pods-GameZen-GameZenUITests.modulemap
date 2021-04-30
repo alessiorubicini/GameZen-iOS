@@ -1,0 +1,6 @@
+framework module Pods_GameZen_GameZenUITests {
+  umbrella header "Pods-GameZen-GameZenUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

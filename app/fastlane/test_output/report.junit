@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='GameZenTests.xctest' tests='2' failures='0'>
+  <testsuite name='GameZenTests.GameZenTests' tests='2' failures='0'>
+    <testcase classname='GameZenTests.GameZenTests' name='testExample' time='0.003'/>
+    <testcase classname='GameZenTests.GameZenTests' name='testPerformanceExample' time='0.399'/>
+  </testsuite>
+</testsuites>
