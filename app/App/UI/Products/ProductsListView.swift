@@ -1,4 +1,4 @@
-// CatalogManager.swift
+// ProductsListView.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -10,32 +10,32 @@
 // GNU General Public License for more details.
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-import Foundation
 import SwiftUI
 
-class CatalogManager: ObservableObject {
+struct ProductsListView: View {
     
-    @Published var products: [Product] = []
-    @Published var categories: [Category] = []
+    // MARK: - View properties
     
-    init() {
-        #if DEBUG
-        self.products = Product.mocks
-        self.categories = Category.mocks
-        #endif
+    let addToCart: (Product) -> Bool
+    let products: [Product]
+    
+    // MARK: - View body
+    
+    var body: some View {
+        List {
+            
+            ForEach(products) { product in
+                NavigationLink(destination: ProductView(product: product, addToCart: addToCart).navigationTitle(product.name)) {
+                    ProductCard(product: product).frame(height: 200)
+                }
+            }
+            
+        }
     }
-    
-    func fetchProducts() {
-        
+}
+
+struct ProductsListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductsListView(addToCart: { _ in return false }, products: Product.mocks)
     }
-    
-    func searchProducts(for name: String) {
-        
-    }
-    
-    func fetchCategory(for category: String) {
-        
-    }
-    
 }

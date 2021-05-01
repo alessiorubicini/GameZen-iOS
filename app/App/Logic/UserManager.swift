@@ -13,10 +13,30 @@
 
 import Foundation
 import SwiftUI
+import Alamofire
+import CryptoKit
 
 class UserManager: ObservableObject {
 
+    var user: User? = nil
     
+    func login(username: String, password: String) throws {
+
+        // Generate the password MD5 hash
+        let hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!)
+        
+        // Send the login request to the API
+        AF.request(API.login.rawValue, method: .post, parameters: ["username": username, "password": hashedPassw])
+            .response { response in
+                
+                
+            }
+        
+    }
+    
+    func register() throws {
+        
+    }
     
 }
 

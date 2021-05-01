@@ -1,4 +1,4 @@
-//
+// Errors.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,17 +11,16 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import SwiftUI
+import Foundation
 
-struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
+enum AuthenticationError: Error {
+    case userNotFound
+    case invalidCredentials
+    case unknownError
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+enum OrderError: Error {
+    case unknownError
 }
+
+

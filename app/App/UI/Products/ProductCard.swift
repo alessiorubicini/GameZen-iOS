@@ -1,4 +1,4 @@
-// SettingsView.swift
+// ProductCard.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -13,44 +13,42 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct ProductCard: View {
     
     // MARK: - View properties
     
+    let product: Product
     
     // MARK: - View body
     
     var body: some View {
-        NavigationView {
+        HStack {
             
-            List {
+            // Product image
+            #if DEBUG
+            Image(product.name).resizable().aspectRatio(contentMode: .fit).padding()
+            #else
+            RemoteImage(url: product.imageURL)
+                .shadow(radius: 10).padding()
+            #endif
+            
+            // Info
+            VStack(alignment: .leading) {
+                Text(product.name).font(.title2).fontWeight(.medium)
                 
-                Section(header: Text("Preferenze")) {
-                    Text("Rimani collegato")
-                }
+                Text("\(product.price, specifier: "%.2f") €").font(.title3)
                 
-                Section(header: Text("Informazioni")) {
-                    HStack {
-                        Text("Versione app")
-                        Spacer()
-                        Text("1.0.0")
-                    }
-                    
-                    Text("F.A.Q.")
-                    
-                    Text("Area legale")
-                }
-                
+                Text(product.available ? "Disponibile" : "Esaurito").foregroundColor(product.available ? .green : .red)
+                    .padding(.vertical, 10)
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Impostazioni")
-            
         }
+        .padding()
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct ProductCard_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        ProductCard(product: Product.mocks[1])
+            
     }
 }

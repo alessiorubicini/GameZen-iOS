@@ -14,8 +14,29 @@
 import Foundation
 import SwiftUI
 
+// This object is responsible of managing the user's cart
 class CartManager: ObservableObject {
     
+    @Published var products: [Product] = []
     
+    
+    /// Add a product to the user's cart
+    /// - Parameter product: the product to be added
+    func addProduct(product: Product) -> Bool {
+        
+        // Check if the product is already in the cart
+        if self.products.contains(where: {$0.name == product.name}) {
+            return false
+        }
+        
+        self.products.append(product)
+        
+        return true
+        
+    }
+    
+    func proceedToOrder() {
+        
+    }
     
 }

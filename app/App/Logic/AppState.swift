@@ -16,6 +16,8 @@ import SwiftUI
 
 class AppState: ObservableObject {
     
-    
+    @Published var userManager = UserManager()
+    @Published var cartManager = CartManager()
+    @Published var catalogManager = CatalogManager()
     
 }

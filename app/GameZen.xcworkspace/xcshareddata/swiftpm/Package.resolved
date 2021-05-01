@@ -5,9 +5,9 @@
         "package": "SwiftUIComponents",
         "repositoryURL": "https://github.com/alessiorubicini/SwiftUI-Components",
         "state": {
-          "branch": null,
-          "revision": "a01e7a16c1acdc01813f077205940ef71c6dbd63",
-          "version": "1.0.0-beta.1"
+          "branch": "master",
+          "revision": "0843d49a7f66a682765d6824f902554f4dbee570",
+          "version": null
         }
       },
       {

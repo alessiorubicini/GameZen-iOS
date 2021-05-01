@@ -1,4 +1,4 @@
-// CatalogManager.swift
+// API.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -12,30 +12,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import Foundation
-import SwiftUI
 
-class CatalogManager: ObservableObject {
-    
-    @Published var products: [Product] = []
-    @Published var categories: [Category] = []
-    
-    init() {
-        #if DEBUG
-        self.products = Product.mocks
-        self.categories = Category.mocks
-        #endif
-    }
-    
-    func fetchProducts() {
-        
-    }
-    
-    func searchProducts(for name: String) {
-        
-    }
-    
-    func fetchCategory(for category: String) {
-        
-    }
-    
+enum API: String {
+    case login = "http://localhost:8888/GameZen/api/user/login.php"
 }

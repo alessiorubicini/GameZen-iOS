@@ -16,9 +16,51 @@ import SwiftUI
 @main
 struct GameZenApp: App {
     
+    @StateObject private var state = AppState()
+    
+    @ViewBuilder
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            if state.userManager.user == nil {
+                
+                AuthenticationView().environmentObject(state.userManager)
+                
+            } else {
+                
+                TabView {
+                    CatalogView()
+                        .environmentObject(state.catalogManager)
+                        .environmentObject(state.cartManager)
+                        .tabItem {
+                            Image(systemName: "list.dash")
+                            Text("Catalogo")
+                        }
+                    
+                    CartView()
+                        .environmentObject(state.cartManager)
+                        .tabItem {
+                            Image(systemName: "cart.fill")
+                            Text("Carrello")
+                        }
+                    
+                    ProfileView()
+                        .environmentObject(state.userManager)
+                        .tabItem {
+                            Image(systemName: "person.fill")
+                            Text("Account")
+                        }
+                    
+                    SettingsView()
+                        .tabItem {
+                            Image(systemName: "gearshape.fill")
+                            Text("Impostazioni")
+                        }
+                }
+                .accentColor(.bluePrimary)
+                
+            }
+            
         }
     }
     

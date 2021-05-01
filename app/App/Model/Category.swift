@@ -1,4 +1,4 @@
-// CatalogManager.swift
+// Category.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -12,30 +12,19 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import Foundation
-import SwiftUI
 
-class CatalogManager: ObservableObject {
+struct Category: Identifiable {
     
-    @Published var products: [Product] = []
-    @Published var categories: [Category] = []
+    let id: Int
+    let name: String
+    let numberOfProducts: Int
     
-    init() {
-        #if DEBUG
-        self.products = Product.mocks
-        self.categories = Category.mocks
-        #endif
-    }
-    
-    func fetchProducts() {
-        
-    }
-    
-    func searchProducts(for name: String) {
-        
-    }
-    
-    func fetchCategory(for category: String) {
-        
-    }
-    
+}
+
+extension Category {
+    static let mocks = [
+        Category(id: 1, name: "Wargames", numberOfProducts: 3),
+        Category(id: 2, name: "Carte collezionabili", numberOfProducts: 1),
+        Category(id: 3, name: "Strategici", numberOfProducts: 1)
+    ]
 }

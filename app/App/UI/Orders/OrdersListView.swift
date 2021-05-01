@@ -1,4 +1,4 @@
-// CatalogManager.swift
+// OrdersListView.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,31 +11,22 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import Foundation
 import SwiftUI
 
-class CatalogManager: ObservableObject {
+struct OrdersListView: View {
     
-    @Published var products: [Product] = []
-    @Published var categories: [Category] = []
+    // MARK: - View properties
     
-    init() {
-        #if DEBUG
-        self.products = Product.mocks
-        self.categories = Category.mocks
-        #endif
+    
+    // MARK: - View body
+    
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
-    
-    func fetchProducts() {
-        
+}
+
+struct OrdersListView_Previews: PreviewProvider {
+    static var previews: some View {
+        OrdersListView()
     }
-    
-    func searchProducts(for name: String) {
-        
-    }
-    
-    func fetchCategory(for category: String) {
-        
-    }
-    
 }

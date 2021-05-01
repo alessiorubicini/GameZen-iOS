@@ -1,4 +1,4 @@
-// CatalogManager.swift
+// CustomButton.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,28 +14,20 @@
 import Foundation
 import SwiftUI
 
-class CatalogManager: ObservableObject {
+struct BlueButton: ButtonStyle {
     
-    @Published var products: [Product] = []
-    @Published var categories: [Category] = []
+    @Environment(\.isEnabled) private var isEnabled: Bool
     
-    init() {
-        #if DEBUG
-        self.products = Product.mocks
-        self.categories = Category.mocks
-        #endif
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .foregroundColor(isEnabled ? .white : .gray)
+            .padding()
+            .frame(width: 250)
+            .background(Color.bluePrimary)
+            .cornerRadius(25)
+            .shadow(color: .bluePrimary, radius: 5)
+            
+                
     }
-    
-    func fetchProducts() {
-        
-    }
-    
-    func searchProducts(for name: String) {
-        
-    }
-    
-    func fetchCategory(for category: String) {
-        
-    }
-    
 }

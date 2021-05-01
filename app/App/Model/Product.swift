@@ -13,15 +13,26 @@
 
 import Foundation
 
-struct Product {
+struct Product: Identifiable {
     
     let id: Int
     let name: String
+    let category: String
     let description: String
     let year: String
     let language: String
     let price: Double
     let available: Bool
     let imageURL: String
+    
+}
+
+extension Product {
+    
+    static let mocks = [
+        Product(id: 1, name: "YuGiOh", category: "Carte collezionabili", description: "Mazzo da carte", year: "2020", language: "ITA", price: 39.99, available: true, imageURL: ""),
+        Product(id: 2, name: "Monopoly", category: "Strategici", description: "Gioco da tavolo a squadre", year: "2014", language: "ITA", price: 19.99, available: true, imageURL: ""),
+        Product(id: 3, name: "Risiko", category: "Wargames", description: "Gioco da tavolo a squadre", year: "2018", language: "ITA", price: 29.99, available: false, imageURL: "")
+    ]
     
 }

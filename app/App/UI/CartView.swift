@@ -1,20 +1,70 @@
-//
-//  CartView.swift
-//  GameZen
-//
-//  Created by Alessio Rubicini on 30/04/21.
-//
+// CartView.swift
+// Copyright (C) 2021 Alessio Rubicini.
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import SwiftUI
 
 struct CartView: View {
+    
+    // MARK: - View properties
+    
+    @EnvironmentObject private var cart: CartManager
+    
+    // MARK: - View body
+    
+    @ViewBuilder
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                
+                if cart.products.count == 0 {
+                    
+                    Group {
+                        Image(systemName: "cart").foregroundColor(.bluePrimary).font(.system(size: 150))
+                        Text("Il tuo carrello è vuoto").font(.title2).foregroundColor(.bluePrimary)
+                    }.padding(.vertical)
+                    
+                } else {
+                    
+                    Button("Procedi all'ordine") {
+                        
+                    }.buttonStyle(BlueButton()).disabled(cart.products.count == 0)
+                    .padding(.top, 30)
+                    
+                    List {
+                        
+                        ForEach(cart.products) { product in
+                            NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct)) {
+                                ProductCard(product: product).frame(height: 150)
+                            }
+                        }
+                        .onDelete(perform: { indexSet in
+                            cart.products.remove(atOffsets: indexSet)
+                        })
+
+                    }
+                    .listStyle(PlainListStyle())
+                }
+                
+                
+            }
+            .navigationTitle("Il tuo carrello")
+        }
     }
 }
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         CartView()
+            .environmentObject(CartManager())
     }
 }

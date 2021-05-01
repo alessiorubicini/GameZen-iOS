@@ -1,4 +1,4 @@
-// CatalogManager.swift
+// Colors.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,28 +14,12 @@
 import Foundation
 import SwiftUI
 
-class CatalogManager: ObservableObject {
+extension Color {
     
-    @Published var products: [Product] = []
-    @Published var categories: [Category] = []
-    
-    init() {
-        #if DEBUG
-        self.products = Product.mocks
-        self.categories = Category.mocks
-        #endif
-    }
-    
-    func fetchProducts() {
-        
-    }
-    
-    func searchProducts(for name: String) {
-        
-    }
-    
-    func fetchCategory(for category: String) {
-        
-    }
+    static let bluePrimary = Color("BluePrimary")
+    static let darkBlue = Color("DarkBlue")
+    static let grayPurple = Color("GrayPurple")
+    static let ice = Color("Ice")
+    static let lightBlue = Color("LightBlue")
     
 }
