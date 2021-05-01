@@ -46,7 +46,7 @@ struct CatalogView: View {
                         Text("Catalogo completo").font(.title3).foregroundColor(.darkBlue).fontWeight(.medium)
                         Spacer()
                         NavigationLink(destination: ProductsListView(addToCart: cart.addProduct, products: catalog.products).navigationTitle("Catalogo completo")) {
-                            Text("Sfoglia")
+                            Text("Sfoglia").foregroundColor(.bluePrimary).fontWeight(.medium)
                         }
                     }.padding()
                     
@@ -72,7 +72,7 @@ struct CatalogView: View {
                             NavigationLink(destination: ProductsListView(addToCart: cart.addProduct, products: catalog.products.filter{$0.category == category.name})
                                             .navigationTitle(category.name)) {
                                 HStack {
-                                    Text(category.name).foregroundColor(.bluePrimary)
+                                    Text(category.name).foregroundColor(.bluePrimary).fontWeight(.medium)
                                     Spacer()
                                     Text("\(category.numberOfProducts)").foregroundColor(.gray)
                                 }

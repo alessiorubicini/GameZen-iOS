@@ -23,7 +23,7 @@ struct BlueButton: ButtonStyle {
             .label
             .foregroundColor(isEnabled ? .white : .gray)
             .padding()
-            .frame(width: 250)
+            .frame(width: 290)
             .background(Color.bluePrimary)
             .cornerRadius(25)
             .shadow(color: .bluePrimary, radius: 5)

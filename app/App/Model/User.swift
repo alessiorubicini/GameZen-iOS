@@ -23,3 +23,25 @@ struct User {
     let birthDate: String
     
 }
+
+extension User {
+    struct Data {
+        var name = ""
+        var surname = ""
+        var email = ""
+        var birthDate = Date()
+    }
+    
+    var data: Data {
+        return Data(name: name, surname: surname, email: email, birthDate: formatter.date(from: birthDate)!)
+    }
+
+}
+
+var formatter: DateFormatter {
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd/MM/yyyy"
+    return formatter
+    
+}

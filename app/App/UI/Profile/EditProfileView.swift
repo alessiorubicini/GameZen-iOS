@@ -1,4 +1,4 @@
-// Errors.swift
+// EditProfileView.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,20 +11,29 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import Foundation
+import SwiftUI
 
-enum AuthenticationError: Error {
-    case userNotFound
-    case invalidCredentials
-    case unknownError
+struct EditProfileView: View {
+    
+    // MARK: - View properties
+    @Binding var data: User.Data
+    
+    // MARK: - View body
+    
+    var body: some View {
+        Form {
+            TextField("Nome", text: $data.name)
+            TextField("Cognome", text: $data.surname)
+            TextField("Email", text: $data.email)
+            DatePicker(selection: $data.birthDate, in: ...Date(), displayedComponents: .date) {
+                Text("Data di nascita")
+            }
+        }
+    }
 }
 
-enum OrderError: Error {
-    case unknownError
+struct EditProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        EditProfileView(data: .constant(User.Data()))
+    }
 }
-
-enum ProfileError: Error {
-    case unknownError
-}
-
-

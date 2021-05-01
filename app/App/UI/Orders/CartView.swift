@@ -19,6 +19,8 @@ struct CartView: View {
     
     @EnvironmentObject private var cart: CartManager
     
+    @State private var proceedToOrder = false
+    
     // MARK: - View body
     
     @ViewBuilder
@@ -35,8 +37,10 @@ struct CartView: View {
                     
                 } else {
                     
+                    Text("Totale: \(cart.totalPrice, specifier: "%.2f") €").font(.title).padding(.top)
+                    
                     Button("Procedi all'ordine") {
-                        
+                        self.proceedToOrder.toggle()
                     }.buttonStyle(BlueButton()).disabled(cart.products.count == 0)
                     .padding(.top, 30)
                     
@@ -58,6 +62,10 @@ struct CartView: View {
                 
             }
             .navigationTitle("Il tuo carrello")
+            
+            .sheet(isPresented: $proceedToOrder, content: {
+                Text("Ordine")
+            })
         }
     }
 }

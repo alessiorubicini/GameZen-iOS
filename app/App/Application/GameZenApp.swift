@@ -52,6 +52,7 @@ struct GameZenApp: App {
                         }
                     
                     SettingsView()
+                        .environmentObject(state.userManager)
                         .tabItem {
                             Image(systemName: "gearshape.fill")
                             Text("Impostazioni")

@@ -18,7 +18,15 @@ import CryptoKit
 
 class UserManager: ObservableObject {
 
-    var user: User? = nil
+    var user: User?
+    
+    init() {
+        #if DEBUG
+        self.user = User(id: 87, name: "Alessio", surname: "Rubicini", email: "alessiorubicini16@icloud.com", password: "test", birthDate: "16/07/2002")
+        #else
+        self.user = nil
+        #endif
+    }
     
     func login(username: String, password: String) throws {
 
@@ -35,6 +43,10 @@ class UserManager: ObservableObject {
     }
     
     func register() throws {
+        
+    }
+    
+    func updateProfile(data: User.Data) {
         
     }
     

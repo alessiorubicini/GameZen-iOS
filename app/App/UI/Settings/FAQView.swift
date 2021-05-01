@@ -1,4 +1,4 @@
-// ProfileView.swift
+// FAQView.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -13,14 +13,23 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct FAQView: View {
+    
+    @State private var test = false
+    
     var body: some View {
-        Text("Profilo")
+        List {
+            
+            DisclosureGroup("Show Terms", isExpanded: $test) {
+                Text("Long terms and conditions here long terms and conditions here long terms and conditions here long terms and conditions here long terms and conditions here long terms and conditions here.")
+            }
+            
+        }.listStyle(InsetGroupedListStyle())
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
+struct FAQView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        FAQView()
     }
 }

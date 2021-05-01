@@ -21,5 +21,6 @@ extension Color {
     static let grayPurple = Color("GrayPurple")
     static let ice = Color("Ice")
     static let lightBlue = Color("LightBlue")
+    static let lightRed = Color("LightRed")
     
 }

@@ -13,6 +13,22 @@
 
 import Foundation
 
+// HTTP API resource paths
 enum API: String {
+    
+    // User
     case login = "http://localhost:8888/GameZen/api/user/login.php"
+    case register = "http://localhost:8888/GameZen/api/user/register.php"
+    
+    // Catalog
+    case getProduct = "http://localhost:8888/GameZen/api/catalog/get.php"
+    case getAllProducts = "http://localhost:8888/GameZen/api/catalog/getAll.php"
+    case getByCategory = "http://localhost:8888/GameZen/api/catalog/getByCategory.php"
+    case search = "http://localhost:8888/GameZen/api/catalog/search.php"
+    
+    // Orders
+    case getOrder = "http://localhost:8888/GameZen/api/orders/get.php"
+    case getAllOrders = "http://localhost:8888/GameZen/api/orders/getAll.php"
+    case postOrder = "http://localhost:8888/GameZen/api/orders/post.php"
+    
 }

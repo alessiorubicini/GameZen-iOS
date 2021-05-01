@@ -17,6 +17,11 @@ struct SettingsView: View {
     
     // MARK: - View properties
     
+    @EnvironmentObject private var userManager: UserManager
+    
+    @AppStorage("rememberAccount") private var rememberAccount = false
+    
+    @State private var showFAQ = false
     
     // MARK: - View body
     
@@ -26,7 +31,7 @@ struct SettingsView: View {
             List {
                 
                 Section(header: Text("Preferenze")) {
-                    Text("Rimani collegato")
+                    Toggle("Rimani collegato", isOn: $rememberAccount)
                 }
                 
                 Section(header: Text("Informazioni")) {
@@ -36,7 +41,24 @@ struct SettingsView: View {
                         Text("1.0.0")
                     }
                     
-                    Text("F.A.Q.")
+                    Button(action: {
+                        self.showFAQ.toggle()
+                    }, label: {
+                        Text("F.A.Q.")
+                    })
+                    .sheet(isPresented: $showFAQ, content: {
+                        NavigationView {
+                            FAQView()
+                                .navigationTitle("F.A.Q.")
+                                .navigationBarItems(trailing: HStack {
+                                    Button(action: {
+                                        self.showFAQ.toggle()
+                                    }, label: {
+                                        Text("Chiudi")
+                                    })
+                                })
+                        }
+                    })
                     
                     Text("Area legale")
                 }
@@ -51,6 +73,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView().environmentObject(UserManager())
     }
 }

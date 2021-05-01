@@ -19,6 +19,23 @@ class CartManager: ObservableObject {
     
     @Published var products: [Product] = []
     
+    init() {
+        #if DEBUG
+        self.products = Product.mocks
+        #else
+        
+        #endif
+    }
+    
+    var totalPrice: Double {
+        var sum: Double = 0.0
+        
+        for product in self.products {
+            sum = sum + product.price
+        }
+        
+        return sum
+    }
     
     /// Add a product to the user's cart
     /// - Parameter product: the product to be added
@@ -36,6 +53,8 @@ class CartManager: ObservableObject {
     }
     
     func proceedToOrder() {
+        
+        
         
     }
     
