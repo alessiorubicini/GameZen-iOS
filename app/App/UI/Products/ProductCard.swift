@@ -28,7 +28,7 @@ struct ProductCard: View {
             #if DEBUG
             Image(product.name).resizable().aspectRatio(contentMode: .fit).padding()
             #else
-            RemoteImage(url: product.imageURL)
+            RemoteImage(url: API.images.rawValue + product.imageURL)
                 .shadow(radius: 10).padding()
             #endif
             

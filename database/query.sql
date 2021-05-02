@@ -17,3 +17,11 @@ FROM users U, deliver D, addresses A
 WHERE U.ID = 1 -- ID dell'utente
 AND U.ID = D.user AND D.address = A.ID
 GROUP BY A.ID
+
+-- Seleziona le categorie con il numero di prodotti per ogni categoria
+SELECT c.id, c.name, COUNT(P.code) AS 'numberOfProducts'
+FROM products P, categories C
+WHERE P.category = C.id
+GROUP BY C.id
+
+

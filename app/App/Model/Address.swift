@@ -25,6 +25,7 @@ struct Address: Codable, Identifiable {
     
 }
 
+// Mock objects for debugging purposes
 extension Address {
     
     static let mocks = [

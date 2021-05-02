@@ -17,15 +17,9 @@ import SwiftUI
 // This object is responsible of managing the user's cart
 class CartManager: ObservableObject {
     
-    @Published var products: [Product] = []
+    // MARK: - Properties
     
-    init() {
-        #if DEBUG
-        self.products.append(Product.mocks[0])
-        #else
-        
-        #endif
-    }
+    @Published var products: [Product] = []
     
     var totalPrice: Double {
         var sum: Double = 0.0
@@ -35,6 +29,16 @@ class CartManager: ObservableObject {
         }
         
         return sum
+    }
+    
+    init() {
+
+    }
+    
+    // MARK: - Methods
+    
+    func getUserCart() {
+        
     }
     
     /// Add a product to the user's cart

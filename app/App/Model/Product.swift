@@ -13,26 +13,57 @@
 
 import Foundation
 
-struct Product: Identifiable, Codable {
+struct Product: Identifiable {
     
     let id: Int
     let name: String
     let category: String
     let description: String
-    let year: String
+    let year: Int
     let language: String
     let price: Double
     let available: Bool
     let imageURL: String
     
+    // Coding keys used to parse the API JSON to Swift struct
+    enum CodingKeys: String, CodingKey {
+        case id = "code"
+        case name = "name"
+        case category = "category"
+        case description = "description"
+        case year = "year"
+        case language = "language"
+        case price = "price"
+        case available = "available"
+        case imageURL = "image"
+    }
+    
 }
 
+// Making the Product struct conform to Decodable protocol
+extension Product: Decodable {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.category = try container.decode(String.self, forKey: .category)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.year = try container.decode(Int.self, forKey: .year)
+        self.language = try container.decode(String.self, forKey: .language)
+        self.price = try container.decode(Double.self, forKey: .price)
+        self.available = try container.decode(Bool.self, forKey: .available)
+        self.imageURL = try container.decode(String.self, forKey: .imageURL)
+    }
+}
+
+// Mock objects for debugging purposes
 extension Product {
-    
+        
     static let mocks = [
-        Product(id: 1, name: "YuGiOh", category: "Carte collezionabili", description: "Mazzo da carte", year: "2020", language: "ITA", price: 39.99, available: true, imageURL: ""),
-        Product(id: 2, name: "Monopoly", category: "Strategici", description: "Gioco da tavolo a squadre", year: "2014", language: "ITA", price: 19.99, available: true, imageURL: ""),
-        Product(id: 3, name: "Risiko", category: "Wargames", description: "Gioco da tavolo a squadre", year: "2018", language: "ITA", price: 29.99, available: false, imageURL: "")
+        Product(id: 1, name: "YuGiOh", category: "Carte collezionabili", description: "Mazzo da carte", year: 2020, language: "ITA", price: 39.99, available: true, imageURL: ""),
+        Product(id: 2, name: "Monopoly", category: "Strategici", description: "Gioco da tavolo a squadre", year: 2014, language: "ITA", price: 19.99, available: true, imageURL: ""),
+        Product(id: 3, name: "Risiko", category: "Wargames", description: "Gioco da tavolo a squadre", year: 2018, language: "ITA", price: 29.99, available: false, imageURL: "")
     ]
     
 }

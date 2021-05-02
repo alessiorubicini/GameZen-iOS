@@ -13,7 +13,7 @@
 
 import Foundation
 
-struct Category: Identifiable {
+struct Category: Identifiable, Codable {
     
     let id: Int
     let name: String
@@ -21,6 +21,7 @@ struct Category: Identifiable {
     
 }
 
+// Mock objects for debugging purposes
 extension Category {
     static let mocks = [
         Category(id: 1, name: "Wargames", numberOfProducts: 3),

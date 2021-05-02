@@ -15,16 +15,18 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
-	if(!isset($_GET["id"])) {
-		header("HTTP/1.1 400");
-		echo "Missing product ID";
-		exit;
-	}
-
 	$db = new Database();
 	$productID = $_GET["id"];
 
-	$result = $db->queryToJSON("SELECT * FROM prodotti WHERE ID = '$productID'");
+	$result = $db->queryToJSON("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers WHERE C.ID = P.category AND producers.id = P.producer");
+
+	foreach($result as &$product) {
+		if($result["available"] == 1) {
+			$product["available"] = false;
+		} else {
+			$product["available"] = true;
+		}
+	}
 
 	if(count($result) == 0) {
 		header("HTTP/1.1 404");

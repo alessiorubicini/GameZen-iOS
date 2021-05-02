@@ -46,7 +46,7 @@ struct ProductView: View {
                     
                     Divider()
                     
-                    Text(product.description)
+                    Text(product.description).padding()
                     
                     Divider()
                     

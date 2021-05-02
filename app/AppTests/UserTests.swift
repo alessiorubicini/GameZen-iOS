@@ -14,7 +14,7 @@
 import XCTest
 import Alamofire
 
-class UserManagerTests: XCTestCase {
+class UserTests: XCTestCase {
 
     func testLogin() throws {
         // Test async expectation

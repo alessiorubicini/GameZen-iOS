@@ -19,7 +19,10 @@ import CryptoKit
 
 class UserManager: ObservableObject {
 
+    // MARK: - Properties
+    
     var user: User?
+    @Published var authenticationError = (false, "", "")
     
     init() {
         #if DEBUG
@@ -31,7 +34,9 @@ class UserManager: ObservableObject {
         #endif
     }
     
-    func login(email: String, password: String) throws {
+    // MARK: - Methods
+    
+    func login(email: String, password: String) {
         
         // Generate the password MD5 hash
         let hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!)
@@ -39,6 +44,16 @@ class UserManager: ObservableObject {
         // Send the login request to the API
         AF.request(API.login.rawValue, method: .post, parameters: ["email": email, "password": hashedPassw])
             .response { response in
+                
+                if let statusCode = response.response?.statusCode {
+                    if statusCode == 403 {
+                        self.authenticationError = (true, "Credenziali non corrette", "Controlla le credenziali inserite")
+                    } else if statusCode == 404 {
+                        self.authenticationError = (true, "Utente non trovato", "Controlla le credenziali inserite o registrati al negozio")
+                    } else if statusCode == 500 {
+                        self.authenticationError = (true, "Errore", "Errore interno al server. Se l'errore persiste contatta il supporto tecnico.")
+                    }
+                }
                 
                 do {
                     // Parse user info as JSON to Swift struct
@@ -56,7 +71,30 @@ class UserManager: ObservableObject {
         
     }
     
-    func register() throws {
+    func logout() {
+        self.user = nil
+    }
+    
+    func register(name: String, surname: String, email: String, password: String, birthDate: Date) {
+        
+        // Generate the password MD5 hash
+        let hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!)
+        
+        // Transform birth date to string
+        let stringDate = formatter.string(from: birthDate)
+        
+        // Form a dictionary for posting data
+        let body = ["name": name, "surname": surname, "email": email, "password": hashedPassw.description, "birthDate": stringDate]
+        
+        // Send the registration request to the API
+        AF.request(API.register.rawValue, method: .post, parameters: body)
+            .response { response in
+                
+                if let statusCode = response.response?.statusCode {
+                    
+                }
+                
+            }
         
     }
     

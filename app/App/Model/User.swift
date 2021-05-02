@@ -68,10 +68,3 @@ extension User {
     
 }
 
-var formatter: DateFormatter {
-    
-    let formatter = DateFormatter()
-    formatter.dateFormat = "dd/MM/yyyy"
-    return formatter
-    
-}

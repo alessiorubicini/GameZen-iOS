@@ -60,7 +60,7 @@ struct AuthenticationView: View {
                 TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
                 
                 Button("Accedi") {
-                    
+                    self.userManager.login(email: email, password: password)
                 }.buttonStyle(BlueButton()).padding()
                 
             } else {
@@ -87,6 +87,9 @@ struct AuthenticationView: View {
             Spacer()
             
         }
+        .alert(isPresented: self.$userManager.authenticationError.0, content: {
+            Alert(title: Text(userManager.authenticationError.1), message: Text(userManager.authenticationError.1), dismissButton: .default(Text("Chiudi")))
+        })
         
     }
     

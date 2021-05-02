@@ -13,29 +13,76 @@
 
 import Foundation
 import SwiftUI
+import Alamofire
 
 class CatalogManager: ObservableObject {
+    
+    // MARK: - Properties
     
     @Published var products: [Product] = []
     @Published var categories: [Category] = []
     
     init() {
+        /*
         #if DEBUG
         self.products = Product.mocks
         self.categories = Category.mocks
-        #endif
+        #else
+        self.loadCategories()
+        self.getAllProducts()
+        #endif*/
+        self.loadCategories()
+        self.getAllProducts()
     }
     
-    func fetchProducts() {
+    // MARK: - Methods
+    
+    func getAllProducts() {
+        
+        // Send a GET request
+        AF.request(API.getAllProducts.rawValue, method: .get)
+            .response { response in
+                do {
+                    // Parse user info as JSON to Swift struct
+                    let products = try JSONDecoder().decode([Product].self, from: response.data!)
+                    
+                    self.products = products
+                    print(products)
+                    
+                } catch {
+                    
+                    
+                    
+                }
+            }
         
     }
     
-    func searchProducts(for name: String) {
+    
+    func getProducts(for category: String) {
         
     }
     
-    func fetchCategory(for category: String) {
+    
+    func loadCategories() {
+        
+        // Send a GET request
+        AF.request(API.getCategories.rawValue, method: .get)
+            .response { response in
+                do {
+                    // Parse user info as JSON to Swift struct
+                    let categories = try JSONDecoder().decode([Category].self, from: response.data!)
+                    
+                    self.categories = categories
+                    
+                } catch {
+                    
+                    
+                    
+                }
+            }
         
     }
+    
     
 }
