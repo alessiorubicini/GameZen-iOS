@@ -13,13 +13,23 @@
 
 import Foundation
 
-struct Address {
+struct Address: Codable, Identifiable {
     
     let id: Int
     let address: String
-    let civicNumber: Int
+    let civic: Int
     let city: String
+    let CAP: Int
     let province: String
-    let phoneNumber: String
+    let phone: Int
+    
+}
+
+extension Address {
+    
+    static let mocks = [
+        Address(id: 1, address: "Via Mauro Macchi", civic: 52, city: "Porto San Giorgio", CAP: 63822, province: "FM", phone: 3896970199),
+        Address(id: 2, address: "Viale Trento", civic: 23, city: "Fermo", CAP: 63900, province: "FM", phone: 3896970199)
+    ]
     
 }

@@ -13,6 +13,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftUIComponents
 import Alamofire
 import CryptoKit
 
@@ -22,21 +23,34 @@ class UserManager: ObservableObject {
     
     init() {
         #if DEBUG
-        self.user = User(id: 87, name: "Alessio", surname: "Rubicini", email: "alessiorubicini16@icloud.com", password: "test", birthDate: "16/07/2002")
+        // Assigning a mock object for debugging purposes
+        self.user = User(id: 87, name: "Alessio", surname: "Rubicini", email: "alessiorubicini16@icloud.com", password: "test", birthDate: "16/07/2002", addresses: Address.mocks, orders: Order.mocks)
         #else
+        // User object is nil by default
         self.user = nil
         #endif
     }
     
-    func login(username: String, password: String) throws {
-
+    func login(email: String, password: String) throws {
+        
         // Generate the password MD5 hash
         let hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!)
         
         // Send the login request to the API
-        AF.request(API.login.rawValue, method: .post, parameters: ["username": username, "password": hashedPassw])
+        AF.request(API.login.rawValue, method: .post, parameters: ["email": email, "password": hashedPassw])
             .response { response in
                 
+                do {
+                    // Parse user info as JSON to Swift struct
+                    let user = try JSONDecoder().decode(User.self, from: response.data!)
+                    
+                    self.user = user
+                    
+                } catch {
+                    
+                    
+                    
+                }
                 
             }
         

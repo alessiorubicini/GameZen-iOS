@@ -13,11 +13,22 @@
 
 import Foundation
 
-struct Order {
+struct Order: Codable {
     
     let id: Int
     let date: String
-    let expectedDelivery: String
+    let delivery: String
+    let address: String
     let state: String
+    let total: Double
+    
+}
+
+extension Order {
+    
+    static let mocks = [
+        Order(id: 1, date: "2021-05-01", delivery: "2021-05-09", address: "Via Mauro Macchi 52 - Porto San Giorgio, 63822", state: "In elaborazione", total: 39.99),
+        Order(id: 1, date: "2021-04-30", delivery: "2021-05-12", address: "Via Mauro Macchi 52 - Porto San Giorgio, 63822", state: "In attesa di pagamento", total: 19.99)
+    ]
     
 }

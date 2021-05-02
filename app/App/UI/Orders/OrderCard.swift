@@ -1,4 +1,4 @@
-// OrdersListView.swift
+// OrderCard.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -13,12 +13,11 @@
 
 import SwiftUI
 
-struct OrdersListView: View {
+struct OrderCard: View {
     
     // MARK: - View properties
     
-    @EnvironmentObject private var userManager: UserManager
-    
+    let order: Order
     
     // MARK: - View body
     
@@ -27,8 +26,8 @@ struct OrdersListView: View {
     }
 }
 
-struct OrdersListView_Previews: PreviewProvider {
+struct OrderCard_Previews: PreviewProvider {
     static var previews: some View {
-        OrdersListView().environmentObject(UserManager())
+        OrderCard(order: Order.mocks[0])
     }
 }

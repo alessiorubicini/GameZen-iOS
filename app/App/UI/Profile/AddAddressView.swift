@@ -1,4 +1,4 @@
-// OrdersListView.swift
+// AddAddressView.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -13,11 +13,9 @@
 
 import SwiftUI
 
-struct OrdersListView: View {
+struct AddAddressView: View {
     
     // MARK: - View properties
-    
-    @EnvironmentObject private var userManager: UserManager
     
     
     // MARK: - View body
@@ -27,8 +25,8 @@ struct OrdersListView: View {
     }
 }
 
-struct OrdersListView_Previews: PreviewProvider {
+struct AddAddressView_Previews: PreviewProvider {
     static var previews: some View {
-        OrdersListView().environmentObject(UserManager())
+        AddAddressView()
     }
 }

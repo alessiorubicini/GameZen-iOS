@@ -21,7 +21,37 @@ struct User {
     let email: String
     let password: String
     let birthDate: String
+    let addresses: [Address]
+    let orders: [Order]
     
+    // Coding keys used to parse the API JSON to Swift struct
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case surname = "surname"
+        case email = "email"
+        case password = "password"
+        case birthDate = "birth"
+        case addresses = "addresses"
+        case orders = "orders"
+    }
+    
+}
+
+// Making the User struct conform to Decodable protocol
+extension User: Decodable {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.surname = try container.decode(String.self, forKey: .surname)
+        self.email = try container.decode(String.self, forKey: .email)
+        self.password = try container.decode(String.self, forKey: .password)
+        self.birthDate = try container.decode(String.self, forKey: .birthDate)
+        self.addresses = try container.decode([Address].self, forKey: .addresses)
+        self.orders = try container.decode([Order].self, forKey: .orders)
+    }
 }
 
 extension User {
@@ -35,7 +65,7 @@ extension User {
     var data: Data {
         return Data(name: name, surname: surname, email: email, birthDate: formatter.date(from: birthDate)!)
     }
-
+    
 }
 
 var formatter: DateFormatter {

@@ -34,6 +34,9 @@ struct ProfileView: View {
                     InfoRow(key: "Cognome", value: userManager.user!.surname)
                     InfoRow(key: "Email", value: userManager.user!.email)
                     InfoRow(key: "Data di nascita", value: userManager.user!.birthDate)
+                    NavigationLink(destination: AddressesView().environmentObject(self.userManager).navigationTitle("Indirizzi")) {
+                        Text("Indirizzi di consegna")
+                    }
                 }
                 
                 Section(header: Text("Azioni")) {

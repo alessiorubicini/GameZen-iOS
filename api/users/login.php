@@ -32,14 +32,27 @@
 
 	
 	$db = new Database();
-	$result = $db->query("SELECT email, password FROM utenti WHERE email = '$email' AND password = '$password'");
+	$result = $db->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
 
 
 	if(count($result) == 0) {
 		header("HTTP/1.1 403");
 	} else {
+
+		$userID = $result[0]['id'];
+
+		// Select user's addresses
+		$addresses = $db->query("SELECT A.id, A.address, A.civic, A.city, A.CAP, A.province, A.phone FROM users U, delivery D, addresses A WHERE U.id = $userID AND U.ID = D.user AND D.address = A.ID GROUP BY A.ID");
+		$result[0]["addresses"] = $addresses;
+
+		// Select user's orders
+		$orders = $db->query("SELECT O.ID, O.date, O.delivery, S.state, CONCAT(A.address, ',', A.civic, ',', A.city, ',', A.CAP) FROM orders O, addresses A, states S WHERE O.user = $userID AND O.address = A.ID AND O.state = S.ID GROUP BY O.ID");
+		$result[0]["orders"] = $orders;
+
+		// Returns result as JSON
 		header("HTTP/1.1 200");
-		echo json_encode($result, JSON_NUMERIC_CHECK);
+		echo json_encode($result[0], JSON_NUMERIC_CHECK);
+	
 	}
 
 

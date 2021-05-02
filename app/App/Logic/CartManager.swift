@@ -21,7 +21,7 @@ class CartManager: ObservableObject {
     
     init() {
         #if DEBUG
-        self.products = Product.mocks
+        self.products.append(Product.mocks[0])
         #else
         
         #endif

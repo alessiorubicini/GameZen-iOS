@@ -17,8 +17,8 @@ import Foundation
 enum API: String {
     
     // User
-    case login = "http://localhost:8888/GameZen/api/user/login.php"
-    case register = "http://localhost:8888/GameZen/api/user/register.php"
+    case login = "http://localhost:8888/GameZen/api/users/login.php"
+    case register = "http://localhost:8888/GameZen/api/users/register.php"
     
     // Catalog
     case getProduct = "http://localhost:8888/GameZen/api/catalog/get.php"

@@ -16,6 +16,21 @@
 	require_once('../core/database.php');
 	require_once('../core/config.php');
 
-	echo "Get one order";
+	if(!isset($_POST["userID"])) {
+		header("HTTP/1.1 400");
+		echo "Missing user ID";
+		exit;
+	}
 
+	$db = new Database();
+
+	$userID = $_POST["userID"];
+	$orders = $db->query("SELECT O.ID, O.date, O.delivery, CONCAT(A.address, ' ', A.civic, ' - ', A.city, ', ', A.CAP) AS 'address', S.state, O.total FROM orders O, addresses A, states S WHERE O.user = $userID AND O.address = A.ID AND O.state = S.ID GROUP BY O.ID");
+
+	if(count($orders) == 0) {
+		header("HTTP/1.1 404");
+	} else {
+		header("HTTP/1.1 200");
+		echo json_encode($result[0], JSON_NUMERIC_CHECK);
+	}
 ?>
