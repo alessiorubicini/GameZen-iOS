@@ -13,11 +13,23 @@
 
 import Foundation
 import SwiftUI
+import Alamofire
+import CryptoKit
 
 class AppState: ObservableObject {
     
-    @Published var userManager = UserManager()
-    @Published var cartManager = CartManager()
-    @Published var catalogManager = CatalogManager()
+    // User account properties
+    @Published var user: User? = nil
+    @Published var isLogged: Bool = false
+    @Published var authenticationError = (false, "", "")
     
+    @Published var cartManager: CartManager
+    @Published var catalogManager: CatalogManager
+    
+    init() {
+        self.cartManager = CartManager()
+        self.catalogManager = CatalogManager()
+    }
+    
+        
 }

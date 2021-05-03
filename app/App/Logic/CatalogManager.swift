@@ -23,43 +23,36 @@ class CatalogManager: ObservableObject {
     @Published var categories: [Category] = []
     
     init() {
-        /*
-        #if DEBUG
-        self.products = Product.mocks
-        self.categories = Category.mocks
-        #else
         self.loadCategories()
-        self.getAllProducts()
-        #endif*/
-        self.loadCategories()
-        self.getAllProducts()
+        self.loadAllProducts()
     }
     
     // MARK: - Methods
     
-    func getAllProducts() {
+    func loadAllProducts() {
         
         // Send a GET request
         AF.request(API.getAllProducts.rawValue, method: .get)
             .response { response in
-                do {
-                    // Parse user info as JSON to Swift struct
-                    let products = try JSONDecoder().decode([Product].self, from: response.data!)
-                    
-                    self.products = products
-                    print(products)
-                    
-                } catch {
-                    
-                    
-                    
+                
+                if let statusCode = response.response?.statusCode {
+                    if statusCode == 200 {
+                        do {
+                            // Parse user info as JSON to Swift struct
+                            let products = try JSONDecoder().decode([Product].self, from: response.data!)
+                            
+                            self.products = products
+                            
+                        } catch {
+                            
+                            
+                            
+                        }
+                    }
                 }
+                
+                
             }
-        
-    }
-    
-    
-    func getProducts(for category: String) {
         
     }
     
@@ -69,17 +62,24 @@ class CatalogManager: ObservableObject {
         // Send a GET request
         AF.request(API.getCategories.rawValue, method: .get)
             .response { response in
-                do {
-                    // Parse user info as JSON to Swift struct
-                    let categories = try JSONDecoder().decode([Category].self, from: response.data!)
-                    
-                    self.categories = categories
-                    
-                } catch {
-                    
-                    
-                    
+                
+                if let statusCode = response.response?.statusCode {
+                    if statusCode == 200 {
+                        do {
+                            // Parse user info as JSON to Swift struct
+                            let categories = try JSONDecoder().decode([Category].self, from: response.data!)
+                            
+                            self.categories = categories
+                            
+                        } catch {
+                            
+                            
+                            
+                        }
+                    }
                 }
+                
+                
             }
         
     }

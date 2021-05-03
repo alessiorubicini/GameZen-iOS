@@ -13,6 +13,7 @@
 
 import Foundation
 import SwiftUI
+import Alamofire
 
 // This object is responsible of managing the user's cart
 class CartManager: ObservableObject {
@@ -38,6 +39,21 @@ class CartManager: ObservableObject {
     // MARK: - Methods
     
     func getUserCart() {
+        
+        // Send a GET request
+        AF.request(API.getCart.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
+            .response { response in
+                do {
+                    // Parse user info as JSON to Swift struct
+                    let products = try JSONDecoder().decode([Product].self, from: response.data!)
+                    
+                    self.products = products
+                    
+                } catch {
+                    
+                    
+                }
+            }
         
     }
     

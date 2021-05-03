@@ -47,7 +47,7 @@ struct CartView: View {
                     List {
                         
                         ForEach(cart.products) { product in
-                            NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct)) {
+                            NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name)) {
                                 ProductCard(product: product).frame(height: 150)
                             }
                         }

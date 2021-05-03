@@ -17,7 +17,7 @@ struct SettingsView: View {
     
     // MARK: - View properties
     
-    @EnvironmentObject private var userManager: UserManager
+    @EnvironmentObject private var state: AppState
     
     @AppStorage("rememberAccount") private var rememberAccount = false
     
@@ -73,6 +73,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView().environmentObject(UserManager())
+        SettingsView().environmentObject(AppState())
     }
 }

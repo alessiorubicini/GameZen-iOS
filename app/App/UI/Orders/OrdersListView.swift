@@ -17,7 +17,7 @@ struct OrdersListView: View {
     
     // MARK: - View properties
     
-    @EnvironmentObject private var userManager: UserManager
+    
     
     
     // MARK: - View body
@@ -29,6 +29,6 @@ struct OrdersListView: View {
 
 struct OrdersListView_Previews: PreviewProvider {
     static var previews: some View {
-        OrdersListView().environmentObject(UserManager())
+        OrdersListView()
     }
 }

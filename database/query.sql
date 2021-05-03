@@ -24,4 +24,8 @@ FROM products P, categories C
 WHERE P.category = C.id
 GROUP BY C.id
 
-
+-- Seleziona i prodotti dal carrello dell'utente
+SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer'
+FROM products P, categories C, producers, save S, users U
+WHERE C.ID = P.category AND producers.ID = P.producer AND U.id = S.user AND S.product = P.code
+GROUP BY P.code

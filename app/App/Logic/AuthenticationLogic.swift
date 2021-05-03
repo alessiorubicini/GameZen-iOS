@@ -1,4 +1,4 @@
-// UserManager.swift
+// AuthenticationLogic.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -13,40 +13,49 @@
 
 import Foundation
 import SwiftUI
-import SwiftUIComponents
 import Alamofire
 import CryptoKit
 
-class UserManager: ObservableObject {
-
-    // MARK: - Properties
-    
-    var user: User?
-    @Published var authenticationError = (false, "", "")
-    
-    init() {
-        #if DEBUG
-        // Assigning a mock object for debugging purposes
-        self.user = User(id: 87, name: "Alessio", surname: "Rubicini", email: "alessiorubicini16@icloud.com", password: "test", birthDate: "16/07/2002", addresses: Address.mocks, orders: Order.mocks)
-        #else
-        // User object is nil by default
-        self.user = nil
-        #endif
-    }
-    
-    // MARK: - Methods
+extension AppState {
     
     func login(email: String, password: String) {
         
         // Generate the password MD5 hash
-        let hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!)
+        var hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!).description.split(separator: ":")[1]
+        hashedPassw.remove(at: hashedPassw.startIndex)
+        
+        print("Email: \(email) - Password: \(hashedPassw)")
         
         // Send the login request to the API
         AF.request(API.login.rawValue, method: .post, parameters: ["email": email, "password": hashedPassw])
             .response { response in
                 
                 if let statusCode = response.response?.statusCode {
-                    if statusCode == 403 {
+                    if statusCode == 200 {
+                      
+                        do {
+                            // Parse user info as JSON to Swift struct
+                            let user = try JSONDecoder().decode(User.self, from: response.data!)
+                            
+                            // Set the user struct
+                            DispatchQueue.main.async {
+                                self.isLogged = true
+                                self.user = user
+                            }
+                            
+                            // Save user ID
+                            UserDefaults.standard.setValue(user.id, forKey: "userID")
+                            
+                            // Fetch data from API
+                            self.catalogManager.loadAllProducts()
+                            self.catalogManager.loadCategories()
+                            self.cartManager.getUserCart()
+                            
+                        } catch {
+
+                        }
+                        
+                    } else if statusCode == 403 {
                         self.authenticationError = (true, "Credenziali non corrette", "Controlla le credenziali inserite")
                     } else if statusCode == 404 {
                         self.authenticationError = (true, "Utente non trovato", "Controlla le credenziali inserite o registrati al negozio")
@@ -54,21 +63,7 @@ class UserManager: ObservableObject {
                         self.authenticationError = (true, "Errore", "Errore interno al server. Se l'errore persiste contatta il supporto tecnico.")
                     }
                 }
-                
-                do {
-                    // Parse user info as JSON to Swift struct
-                    let user = try JSONDecoder().decode(User.self, from: response.data!)
-                    
-                    self.user = user
-                    
-                } catch {
-                    
-                    
-                    
-                }
-                
             }
-        
     }
     
     func logout() {
@@ -90,7 +85,7 @@ class UserManager: ObservableObject {
         AF.request(API.register.rawValue, method: .post, parameters: body)
             .response { response in
                 
-                if let statusCode = response.response?.statusCode {
+                if let _ = response.response?.statusCode {
                     
                 }
                 
@@ -98,9 +93,4 @@ class UserManager: ObservableObject {
         
     }
     
-    func updateProfile(data: User.Data) {
-        
-    }
-    
 }
-

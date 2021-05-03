@@ -17,7 +17,7 @@ struct ProfileView: View {
     
     // MARK: - View properties
     
-    @EnvironmentObject private var userManager: UserManager
+    @EnvironmentObject private var state: AppState
     
     @State private var editProfile = false
     @State private var data = User.Data()
@@ -30,12 +30,17 @@ struct ProfileView: View {
             List {
                 
                 Section(header: Text("Informazioni")) {
-                    InfoRow(key: "Nome", value: userManager.user!.name)
-                    InfoRow(key: "Cognome", value: userManager.user!.surname)
-                    InfoRow(key: "Email", value: userManager.user!.email)
-                    InfoRow(key: "Data di nascita", value: userManager.user!.birthDate)
-                    NavigationLink(destination: AddressesView().environmentObject(self.userManager).navigationTitle("Indirizzi")) {
+                    InfoRow(key: "Nome", value: state.user!.name)
+                    InfoRow(key: "Cognome", value: state.user!.surname)
+                    InfoRow(key: "Email", value: state.user!.email)
+                    InfoRow(key: "Data di nascita", value: state.user!.birthDate)
+                    
+                    NavigationLink(destination: AddressesView().environmentObject(self.state).navigationTitle("Indirizzi")) {
                         Text("Indirizzi di consegna")
+                    }
+                    
+                    NavigationLink(destination: OrdersListView().environmentObject(self.state).navigationTitle("Ordini")) {
+                        Text("Ordini effettuati")
                     }
                 }
                 
@@ -69,15 +74,9 @@ struct ProfileView: View {
                                 Text("Annulla").foregroundColor(.lightRed)
                             })
                             
-                        }, trailing: HStack {
-                            
-                            Button(action: {
-                                self.userManager.updateProfile(data: self.data)
-                            }, label: {
-                                Text("Conferma").foregroundColor(.bluePrimary)
-                            })
-                            
                         })
+                        
+                        
                 }
             })
             
@@ -100,6 +99,6 @@ struct InfoRow: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView().environmentObject(UserManager())
+        ProfileView().environmentObject(AppState())
     }
 }

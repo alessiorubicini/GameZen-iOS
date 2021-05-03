@@ -22,48 +22,45 @@ struct GameZenApp: App {
     var body: some Scene {
         WindowGroup {
             
-            TabView {
-                CatalogView()
-                    .environmentObject(state.catalogManager)
-                    .environmentObject(state.cartManager)
-                    .tabItem {
-                        Image(systemName: "list.dash")
-                        Text("Catalogo")
-                    }
+            if self.state.isLogged == false {
                 
-                CartView()
-                    .environmentObject(state.cartManager)
-                    .tabItem {
-                        Image(systemName: "cart.fill")
-                        Text("Carrello")
-                    }
-                
-                ProfileView()
-                    .environmentObject(state.userManager)
-                    .tabItem {
-                        Image(systemName: "person.fill")
-                        Text("Account")
-                    }
-                
-                SettingsView()
-                    .environmentObject(state.userManager)
-                    .tabItem {
-                        Image(systemName: "gearshape.fill")
-                        Text("Impostazioni")
-                    }
-            }
-            .accentColor(.bluePrimary)
-            
-            /*
-            if state.userManager.user == nil {
-                
-                AuthenticationView().environmentObject(state.userManager)
+                AuthenticationView().environmentObject(state)
                 
             } else {
                 
+                TabView {
+                    CatalogView()
+                        .environmentObject(state.catalogManager)
+                        .environmentObject(state.cartManager)
+                        .tabItem {
+                            Image(systemName: "list.dash")
+                            Text("Catalogo")
+                        }
+                    
+                    CartView()
+                        .environmentObject(state.cartManager)
+                        .tabItem {
+                            Image(systemName: "cart.fill")
+                            Text("Carrello")
+                        }
+                    
+                    ProfileView()
+                        .environmentObject(state)
+                        .tabItem {
+                            Image(systemName: "person.fill")
+                            Text("Account")
+                        }
+                    
+                    SettingsView()
+                        .environmentObject(state)
+                        .tabItem {
+                            Image(systemName: "gearshape.fill")
+                            Text("Impostazioni")
+                        }
+                }
+                .accentColor(.bluePrimary)
                 
-                
-            }*/
+            }
             
         }
     }

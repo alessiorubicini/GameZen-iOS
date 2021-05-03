@@ -22,7 +22,6 @@
 		CF353309263C8BEB00CC4A8E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353308263C8BEB00CC4A8E /* Order.swift */; };
 		CF35330B263C8C0200CC4A8E /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330A263C8C0200CC4A8E /* Address.swift */; };
 		CF35330D263C8CF800CC4A8E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330C263C8CF800CC4A8E /* AppState.swift */; };
-		CF35330F263C8D1800CC4A8E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330E263C8D1800CC4A8E /* UserManager.swift */; };
 		CF353311263C8D3B00CC4A8E /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353310263C8D3B00CC4A8E /* CartManager.swift */; };
 		CF353313263C8D5700CC4A8E /* CatalogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353312263C8D5700CC4A8E /* CatalogManager.swift */; };
 		CF353315263C8D7B00CC4A8E /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353314263C8D7B00CC4A8E /* CatalogView.swift */; };
@@ -56,6 +55,8 @@
 		CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA65A263F0FF7007FB5D9 /* AddAddressView.swift */; };
 		CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA65C263F11D4007FB5D9 /* OrderCard.swift */; };
 		CFDCA65F263F11E2007FB5D9 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA65E263F11E2007FB5D9 /* OrderView.swift */; };
+		CFED5DD426405F0900F3DC97 /* AuthenticationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */; };
+		CFED5DD526405F0900F3DC97 /* AuthenticationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */; };
 		CFFA39B7263C89B900E62DB1 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = CFFA39B6263C89B900E62DB1 /* SwiftUIX */; };
 /* End PBXBuildFile section */
 
@@ -95,7 +96,6 @@
 		CF353308263C8BEB00CC4A8E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		CF35330A263C8C0200CC4A8E /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		CF35330C263C8CF800CC4A8E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		CF35330E263C8D1800CC4A8E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CF353310263C8D3B00CC4A8E /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		CF353312263C8D5700CC4A8E /* CatalogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogManager.swift; sourceTree = "<group>"; };
 		CF353314263C8D7B00CC4A8E /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
@@ -129,6 +129,7 @@
 		CFDCA65A263F0FF7007FB5D9 /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
 		CFDCA65C263F11D4007FB5D9 /* OrderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCard.swift; sourceTree = "<group>"; };
 		CFDCA65E263F11E2007FB5D9 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationLogic.swift; sourceTree = "<group>"; };
 		D410F4320471D96793023500 /* Pods_GameZen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameZen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F424AC96504089B8D3F89B72 /* Pods_GameZen_GameZenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameZen_GameZenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -265,8 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				CF35330C263C8CF800CC4A8E /* AppState.swift */,
+				CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */,
 				CF353312263C8D5700CC4A8E /* CatalogManager.swift */,
-				CF35330E263C8D1800CC4A8E /* UserManager.swift */,
 				CF353310263C8D3B00CC4A8E /* CartManager.swift */,
 				CF726360263C9FDE00D38B99 /* Errors.swift */,
 				CF726362263CA27B00D38B99 /* API.swift */,
@@ -619,9 +620,9 @@
 				CF353309263C8BEB00CC4A8E /* Order.swift in Sources */,
 				CF0ADF34263D458500283EA8 /* OrdersListView.swift in Sources */,
 				CF353315263C8D7B00CC4A8E /* CatalogView.swift in Sources */,
+				CFED5DD426405F0900F3DC97 /* AuthenticationLogic.swift in Sources */,
 				CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */,
 				CF726361263C9FDE00D38B99 /* Errors.swift in Sources */,
-				CF35330F263C8D1800CC4A8E /* UserManager.swift in Sources */,
 				CF0ADF32263D457C00283EA8 /* ProceedToOrderView.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
 				CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */,
@@ -653,6 +654,7 @@
 				CF9083DB263DE5F80070CA6C /* Category.swift in Sources */,
 				CF717233263EFB7F0045C33B /* API.swift in Sources */,
 				CF9083DC263DE5F80070CA6C /* User.swift in Sources */,
+				CFED5DD526405F0900F3DC97 /* AuthenticationLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

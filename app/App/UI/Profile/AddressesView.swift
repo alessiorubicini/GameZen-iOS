@@ -17,7 +17,7 @@ struct AddressesView: View {
     
     // MARK: - View properties
     
-    @EnvironmentObject private var userManager: UserManager
+    @EnvironmentObject private var state: AppState
     
     @State private var addNewAddress = false
     
@@ -56,7 +56,7 @@ struct AddressesView: View {
                 }
             })
             
-            ForEach(userManager.user!.addresses) { address in
+            ForEach(state.user!.addresses) { address in
                 Section(header: Text(address.address)) {
                     InfoRow(key: "Indirizzo", value: address.address)
                     InfoRow(key: "Civico", value: "\(address.civic)")
@@ -64,6 +64,11 @@ struct AddressesView: View {
                     InfoRow(key: "CAP", value: "\(address.CAP)")
                     InfoRow(key: "Provincia", value: address.province)
                     InfoRow(key: "Telefono", value: "\(address.phone)")
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Elimina indirizzo").foregroundColor(.lightRed)
+                    })
                 }
             }
             
@@ -75,7 +80,7 @@ struct AddressesView: View {
 struct AddressesView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddressesView().environmentObject(UserManager())
+            AddressesView().environmentObject(AppState())
                 .navigationTitle("Indirizzi")
         }
     }

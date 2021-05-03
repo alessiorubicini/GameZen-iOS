@@ -17,7 +17,7 @@ struct AuthenticationView: View {
     
     // MARK: - View properties
     
-    @EnvironmentObject private var userManager: UserManager
+    @EnvironmentObject var state: AppState
     @State private var auth: AuthView = .login
     
     // Login fields
@@ -55,13 +55,19 @@ struct AuthenticationView: View {
                 
                 Text("Accedi a GameZen").font(.largeTitle)
                 
-                TextField("Email", text: $email).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                TextField("Email", text: $email).autocapitalization(.none).disableAutocorrection(true)
+                    .textFieldStyle(RoundedBorderTextFieldStyle()).padding()
                 
-                TextField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                SecureField("Password", text: $password).autocapitalization(.none).disableAutocorrection(true)
+                    .textFieldStyle(RoundedBorderTextFieldStyle()).padding()
                 
                 Button("Accedi") {
-                    self.userManager.login(email: email, password: password)
+                    self.state.login(email: email, password: password)
                 }.buttonStyle(BlueButton()).padding()
+                
+                .onAppear {
+                    print("View updated")
+                }
                 
             } else {
                 
@@ -87,8 +93,8 @@ struct AuthenticationView: View {
             Spacer()
             
         }
-        .alert(isPresented: self.$userManager.authenticationError.0, content: {
-            Alert(title: Text(userManager.authenticationError.1), message: Text(userManager.authenticationError.1), dismissButton: .default(Text("Chiudi")))
+        .alert(isPresented: self.$state.authenticationError.0, content: {
+            Alert(title: Text(state.authenticationError.1), message: Text(state.authenticationError.1), dismissButton: .default(Text("Chiudi")))
         })
         
     }
@@ -101,6 +107,6 @@ struct AuthenticationView: View {
 
 struct AuthenticationView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthenticationView().environmentObject(UserManager())
+        AuthenticationView().environmentObject(AppState())
     }
 }
