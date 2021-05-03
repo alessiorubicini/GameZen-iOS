@@ -39,7 +39,7 @@ struct ProfileView: View {
                         Text("Indirizzi di consegna")
                     }
                     
-                    NavigationLink(destination: OrdersListView().environmentObject(self.state).navigationTitle("Ordini")) {
+                    NavigationLink(destination: OrdersListView(orders: state.user!.orders).environmentObject(self.state).navigationTitle("Ordini")) {
                         Text("Ordini effettuati")
                     }
                 }
@@ -48,14 +48,20 @@ struct ProfileView: View {
                     Button(action: {
                         self.editProfile.toggle()
                     }, label: {
-                        Text("Modifica profilo").foregroundColor(.white)
-                    }).listRowBackground(Color.bluePrimary)
+                        Text("Modifica profilo").foregroundColor(.bluePrimary)
+                    })
                     
                     Button(action: {
                         
                     }, label: {
-                        Text("Elimina profilo").foregroundColor(.white)
-                    }).listRowBackground(Color.lightRed)
+                        Text("Elimina profilo").foregroundColor(.lightRed)
+                    })
+                    
+                    Button(action: {
+                        self.state.logout()
+                    }, label: {
+                        Text("Esci dall'account").foregroundColor(.lightRed)
+                    })
                 }
                 
             }

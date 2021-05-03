@@ -54,7 +54,7 @@ struct CatalogView: View {
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(catalog.products.filter{$0.available == true}) { product in
-                                NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name)) {
+                                NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name).navigationBarTitleDisplayMode(.inline)) {
                                     ProductCard(product: product).frame(height: 200)
                                 }
                             }

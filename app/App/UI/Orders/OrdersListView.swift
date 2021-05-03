@@ -16,19 +16,26 @@ import SwiftUI
 struct OrdersListView: View {
     
     // MARK: - View properties
-    
-    
+    let orders: [Order]
     
     
     // MARK: - View body
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(orders) { order in
+                NavigationLink(destination: OrderView(order: order).navigationTitle("Ordine n. #\(order.id)")) {
+                    OrderCard(order: order)
+                }
+            }
+        }.listStyle(PlainListStyle())
     }
 }
 
 struct OrdersListView_Previews: PreviewProvider {
     static var previews: some View {
-        OrdersListView()
+        NavigationView {
+            OrdersListView(orders: Order.mocks).navigationTitle("Ordini")
+        }
     }
 }

@@ -1,4 +1,4 @@
-// CatalogTests.swift
+// CartTests.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,14 +14,14 @@
 import XCTest
 import Alamofire
 
-class CatalogTests: XCTestCase {
+class CartTests: XCTestCase {
 
-    func testProducts() throws {
+    func testOrders() throws {
         
         // Test async expectation
-        let e = expectation(description: "Get products")
+        let e = expectation(description: "Get orders")
         
-        AF.request(API.getAllProducts.rawValue, method: .get)
+        AF.request(API.getOrders.rawValue + "?userID=1", method: .get)
             .response { response in
                 
                 debugPrint(response)
@@ -29,7 +29,7 @@ class CatalogTests: XCTestCase {
                 do {
                     
                     // Parse user info as JSON to Swift struct
-                    let _ = try JSONDecoder().decode([Product].self, from: response.data!)
+                    let _ = try JSONDecoder().decode([Order].self, from: response.data!)
                     XCTAssert(true)
                     e.fulfill()
                     
@@ -42,33 +42,7 @@ class CatalogTests: XCTestCase {
         
         // Wait for asynchronous api call
         self.waitForExpectations(timeout: 5.0, handler: nil)
-    }
-    
-    func testCategories() throws {
         
-        // Test async expectation
-        let e = expectation(description: "Get categories")
-        
-        AF.request(API.getCategories.rawValue, method: .get)
-            .response { response in
-                
-                debugPrint(response)
-                
-                do {
-                    
-                    // Parse user info as JSON to Swift struct
-                    let _ = try JSONDecoder().decode([Category].self, from: response.data!)
-                    XCTAssert(true)
-                    e.fulfill()
-                    
-                } catch {
-                    XCTAssert(false)
-                    e.fulfill()
-                }
-            }
-        
-        // Wait for asynchronous api call
-        self.waitForExpectations(timeout: 5.0, handler: nil)
     }
 
 }

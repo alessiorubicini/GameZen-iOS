@@ -20,6 +20,7 @@ struct AddressesView: View {
     @EnvironmentObject private var state: AppState
     
     @State private var addNewAddress = false
+    @State private var data = Address.Data()
     
     // MARK: - View body
     
@@ -34,7 +35,7 @@ struct AddressesView: View {
             }
             .sheet(isPresented: $addNewAddress, content: {
                 NavigationView {
-                    AddAddressView()
+                    AddAddressView(data: $data)
                         .navigationTitle("Nuovo indirizzo")
                         .navigationBarItems(leading: HStack {
                             

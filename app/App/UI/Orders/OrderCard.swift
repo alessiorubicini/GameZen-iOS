@@ -22,8 +22,44 @@ struct OrderCard: View {
     // MARK: - View body
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            
+            Text("Ordine n. #\(order.id)").fontWeight(.semibold).font(.title2)
+            
+            HStack {
+                Text(order.date)
+                Image(systemName: "arrow.forward").aspectRatio(contentMode: .fit).font(.body)
+                Text(order.delivery)
+            }.padding(.vertical)
+            
+            Text(order.state).foregroundColor(self.orderStateColor(for: order.state)).padding(10)
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color("Ice")).shadow(radius: 5))
+                .padding(.vertical, 5)
+            
+        }
     }
+    
+    private func orderStateColor(for state: String) -> Color {
+        switch state {
+        case "In attesa di pagamento": return Color.red
+        case "Pagamento ricevuto": return Color.orange
+        case "In elaborazione": return Color.yellow
+        case "Spedito": return Color.green
+        case "In consegna": return Color.green
+        case "Consegnato": return Color.green
+        default: return Color.gray
+        }
+    }
+}
+
+// Order state colors
+extension Color {
+    static let waitingForPayment = Color.red
+    static let paymentReceived = Color.yellow
+    static let elaborating = Color.yellow
+    static let sent = Color.bluePrimary
+    static let delivering = Color.green
+    static let delivered = Color.green
 }
 
 struct OrderCard_Previews: PreviewProvider {

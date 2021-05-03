@@ -72,10 +72,4 @@ class CartManager: ObservableObject {
         
     }
     
-    func proceedToOrder() {
-        
-        
-        
-    }
-    
 }

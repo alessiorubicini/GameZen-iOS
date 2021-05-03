@@ -52,7 +52,7 @@ extension AppState {
                             self.cartManager.getUserCart()
                             
                         } catch {
-
+                            print(error)
                         }
                         
                     } else if statusCode == 403 {
@@ -67,7 +67,9 @@ extension AppState {
     }
     
     func logout() {
-        self.user = nil
+        DispatchQueue.main.async {
+            self.user = nil
+        }
     }
     
     func register(name: String, surname: String, email: String, password: String, birthDate: Date) {

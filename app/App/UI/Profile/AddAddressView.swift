@@ -16,17 +16,24 @@ import SwiftUI
 struct AddAddressView: View {
     
     // MARK: - View properties
-    
+    @Binding var data: Address.Data
     
     // MARK: - View body
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            TextField("Via", text: $data.address)
+            TextField("Numero civico", value: $data.address, formatter: NumberFormatter())
+            TextField("Città", text: $data.city)
+            TextField("CAP", value: $data.CAP, formatter: NumberFormatter())
+            TextField("Provincia", text: $data.province)
+            TextField("Telefono", value: $data.phone, formatter: NumberFormatter())
+        }
     }
 }
 
 struct AddAddressView_Previews: PreviewProvider {
     static var previews: some View {
-        AddAddressView()
+        AddAddressView(data: .constant(Address.Data()))
     }
 }

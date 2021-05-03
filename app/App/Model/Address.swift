@@ -25,6 +25,23 @@ struct Address: Codable, Identifiable {
     
 }
 
+extension Address {
+    
+    struct Data {
+        var address = ""
+        var civic = 0
+        var city = ""
+        var CAP = 0
+        var province = ""
+        var phone = 0
+    }
+    
+    var data: Data {
+        return Data(address: address, civic: civic, city: city, CAP: CAP, province: province, phone: phone)
+    }
+    
+}
+
 // Mock objects for debugging purposes
 extension Address {
     

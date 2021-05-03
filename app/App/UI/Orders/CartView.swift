@@ -47,7 +47,7 @@ struct CartView: View {
                     List {
                         
                         ForEach(cart.products) { product in
-                            NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name)) {
+                            NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name).navigationBarTitleDisplayMode(.inline)) {
                                 ProductCard(product: product).frame(height: 150)
                             }
                         }
@@ -57,6 +57,13 @@ struct CartView: View {
 
                     }
                     .listStyle(PlainListStyle())
+                    
+                    .sheet(isPresented: $proceedToOrder, content: {
+                        NavigationView {
+                            ProceedToOrderView(products: cart.products)
+                                .navigationTitle("Riepilogo ordine")
+                        }
+                    })
                 }
                 
                 

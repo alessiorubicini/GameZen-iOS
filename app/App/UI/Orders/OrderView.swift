@@ -16,7 +16,7 @@ import SwiftUI
 struct OrderView: View {
     
     // MARK: - View properties
-    
+    let order: Order
     
     // MARK: - View body
     
@@ -27,6 +27,6 @@ struct OrderView: View {
 
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderView()
+        OrderView(order: Order.mocks[0])
     }
 }

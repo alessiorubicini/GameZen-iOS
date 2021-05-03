@@ -29,3 +29,8 @@ SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, 
 FROM products P, categories C, producers, save S, users U
 WHERE C.ID = P.category AND producers.ID = P.producer AND U.id = S.user AND S.product = P.code
 GROUP BY P.code
+
+-- Seleziona i prodotti di un ordine
+SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer'
+FROM products P, detail D, orders O, categories C, producers
+WHERE P.code = D.product AND D.OrderId = O.id AND P.category = C.id AND P.producer = producers.id AND O.user = 1

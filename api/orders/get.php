@@ -16,7 +16,7 @@
 	require_once('../core/database.php');
 	require_once('../core/config.php');
 
-	if(!isset($_POST["userID"])) {
+	if(!isset($_GET["userID"])) {
 		header("HTTP/1.1 400");
 		echo "Missing user ID";
 		exit;
@@ -24,13 +24,28 @@
 
 	$db = new Database();
 
-	$userID = $_POST["userID"];
-	$orders = $db->query("SELECT O.ID, O.date, O.delivery, CONCAT(A.address, ' ', A.civic, ' - ', A.city, ', ', A.CAP) AS 'address', S.state, O.total FROM orders O, addresses A, states S WHERE O.user = $userID AND O.address = A.ID AND O.state = S.ID GROUP BY O.ID");
+	$userID = $_GET["userID"];
+	$orders = $db->query("SELECT O.id, O.date, O.delivery, CONCAT(A.address, ' ', A.civic, ' - ', A.city, ', ', A.CAP) AS 'address', S.state, O.total FROM orders O, addresses A, states S WHERE O.user = $userID AND O.address = A.ID AND O.state = S.ID GROUP BY O.ID");
 
 	if(count($orders) == 0) {
 		header("HTTP/1.1 404");
 	} else {
+
+		foreach($orders as &$order) {
+			$result = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, detail D, orders O, categories C, producers WHERE P.code = D.product AND D.OrderId = O.id AND P.category = C.id AND P.producer = producers.id AND O.user = 1");
+
+			foreach($result as &$product) {
+				if($result["available"] == 1) {
+					$product["available"] = false;
+				} else {
+					$product["available"] = true;
+				}
+			}
+
+			$order["products"] = $result;
+		}
+
 		header("HTTP/1.1 200");
-		echo json_encode($result[0], JSON_NUMERIC_CHECK);
+		echo json_encode($orders, JSON_NUMERIC_CHECK);
 	}
 ?>

@@ -17,6 +17,16 @@
 		CF0ADF34263D458500283EA8 /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF33263D458500283EA8 /* OrdersListView.swift */; };
 		CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */; };
 		CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC5263DA990003CB88F /* FAQView.swift */; };
+		CF33286826407D76009C222B /* AddressLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286726407D76009C222B /* AddressLogic.swift */; };
+		CF33286B26407E54009C222B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286A26407E54009C222B /* CartTests.swift */; };
+		CF33287026407F82009C222B /* CatalogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353312263C8D5700CC4A8E /* CatalogManager.swift */; };
+		CF33287126407F82009C222B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726360263C9FDE00D38B99 /* Errors.swift */; };
+		CF33287226407F82009C222B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726362263CA27B00D38B99 /* API.swift */; };
+		CF33287326407F82009C222B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */; };
+		CF33287426407F82009C222B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330C263C8CF800CC4A8E /* AppState.swift */; };
+		CF33287526407F82009C222B /* AddressLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286726407D76009C222B /* AddressLogic.swift */; };
+		CF33287626407F82009C222B /* AuthenticationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */; };
+		CF33287726407F82009C222B /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353310263C8D3B00CC4A8E /* CartManager.swift */; };
 		CF353305263C8BBC00CC4A8E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353304263C8BBC00CC4A8E /* Product.swift */; };
 		CF353307263C8BD600CC4A8E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353306263C8BD600CC4A8E /* User.swift */; };
 		CF353309263C8BEB00CC4A8E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353308263C8BEB00CC4A8E /* Order.swift */; };
@@ -35,8 +45,6 @@
 		CF650EA8263C870F00B6C05A /* GameZenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650EA7263C870F00B6C05A /* GameZenUITests.swift */; };
 		CF6B6D7C263F2B80007E88AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */; };
 		CF6B6D80263F38D5007E88AB /* CatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */; };
-		CF6B6D81263F3951007E88AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */; };
-		CF717233263EFB7F0045C33B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726362263CA27B00D38B99 /* API.swift */; };
 		CF726361263C9FDE00D38B99 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726360263C9FDE00D38B99 /* Errors.swift */; };
 		CF726363263CA27B00D38B99 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726362263CA27B00D38B99 /* API.swift */; };
 		CF726366263CA2CC00D38B99 /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726365263CA2CC00D38B99 /* ProductCard.swift */; };
@@ -56,7 +64,6 @@
 		CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA65C263F11D4007FB5D9 /* OrderCard.swift */; };
 		CFDCA65F263F11E2007FB5D9 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA65E263F11E2007FB5D9 /* OrderView.swift */; };
 		CFED5DD426405F0900F3DC97 /* AuthenticationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */; };
-		CFED5DD526405F0900F3DC97 /* AuthenticationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */; };
 		CFFA39B7263C89B900E62DB1 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = CFFA39B6263C89B900E62DB1 /* SwiftUIX */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +98,8 @@
 		CF0ADF33263D458500283EA8 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
 		CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		CF27CAC5263DA990003CB88F /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		CF33286726407D76009C222B /* AddressLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressLogic.swift; sourceTree = "<group>"; };
+		CF33286A26407E54009C222B /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 		CF353304263C8BBC00CC4A8E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CF353306263C8BD600CC4A8E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CF353308263C8BEB00CC4A8E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -232,10 +241,10 @@
 		CF353300263C8B3A00CC4A8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CF353304263C8BBC00CC4A8E /* Product.swift */,
 				CF353306263C8BD600CC4A8E /* User.swift */,
-				CF353308263C8BEB00CC4A8E /* Order.swift */,
 				CF35330A263C8C0200CC4A8E /* Address.swift */,
+				CF353308263C8BEB00CC4A8E /* Order.swift */,
+				CF353304263C8BBC00CC4A8E /* Product.swift */,
 				CF726369263CA69700D38B99 /* Category.swift */,
 			);
 			path = Model;
@@ -267,6 +276,7 @@
 			children = (
 				CF35330C263C8CF800CC4A8E /* AppState.swift */,
 				CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */,
+				CF33286726407D76009C222B /* AddressLogic.swift */,
 				CF353312263C8D5700CC4A8E /* CatalogManager.swift */,
 				CF353310263C8D3B00CC4A8E /* CartManager.swift */,
 				CF726360263C9FDE00D38B99 /* Errors.swift */,
@@ -327,6 +337,7 @@
 				CF650E9C263C870F00B6C05A /* GameZenTests.swift */,
 				CF9083D6263DE40B0070CA6C /* UserTests.swift */,
 				CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */,
+				CF33286A26407E54009C222B /* CartTests.swift */,
 				CF650E9E263C870F00B6C05A /* Info.plist */,
 			);
 			path = AppTests;
@@ -614,6 +625,7 @@
 				CF353313263C8D5700CC4A8E /* CatalogManager.swift in Sources */,
 				CF353311263C8D3B00CC4A8E /* CartManager.swift in Sources */,
 				CF353307263C8BD600CC4A8E /* User.swift in Sources */,
+				CF33286826407D76009C222B /* AddressLogic.swift in Sources */,
 				CF35330D263C8CF800CC4A8E /* AppState.swift in Sources */,
 				CF35331B263C8D9000CC4A8E /* SettingsView.swift in Sources */,
 				CF353317263C8D8400CC4A8E /* CartView.swift in Sources */,
@@ -644,17 +656,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF33287726407F82009C222B /* CartManager.swift in Sources */,
 				CF6B6D80263F38D5007E88AB /* CatalogTests.swift in Sources */,
+				CF33287026407F82009C222B /* CatalogManager.swift in Sources */,
+				CF33287626407F82009C222B /* AuthenticationLogic.swift in Sources */,
 				CF9083D8263DE5F80070CA6C /* Order.swift in Sources */,
 				CF9083D9263DE5F80070CA6C /* Product.swift in Sources */,
+				CF33287326407F82009C222B /* DateFormatter.swift in Sources */,
+				CF33286B26407E54009C222B /* CartTests.swift in Sources */,
 				CF9083D7263DE40B0070CA6C /* UserTests.swift in Sources */,
-				CF6B6D81263F3951007E88AB /* DateFormatter.swift in Sources */,
 				CF650E9D263C870F00B6C05A /* GameZenTests.swift in Sources */,
+				CF33287126407F82009C222B /* Errors.swift in Sources */,
+				CF33287526407F82009C222B /* AddressLogic.swift in Sources */,
+				CF33287426407F82009C222B /* AppState.swift in Sources */,
 				CF9083DA263DE5F80070CA6C /* Address.swift in Sources */,
 				CF9083DB263DE5F80070CA6C /* Category.swift in Sources */,
-				CF717233263EFB7F0045C33B /* API.swift in Sources */,
+				CF33287226407F82009C222B /* API.swift in Sources */,
 				CF9083DC263DE5F80070CA6C /* User.swift in Sources */,
-				CFED5DD526405F0900F3DC97 /* AuthenticationLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
