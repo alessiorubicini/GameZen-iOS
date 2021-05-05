@@ -64,10 +64,7 @@ struct AuthenticationView: View {
                 Button("Accedi") {
                     self.state.login(email: email, password: password)
                 }.buttonStyle(BlueButton()).padding()
-                
-                .onAppear {
-                    print("View updated")
-                }
+
                 
             } else {
                 
@@ -93,8 +90,8 @@ struct AuthenticationView: View {
             Spacer()
             
         }
-        .alert(isPresented: self.$state.authenticationError.0, content: {
-            Alert(title: Text(state.authenticationError.1), message: Text(state.authenticationError.1), dismissButton: .default(Text("Chiudi")))
+        .alert(isPresented: self.$state.alert.0, content: {
+            Alert(title: Text(state.alert.1), message: Text(state.alert.1), dismissButton: .default(Text("Chiudi")))
         })
         
     }

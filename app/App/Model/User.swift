@@ -15,14 +15,25 @@ import Foundation
 
 struct User {
     
-    let id: Int
-    let name: String
-    let surname: String
-    let email: String
-    let password: String
-    let birthDate: String
-    let addresses: [Address]
-    let orders: [Order]
+    var id: Int
+    var name: String
+    var surname: String
+    var email: String
+    var password: String
+    var birthDate: String
+    var addresses: [Address]
+    var orders: [Order]
+    
+    init(id: Int, name: String, surname: String, email: String, password: String, birthDate: String, addresses: [Address], orders: [Order]) {
+        self.id = id
+        self.name = name
+        self.surname = surname
+        self.email = email
+        self.password = password
+        self.birthDate = birthDate
+        self.addresses = addresses
+        self.orders = orders
+    }
     
     // Coding keys used to parse the API JSON to Swift struct
     enum CodingKeys: String, CodingKey {

@@ -49,10 +49,18 @@ struct AddressesView: View {
                             
                             Button(action: {
                                 
+                                // Close sheet view
+                                self.addNewAddress.toggle()
+                                
+                                self.state.addAddress(data: self.data)
+                                
                             }, label: {
                                 Text("Conferma").foregroundColor(.bluePrimary)
                             })
                             
+                        })
+                        .alert(isPresented: self.$state.alert.0, content: {
+                            Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
                         })
                 }
             })
@@ -65,11 +73,13 @@ struct AddressesView: View {
                     InfoRow(key: "CAP", value: "\(address.CAP)")
                     InfoRow(key: "Provincia", value: address.province)
                     InfoRow(key: "Telefono", value: "\(address.phone)")
+                    
                     Button(action: {
-                        
+                        self.state.removeAddress(of: address.id)
                     }, label: {
                         Text("Elimina indirizzo").foregroundColor(.lightRed)
                     })
+                    
                 }
             }
             

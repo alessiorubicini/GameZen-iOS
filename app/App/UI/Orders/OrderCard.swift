@@ -24,32 +24,33 @@ struct OrderCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text("Ordine n. #\(order.id)").fontWeight(.semibold).font(.title2)
+            Text("Ordine n. #\(order.id)").fontWeight(.semibold).font(.title)
             
             HStack {
-                Text(order.date)
-                Image(systemName: "arrow.forward").aspectRatio(contentMode: .fit).font(.body)
-                Text(order.delivery)
-            }.padding(.vertical)
+                //Text(order.date)
+                Image(systemName: "bus").aspectRatio(contentMode: .fit).font(.title2)
+                Text(order.delivery).font(.title2)
+            }.padding(.vertical, 5)
             
-            Text(order.state).foregroundColor(self.orderStateColor(for: order.state)).padding(10)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color("Ice")).shadow(radius: 5))
+            Text(order.state).foregroundColor(orderStateColor(for: order.state)).fontWeight(.semibold)
+                .font(.title3)
                 .padding(.vertical, 5)
-            
+                //.background(RoundedRectangle(cornerRadius: 10).fill(Color("Ice")).shadow(radius: 5))
         }
     }
     
-    private func orderStateColor(for state: String) -> Color {
-        switch state {
-        case "In attesa di pagamento": return Color.red
-        case "Pagamento ricevuto": return Color.orange
-        case "In elaborazione": return Color.yellow
-        case "Spedito": return Color.green
-        case "In consegna": return Color.green
-        case "Consegnato": return Color.green
-        default: return Color.gray
-        }
-    }
+}
+
+func orderStateColor(for state: String) -> Color {
+   switch state {
+   case "In attesa di pagamento": return Color.red
+   case "Pagamento ricevuto": return Color.orange
+   case "In elaborazione": return Color.yellow
+   case "Spedito": return Color.green
+   case "In consegna": return Color.green
+   case "Consegnato": return Color.green
+   default: return Color.gray
+   }
 }
 
 // Order state colors

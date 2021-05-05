@@ -13,19 +13,107 @@
 
 import Foundation
 import SwiftUI
+import SwiftUIComponents
 import Alamofire
 
 extension AppState {
     
+    /// Load user's addresses from database through APIs
     func loadAddresses() {
         
-    }
-    
-    func newAddress() {
+        // Send a GET request
+        AF.request(API.getAddresses.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
+            .response { response in
+                do {
+                    // Parse user info as JSON to Swift struct
+                    let addresses = try JSONDecoder().decode([Address].self, from: response.data!)
+                    
+                    // Replace user addresses
+                    self.user!.addresses = []
+                    self.user!.addresses = addresses
+                    
+                } catch {
+                    
+                    
+                }
+            }
         
     }
     
-    func deleteAddress() {
+    
+    
+    /// Add a new address to the user's delivery addresses
+    /// - Parameter data: struct containing Address' data
+    func addAddress(data: Address.Data) {
+        
+        // Form a dictionary for posting data
+        let body: [String:Any] = ["userID": UserDefaults.standard.integer(forKey: "userID"), "address": data.address, "civic": data.civic, "city": data.city, "CAP": data.CAP, "province": data.province, "phone": data.phone]
+        print(body)
+        // Add address to database through API
+        AF.request(API.addAddress.rawValue, method: .post, parameters: body)
+            .response { response in
+                
+                if let statusCode = response.response?.statusCode {
+                    
+                    if statusCode == 200 {
+                        
+                        // Generate success haptic feedback
+                        HapticGenerator().notificationFeedback(type: .success)
+                        
+                        // Reload addresses
+                        self.loadAddresses()
+                        
+                    } else {
+                        
+                        // Generate error haptic feedback
+                        HapticGenerator().notificationFeedback(type: .error)
+                        
+                        // Display an alert
+                        self.alert = (true, "Errore nell'aggiunta dell'indirizzo", String(data: response.data!, encoding: .utf8)!)
+                        
+                    }
+                    
+                }
+                
+            }
+        
+    }
+    
+    
+    /// Remove the address with the given id
+    /// - Parameter id: address' id
+    func removeAddress(of id: Int) {
+        
+        // Remove address from database through API
+        AF.request(API.removeAddress.rawValue, method: .post, parameters: ["addressID": id])
+            .response { response in
+                
+                if let statusCode = response.response?.statusCode {
+                    
+                    if statusCode == 200 {
+                        
+                        // Generate success haptic feedback
+                        HapticGenerator().notificationFeedback(type: .success)
+                        
+                        // Reload addresses
+                        self.loadAddresses()
+                        
+                    } else {
+                        
+                        // Generate error haptic feedback
+                        HapticGenerator().notificationFeedback(type: .error)
+                        
+                        // Display an alert
+                        self.alert = (true, "Errore nell'eliminazione dell'indirizzo", response.description)
+                        
+                    }
+                    
+                }
+                
+            }
+        
+        // Reload addresses
+        self.loadAddresses()
         
     }
     

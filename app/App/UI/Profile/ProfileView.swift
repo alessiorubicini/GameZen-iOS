@@ -39,7 +39,7 @@ struct ProfileView: View {
                         Text("Indirizzi di consegna")
                     }
                     
-                    NavigationLink(destination: OrdersListView(orders: state.user!.orders).environmentObject(self.state).navigationTitle("Ordini")) {
+                    NavigationLink(destination: OrdersListView(orders: state.user!.orders).navigationTitle("Ordini")) {
                         Text("Ordini effettuati")
                     }
                 }

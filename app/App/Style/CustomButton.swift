@@ -31,3 +31,21 @@ struct BlueButton: ButtonStyle {
                 
     }
 }
+
+struct RedButton: ButtonStyle {
+    
+    @Environment(\.isEnabled) private var isEnabled: Bool
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .foregroundColor(isEnabled ? .white : .gray)
+            .padding()
+            .frame(width: 290)
+            .background(Color.lightRed)
+            .cornerRadius(25)
+            .shadow(color: .lightRed, radius: 5)
+            
+                
+    }
+}

@@ -21,12 +21,51 @@ struct OrderView: View {
     // MARK: - View body
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+            // Order info
+            Group {
+                Text(order.state).foregroundColor(orderStateColor(for: order.state))
+                
+                Divider()
+                
+                Text("Data dell'ordine: \(order.date)")
+                
+                Divider()
+                
+                Text("Stima consegna: \(order.delivery)")
+                
+                Divider()
+                
+                Text("Totale: \(order.total, specifier: "%.2f") €")
+            }
+            
+            Button("Annulla Ordine") {
+                
+            }.buttonStyle(RedButton())
+            .padding(.top, 20)
+            
+            // Order products
+            
+            List {
+                
+                ForEach(self.order.products) { product in
+                    ProductCard(product: product).frame(height: 150)
+                }
+
+
+            }
+            .listStyle(PlainListStyle())
+            
+        }
     }
 }
 
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderView(order: Order.mocks[0])
+        NavigationView {
+            OrderView(order: Order.mocks[0])
+                .navigationTitle("Ordine n.#\(Order.mocks[0].id)")
+        }
     }
 }

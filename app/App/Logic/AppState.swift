@@ -21,7 +21,7 @@ class AppState: ObservableObject {
     // User account properties
     @Published var user: User? = nil
     @Published var isLogged: Bool = false
-    @Published var authenticationError = (false, "", "")
+    @Published var alert = (false, "", "")
     
     @Published var cartManager: CartManager
     @Published var catalogManager: CatalogManager

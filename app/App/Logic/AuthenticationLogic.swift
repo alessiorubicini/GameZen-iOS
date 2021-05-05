@@ -56,11 +56,11 @@ extension AppState {
                         }
                         
                     } else if statusCode == 403 {
-                        self.authenticationError = (true, "Credenziali non corrette", "Controlla le credenziali inserite")
+                        self.alert = (true, "Credenziali non corrette", "Controlla le credenziali inserite")
                     } else if statusCode == 404 {
-                        self.authenticationError = (true, "Utente non trovato", "Controlla le credenziali inserite o registrati al negozio")
+                        self.alert = (true, "Utente non trovato", "Controlla le credenziali inserite o registrati al negozio")
                     } else if statusCode == 500 {
-                        self.authenticationError = (true, "Errore", "Errore interno al server. Se l'errore persiste contatta il supporto tecnico.")
+                        self.alert = (true, "Errore", "Errore interno al server. Se l'errore persiste contatta il supporto tecnico.")
                     }
                 }
             }

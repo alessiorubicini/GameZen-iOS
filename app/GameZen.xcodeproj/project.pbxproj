@@ -56,6 +56,7 @@
 		CF9083DA263DE5F80070CA6C /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330A263C8C0200CC4A8E /* Address.swift */; };
 		CF9083DB263DE5F80070CA6C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726369263CA69700D38B99 /* Category.swift */; };
 		CF9083DC263DE5F80070CA6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353306263C8BD600CC4A8E /* User.swift */; };
+		CF9DD1D32642F396001D43E8 /* AddressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DD1D22642F396001D43E8 /* AddressTest.swift */; };
 		CF9FE6F6263C97F200C6577D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FE6F5263C97F200C6577D /* Colors.swift */; };
 		CF9FE6F8263C992600C6577D /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FE6F7263C992600C6577D /* AuthenticationView.swift */; };
 		CFDCA659263F0CA4007FB5D9 /* AddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA658263F0CA4007FB5D9 /* AddressesView.swift */; };
@@ -130,6 +131,7 @@
 		CF726369263CA69700D38B99 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CF72636C263CAD4200D38B99 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		CF9083D6263DE40B0070CA6C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		CF9DD1D22642F396001D43E8 /* AddressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTest.swift; sourceTree = "<group>"; };
 		CF9FE6F5263C97F200C6577D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CF9FE6F7263C992600C6577D /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		CFDCA658263F0CA4007FB5D9 /* AddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesView.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				CF9083D6263DE40B0070CA6C /* UserTests.swift */,
 				CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */,
 				CF33286A26407E54009C222B /* CartTests.swift */,
+				CF9DD1D22642F396001D43E8 /* AddressTest.swift */,
 				CF650E9E263C870F00B6C05A /* Info.plist */,
 			);
 			path = AppTests;
@@ -361,9 +364,9 @@
 			isa = PBXGroup;
 			children = (
 				CF353314263C8D7B00CC4A8E /* CatalogView.swift */,
+				CF0ADF2E263D3FF300283EA8 /* ProductsListView.swift */,
 				CF726365263CA2CC00D38B99 /* ProductCard.swift */,
 				CF72636C263CAD4200D38B99 /* ProductView.swift */,
-				CF0ADF2E263D3FF300283EA8 /* ProductsListView.swift */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				CF33287626407F82009C222B /* AuthenticationLogic.swift in Sources */,
 				CF9083D8263DE5F80070CA6C /* Order.swift in Sources */,
 				CF9083D9263DE5F80070CA6C /* Product.swift in Sources */,
+				CF9DD1D32642F396001D43E8 /* AddressTest.swift in Sources */,
 				CF33287326407F82009C222B /* DateFormatter.swift in Sources */,
 				CF33286B26407E54009C222B /* CartTests.swift in Sources */,
 				CF9083D7263DE40B0070CA6C /* UserTests.swift in Sources */,

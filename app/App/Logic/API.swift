@@ -13,6 +13,8 @@
 
 import Foundation
 
+let hostname = "localhost"
+
 // HTTP API resource paths
 enum API: String {
     
@@ -31,5 +33,8 @@ enum API: String {
     case postOrder = "http://localhost:8888/GameZen/api/orders/post.php"
     
     // Addresses
+    case getAddresses = "http://localhost:8888/GameZen/api/addresses/get.php"
+    case addAddress = "http://localhost:8888/GameZen/api/addresses/add.php"
+    case removeAddress = "http://localhost:8888/GameZen/api/addresses/remove.php"
     
 }
