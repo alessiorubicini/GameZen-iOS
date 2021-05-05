@@ -13,7 +13,6 @@
 		CF0ADF2A263D3BBE00283EA8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF29263D3BBE00283EA8 /* CustomButton.swift */; };
 		CF0ADF2D263D3D6500283EA8 /* SwiftUIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = CF0ADF2C263D3D6500283EA8 /* SwiftUIComponents */; };
 		CF0ADF2F263D3FF300283EA8 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF2E263D3FF300283EA8 /* ProductsListView.swift */; };
-		CF0ADF32263D457C00283EA8 /* ProceedToOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF31263D457C00283EA8 /* ProceedToOrderView.swift */; };
 		CF0ADF34263D458500283EA8 /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF33263D458500283EA8 /* OrdersListView.swift */; };
 		CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */; };
 		CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC5263DA990003CB88F /* FAQView.swift */; };
@@ -94,7 +93,6 @@
 		B23EF043FD72AB8A8075DD10 /* Pods-GameZen-GameZenUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZen-GameZenUITests.release.xcconfig"; path = "Target Support Files/Pods-GameZen-GameZenUITests/Pods-GameZen-GameZenUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CF0ADF29263D3BBE00283EA8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CF0ADF2E263D3FF300283EA8 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
-		CF0ADF31263D457C00283EA8 /* ProceedToOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceedToOrderView.swift; sourceTree = "<group>"; };
 		CF0ADF33263D458500283EA8 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
 		CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		CF27CAC5263DA990003CB88F /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				CF353316263C8D8400CC4A8E /* CartView.swift */,
-				CF0ADF31263D457C00283EA8 /* ProceedToOrderView.swift */,
 				CF0ADF33263D458500283EA8 /* OrdersListView.swift */,
 				CFDCA65C263F11D4007FB5D9 /* OrderCard.swift */,
 				CFDCA65E263F11E2007FB5D9 /* OrderView.swift */,
@@ -635,7 +632,6 @@
 				CFED5DD426405F0900F3DC97 /* AuthenticationLogic.swift in Sources */,
 				CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */,
 				CF726361263C9FDE00D38B99 /* Errors.swift in Sources */,
-				CF0ADF32263D457C00283EA8 /* ProceedToOrderView.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
 				CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */,
 				CF9FE6F8263C992600C6577D /* AuthenticationView.swift in Sources */,

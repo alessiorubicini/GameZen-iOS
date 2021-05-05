@@ -1,5 +1,5 @@
 <?php
-	// getByCategory.php (products)
+	// get.php (products)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -15,21 +15,30 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
-	if(!isset($_GET["category"])) {
+	if(!isset($_GET["userID"])) {
 		header("HTTP/1.1 400");
-		echo "Missing product category";
+		echo "Missing user ID";
 		exit;
 	}
 
 	$db = new Database();
-	$category = $_GET["category"];
+	$userID = $_GET["userID"];
 
-	$result = $db->queryToJSON("SELECT * FROM prodotti p INNER JOIN categorie c ON p.categoria = c.id WHERE c.nome = '$category'");
-	
-	if(count($result) == 0) {
+	$products = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers, save S, users U WHERE C.ID = P.category AND producers.ID = P.producer AND U.id = S.user AND S.product = P.code GROUP BY P.code");
+
+	if(count($products) == 0) {
 		header("HTTP/1.1 404");
 	} else {
-		echo json_encode($result, JSON_NUMERIC_CHECK);
+
+		foreach($products as &$product) {
+			if($products["available"] == 1) {
+				$product["available"] = false;
+			} else {
+				$product["available"] = true;
+			}
+		}
+
+		echo json_encode($products, JSON_NUMERIC_CHECK);
 	}
 
 ?>

@@ -38,6 +38,7 @@ struct GameZenApp: App {
                         }
                     
                     CartView()
+                        .environmentObject(state)
                         .environmentObject(state.cartManager)
                         .tabItem {
                             Image(systemName: "cart.fill")

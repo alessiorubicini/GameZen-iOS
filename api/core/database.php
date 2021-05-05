@@ -14,7 +14,7 @@
 
 	class Database {
 
-		private $conn;
+		public $conn;
 		private $host = "localhost";
 		private $username = "root";
 		private $password = "root";
@@ -40,38 +40,31 @@
 
 			if(!$result) {
 				header("HTTP/1.1 500");
-				echo "Database query failed: " . mysqli_error($this->conn);
+				echo "DATABASE QUERY ERROR: " .$this->conn->error;
 				return false;
 			}
+
 
 			$array = array();
 			while($row = $result->fetch_assoc()) {
 				$array[] = $row;
 			}
-
+			
 			return $array;
 		}
 
-
-		// Run a SQL query and returns the result as a JSON array
-		public function queryToJSON($query) {
+		public function queryWithoutResult($query) {
 			$query = strip_tags($query);
-
+			
 			$result = mysqli_query($this->conn, $query);
 
 			if(!$result) {
 				header("HTTP/1.1 500");
-				echo "Database query failed: " . mysqli_error($this->conn);
+				echo "DATABASE QUERY ERROR: " .$this->conn->error;
 				return false;
 			}
-
-			$array = array();
-			while($row = $result->fetch_assoc()) {
-				$array[] = $row;
-			}
-
-			return $array;
-
+			
+			return $result;
 		}
 
 

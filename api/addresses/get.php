@@ -1,5 +1,5 @@
 <?php
-	// getAll.php (orders)
+	// get.php (address)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -14,8 +14,19 @@
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
-	require_once('../core/config.php');
 
-	echo "Get all orders";
+	if(!isset($_GET["userID"])) {
+		header("HTTP/1.1 400");
+		echo "Missing user ID";
+		exit;
+	}
 
+	$userID = $_GET["userID"];
+
+	$db = new Database();
+
+	$addresses = $db->query("SELECT A.id, A.address, A.civic, A.city, A.CAP, A.province, A.phone FROM addresses A INNER JOIN delivery D ON A.id = D.address AND D.user = $userID");
+
+	header("HTTP/1.1 200");
+	echo json_encode($addresses, JSON_NUMERIC_CHECK);
 ?>

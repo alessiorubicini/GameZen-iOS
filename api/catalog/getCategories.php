@@ -1,5 +1,5 @@
 <?php
-	// getAll.php (products)
+	// getCategories.php (products)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -17,12 +17,8 @@
 
 	$db = new Database();
 
-	$result = $db->queryToJSON("SELECT * FROM prodotti");
+	$categories = $db->query("SELECT c.id, c.name, COUNT(P.code) AS 'numberOfProducts' FROM products P, categories C WHERE P.category = C.id GROUP BY C.id");
 
-	if(count($result) == 0) {
-		header("HTTP/1.1 404");
-	} else {
-		echo json_encode($result, JSON_NUMERIC_CHECK);
-	}
+	echo json_encode($categories, JSON_NUMERIC_CHECK);
 
 ?>

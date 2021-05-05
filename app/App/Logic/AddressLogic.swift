@@ -1,4 +1,4 @@
-// ProceedToOrderView.swift
+// AddressLogic.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,22 +11,22 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import Foundation
 import SwiftUI
+import Alamofire
 
-struct ProceedToOrderView: View {
+extension AppState {
     
-    // MARK: - View properties
-    let products: [Product]
-    
-    // MARK: - View body
-    
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    func loadAddresses() {
+        
     }
-}
-
-struct ProceedToOrderView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProceedToOrderView(products: Product.mocks)
+    
+    func newAddress() {
+        
     }
+    
+    func deleteAddress() {
+        
+    }
+    
 }

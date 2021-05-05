@@ -1,5 +1,5 @@
 <?php
-	// search.php (products)
+	// addAddress.php
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -15,6 +15,19 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
-	echo "Searching product...";
+	if(!isset($_POST["addressID"])) {
+		header("HTTP/1.1 400");
+		echo "Missing address ID";
+		exit;
+	}
 
+	$addressID = $_POST["addressID"];
+
+	$db = new Database();
+
+	$db->queryWithoutResult("DELETE FROM delivery WHERE address = '$addressID'");
+	$db->queryWithoutResult("DELETE FROM addresses WHERE id = '$addressID'");
+
+	header("HTTP/1.1 200");
+	
 ?>

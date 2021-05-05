@@ -17,9 +17,10 @@ struct CartView: View {
     
     // MARK: - View properties
     
+    @EnvironmentObject private var state: AppState
     @EnvironmentObject private var cart: CartManager
     
-    @State private var proceedToOrder = false
+    @State private var deliveryAddress = 0
     
     // MARK: - View body
     
@@ -39,8 +40,14 @@ struct CartView: View {
                     
                     Text("Totale: \(cart.totalPrice, specifier: "%.2f") €").font(.title).padding(.top)
                     
-                    Button("Procedi all'ordine") {
-                        self.proceedToOrder.toggle()
+                    Picker("Indirizzo di consegna", selection: $deliveryAddress) {
+                        ForEach(state.user!.addresses) { address in
+                            Text("\(address.address) \(address.civic) - \(address.city)")
+                        }
+                    }
+                    
+                    Button("Invia ordine") {
+                        
                     }.buttonStyle(BlueButton()).disabled(cart.products.count == 0)
                     .padding(.top, 30)
                     
@@ -57,22 +64,13 @@ struct CartView: View {
 
                     }
                     .listStyle(PlainListStyle())
-                    
-                    .sheet(isPresented: $proceedToOrder, content: {
-                        NavigationView {
-                            ProceedToOrderView(products: cart.products)
-                                .navigationTitle("Riepilogo ordine")
-                        }
-                    })
+
                 }
                 
                 
             }
             .navigationTitle("Il tuo carrello")
-            
-            .sheet(isPresented: $proceedToOrder, content: {
-                Text("Ordine")
-            })
+
         }
     }
 }
@@ -80,6 +78,7 @@ struct CartView: View {
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         CartView()
+            .environmentObject(AppState())
             .environmentObject(CartManager())
     }
 }
