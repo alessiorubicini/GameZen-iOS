@@ -33,7 +33,7 @@ struct ProductView: View {
                 
                 // Product image
                 #if DEBUG
-                Image(product.name).resizable().aspectRatio(contentMode: .fit).frame(height: 250).padding()
+                Image(product.name).resizable().aspectRatio(contentMode: .fit).frame(height: 230).padding()
                 #else
                 RemoteImage(url: product.imageURL).padding()
                 #endif
@@ -71,6 +71,13 @@ struct ProductView: View {
                     
                 }.buttonStyle(BlueButton()).disabled(!product.available)
                 .padding(.top, 20)
+                
+                Button("Condividi") {
+                    
+                    shareProduct(product: self.product)
+                    
+                }.buttonStyle(BlueButton()).disabled(!product.available)
+                .padding(.top, 20).padding(.bottom, 30)
                 
             }
             

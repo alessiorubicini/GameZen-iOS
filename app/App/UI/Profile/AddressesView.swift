@@ -20,7 +20,7 @@ struct AddressesView: View {
     @EnvironmentObject private var state: AppState
     
     @State private var addNewAddress = false
-    @State private var data = Address.Data()
+    @State private var data: Address.Data = Address.Data()
     
     // MARK: - View body
     

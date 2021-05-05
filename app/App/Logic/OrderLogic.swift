@@ -1,4 +1,4 @@
-// AddAddressView.swift
+// OrderLogic.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,29 +11,17 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import SwiftUI
+import Foundation
+import Alamofire
 
-struct AddAddressView: View {
+extension AppState {
     
-    // MARK: - View properties
-    @Binding var data: Address.Data
-    
-    // MARK: - View body
-    
-    var body: some View {
-        Form {
-            TextField("Via", text: $data.address)
-            TextField("Numero civico", text: $data.civic)
-            TextField("Città", text: $data.city)
-            TextField("CAP", text: $data.CAP)
-            TextField("Provincia", text: $data.province)
-            TextField("Telefono", text: $data.phone)
-        }
+    func makeOrder() {
+        
     }
-}
-
-struct AddAddressView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddAddressView(data: .constant(Address.Data()))
+    
+    func cancelOrder() {
+        
     }
+    
 }

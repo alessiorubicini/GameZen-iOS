@@ -18,6 +18,8 @@ struct GameZenApp: App {
     
     @StateObject private var state = AppState()
     
+    
+    
     @ViewBuilder
     var body: some Scene {
         WindowGroup {
@@ -49,7 +51,7 @@ struct GameZenApp: App {
                         .environmentObject(state)
                         .tabItem {
                             Image(systemName: "person.fill")
-                            Text("Account")
+                            Text("Profilo")
                         }
                     
                     SettingsView()

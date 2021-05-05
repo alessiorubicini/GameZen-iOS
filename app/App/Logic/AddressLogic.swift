@@ -47,7 +47,7 @@ extension AppState {
     func addAddress(data: Address.Data) {
         
         // Form a dictionary for posting data
-        let body: [String:Any] = ["userID": UserDefaults.standard.integer(forKey: "userID"), "address": data.address, "civic": data.civic, "city": data.city, "CAP": data.CAP, "province": data.province, "phone": data.phone]
+        let body: [String:Any] = ["userID": UserDefaults.standard.integer(forKey: "userID"), "address": data.address, "civic": Int(data.civic) ?? 0, "city": data.city, "CAP": Int(data.CAP) ?? 0, "province": data.province, "phone": Int(data.phone) ?? 0]
         print(body)
         // Add address to database through API
         AF.request(API.addAddress.rawValue, method: .post, parameters: body)

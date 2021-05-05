@@ -21,8 +21,9 @@ struct AuthenticationView: View {
     @State private var auth: AuthView = .login
     
     // Login fields
-    @State private var email = ""
-    @State private var password = ""
+    @AppStorage("email") private var email = ""
+    @AppStorage("password") private var password = ""
+    @AppStorage("keepConnected") private var keepConnected = false
     
     // Registration fields
     @State private var newName = ""
@@ -60,6 +61,8 @@ struct AuthenticationView: View {
                 
                 SecureField("Password", text: $password).autocapitalization(.none).disableAutocorrection(true)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                
+                Toggle("Rimani collegato", isOn: $keepConnected).padding()
                 
                 Button("Accedi") {
                     self.state.login(email: email, password: password)

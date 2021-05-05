@@ -54,9 +54,9 @@
 
 			foreach($products as &$product) {
 				if($product["available"] == 1) {
-					$product["available"] = false;
-				} else {
 					$product["available"] = true;
+				} else {
+					$product["available"] = false;
 				}
 			}
 

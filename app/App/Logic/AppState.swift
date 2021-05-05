@@ -27,8 +27,20 @@ class AppState: ObservableObject {
     @Published var catalogManager: CatalogManager
     
     init() {
+        
         self.cartManager = CartManager()
         self.catalogManager = CatalogManager()
+        
+        // Check if "keepConnected" flag is true
+        if UserDefaults.standard.bool(forKey: "keepConnected") == true {
+            
+            // Get user's credentials from User Defaults local storage
+            let email = UserDefaults.standard.string(forKey: "email") ?? "-"
+            let password = UserDefaults.standard.string(forKey: "password") ?? "-"
+            
+            self.login(email: email, password: password)
+        }
+        
     }
     
         

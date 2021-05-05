@@ -15,13 +15,28 @@ import SwiftUI
 
 struct FAQView: View {
     
-    @State private var test = false
+    @State private var whatIs = false
+    @State private var buying = false
+    @State private var orders = false
+    @State private var address = false
     
     var body: some View {
         List {
             
-            DisclosureGroup("Show Terms", isExpanded: $test) {
-                Text("Long terms and conditions here long terms and conditions here long terms and conditions here long terms and conditions here long terms and conditions here long terms and conditions here.")
+            DisclosureGroup("Cos'è GameZen?", isExpanded: $whatIs) {
+                Text("GameZen è un negozio online di giochi da tavolo")
+            }
+            
+            DisclosureGroup("Come posso acquistare un gioco?", isExpanded: $buying) {
+                Text("Per acquistare un gioco seleziona uno o più prodotti dal catalogo e aggiungili al carrello. Una volta aggiunti, vai nel carrello per scegliere l'indirizzo di consegna e conferma l'ordine.")
+            }
+            
+            DisclosureGroup("Come tracciare gli ordini effettuati?", isExpanded: $orders) {
+                Text("Per tracciare gli ordini già effettuati, visita la sezione 'Ordini' nel tuo profilo utente. Qui potrai visionare gli ordini effettuati e il loro stato con tutte le informazioni necessarie. Puoi anche annullare un ordine prima che sia spedito.")
+            }
+            
+            DisclosureGroup("Come gestire gli indirizzi di consegna?", isExpanded: $address) {
+                Text("Per gestire i tuoi indirizzi di consegna, visita la sezione 'Indirizzi' nel tuo profilo utente. Quando effettui un ordine, devi necessariamente scegliere un indirizzo di consegna.")
             }
             
         }.listStyle(InsetGroupedListStyle())
@@ -30,6 +45,9 @@ struct FAQView: View {
 
 struct FAQView_Previews: PreviewProvider {
     static var previews: some View {
-        FAQView()
+        NavigationView {
+            FAQView()
+                .navigationTitle("F.A.Q.")
+        }
     }
 }

@@ -14,12 +14,15 @@
 		CF0ADF2D263D3D6500283EA8 /* SwiftUIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = CF0ADF2C263D3D6500283EA8 /* SwiftUIComponents */; };
 		CF0ADF2F263D3FF300283EA8 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF2E263D3FF300283EA8 /* ProductsListView.swift */; };
 		CF0ADF34263D458500283EA8 /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF33263D458500283EA8 /* OrdersListView.swift */; };
+		CF1A321E26432F8B0000ECAE /* OrderLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A321D26432F8B0000ECAE /* OrderLogic.swift */; };
+		CF1A321F26432F8B0000ECAE /* OrderLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A321D26432F8B0000ECAE /* OrderLogic.swift */; };
+		CF1A3221264331600000ECAE /* ShareLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A3220264331600000ECAE /* ShareLogic.swift */; };
+		CF1A3222264331600000ECAE /* ShareLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A3220264331600000ECAE /* ShareLogic.swift */; };
 		CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */; };
 		CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC5263DA990003CB88F /* FAQView.swift */; };
 		CF33286826407D76009C222B /* AddressLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286726407D76009C222B /* AddressLogic.swift */; };
 		CF33286B26407E54009C222B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286A26407E54009C222B /* CartTests.swift */; };
 		CF33287026407F82009C222B /* CatalogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353312263C8D5700CC4A8E /* CatalogManager.swift */; };
-		CF33287126407F82009C222B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726360263C9FDE00D38B99 /* Errors.swift */; };
 		CF33287226407F82009C222B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726362263CA27B00D38B99 /* API.swift */; };
 		CF33287326407F82009C222B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */; };
 		CF33287426407F82009C222B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35330C263C8CF800CC4A8E /* AppState.swift */; };
@@ -95,6 +98,8 @@
 		CF0ADF29263D3BBE00283EA8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CF0ADF2E263D3FF300283EA8 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
 		CF0ADF33263D458500283EA8 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
+		CF1A321D26432F8B0000ECAE /* OrderLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLogic.swift; sourceTree = "<group>"; };
+		CF1A3220264331600000ECAE /* ShareLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLogic.swift; sourceTree = "<group>"; };
 		CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		CF27CAC5263DA990003CB88F /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		CF33286726407D76009C222B /* AddressLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressLogic.swift; sourceTree = "<group>"; };
@@ -245,6 +250,8 @@
 				CF353308263C8BEB00CC4A8E /* Order.swift */,
 				CF353304263C8BBC00CC4A8E /* Product.swift */,
 				CF726369263CA69700D38B99 /* Category.swift */,
+				CF726362263CA27B00D38B99 /* API.swift */,
+				CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,11 +283,10 @@
 				CF35330C263C8CF800CC4A8E /* AppState.swift */,
 				CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */,
 				CF33286726407D76009C222B /* AddressLogic.swift */,
+				CF1A321D26432F8B0000ECAE /* OrderLogic.swift */,
 				CF353312263C8D5700CC4A8E /* CatalogManager.swift */,
 				CF353310263C8D3B00CC4A8E /* CartManager.swift */,
-				CF726360263C9FDE00D38B99 /* Errors.swift */,
-				CF726362263CA27B00D38B99 /* API.swift */,
-				CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */,
+				CF1A3220264331600000ECAE /* ShareLogic.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 				CF3532FF263C8B2B00CC4A8E /* Application */,
 				CF353303263C8B6500CC4A8E /* Logic */,
 				CF353300263C8B3A00CC4A8E /* Model */,
+				CF726360263C9FDE00D38B99 /* Errors.swift */,
 				CF353302263C8B4600CC4A8E /* Style */,
 				CF353301263C8B4000CC4A8E /* UI */,
 				CF650E8E263C870F00B6C05A /* Assets.xcassets */,
@@ -635,6 +642,7 @@
 				CFED5DD426405F0900F3DC97 /* AuthenticationLogic.swift in Sources */,
 				CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */,
 				CF726361263C9FDE00D38B99 /* Errors.swift in Sources */,
+				CF1A321E26432F8B0000ECAE /* OrderLogic.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
 				CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */,
 				CF9FE6F8263C992600C6577D /* AuthenticationView.swift in Sources */,
@@ -645,6 +653,7 @@
 				CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */,
 				CF726366263CA2CC00D38B99 /* ProductCard.swift in Sources */,
 				CF353305263C8BBC00CC4A8E /* Product.swift in Sources */,
+				CF1A3221264331600000ECAE /* ShareLogic.swift in Sources */,
 				CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */,
 				CF72636A263CA69700D38B99 /* Category.swift in Sources */,
 				CFDCA65F263F11E2007FB5D9 /* OrderView.swift in Sources */,
@@ -666,11 +675,12 @@
 				CF33286B26407E54009C222B /* CartTests.swift in Sources */,
 				CF9083D7263DE40B0070CA6C /* UserTests.swift in Sources */,
 				CF650E9D263C870F00B6C05A /* GameZenTests.swift in Sources */,
-				CF33287126407F82009C222B /* Errors.swift in Sources */,
 				CF33287526407F82009C222B /* AddressLogic.swift in Sources */,
 				CF33287426407F82009C222B /* AppState.swift in Sources */,
 				CF9083DA263DE5F80070CA6C /* Address.swift in Sources */,
+				CF1A321F26432F8B0000ECAE /* OrderLogic.swift in Sources */,
 				CF9083DB263DE5F80070CA6C /* Category.swift in Sources */,
+				CF1A3222264331600000ECAE /* ShareLogic.swift in Sources */,
 				CF33287226407F82009C222B /* API.swift in Sources */,
 				CF9083DC263DE5F80070CA6C /* User.swift in Sources */,
 			);

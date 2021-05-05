@@ -24,8 +24,6 @@ extension AppState {
         var hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!).description.split(separator: ":")[1]
         hashedPassw.remove(at: hashedPassw.startIndex)
         
-        print("Email: \(email) - Password: \(hashedPassw)")
-        
         // Send the login request to the API
         AF.request(API.login.rawValue, method: .post, parameters: ["email": email, "password": hashedPassw])
             .response { response in
@@ -67,6 +65,13 @@ extension AppState {
     }
     
     func logout() {
+        
+        // Reset user preferences and information
+        UserDefaults.standard.setValue(false, forKey: "keepConnected")
+        UserDefaults.standard.setValue("", forKey: "email")
+        UserDefaults.standard.setValue("", forKey: "password")
+        
+        // Log out from account
         DispatchQueue.main.async {
             self.user = nil
         }

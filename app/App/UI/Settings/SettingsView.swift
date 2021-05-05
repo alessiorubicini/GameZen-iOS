@@ -19,7 +19,7 @@ struct SettingsView: View {
     
     @EnvironmentObject private var state: AppState
     
-    @AppStorage("rememberAccount") private var rememberAccount = false
+    @AppStorage("keepConnected") private var keepConnected = false
     
     @State private var showFAQ = false
     
@@ -31,7 +31,7 @@ struct SettingsView: View {
             List {
                 
                 Section(header: Text("Preferenze")) {
-                    Toggle("Rimani collegato", isOn: $rememberAccount)
+                    Toggle("Rimani collegato", isOn: $keepConnected)
                 }
                 
                 Section(header: Text("Informazioni")) {
@@ -54,13 +54,17 @@ struct SettingsView: View {
                                     Button(action: {
                                         self.showFAQ.toggle()
                                     }, label: {
-                                        Text("Chiudi")
+                                        Image(systemName: "xmark").foregroundColor(.darkBlue).font(.title).padding(5)
                                     })
                                 })
                         }
                     })
                     
-                    Text("Area legale")
+                    Button(action: {
+                        shareApp()
+                    }, label: {
+                        Text("Condividi l'app")
+                    })
                 }
                 
             }

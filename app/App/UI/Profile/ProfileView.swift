@@ -22,6 +22,8 @@ struct ProfileView: View {
     @State private var editProfile = false
     @State private var data = User.Data()
     
+    
+    
     // MARK: - View body
     
     var body: some View {
