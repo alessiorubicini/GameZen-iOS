@@ -42,7 +42,7 @@ struct AddressesView: View {
                             Button(action: {
                                 self.addNewAddress.toggle()
                             }, label: {
-                                Text("Annulla").foregroundColor(.lightRed)
+                                Text("Annulla").foregroundColor(.red)
                             })
                             
                         }, trailing: HStack {
@@ -77,7 +77,7 @@ struct AddressesView: View {
                     Button(action: {
                         self.state.removeAddress(of: address.id)
                     }, label: {
-                        Text("Elimina indirizzo").foregroundColor(.lightRed)
+                        Text("Elimina indirizzo").foregroundColor(.red)
                     })
                     
                 }

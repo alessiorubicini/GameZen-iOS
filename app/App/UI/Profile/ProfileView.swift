@@ -23,7 +23,6 @@ struct ProfileView: View {
     @State private var data = User.Data()
     
     
-    
     // MARK: - View body
     
     var body: some View {
@@ -56,13 +55,13 @@ struct ProfileView: View {
                     Button(action: {
                         
                     }, label: {
-                        Text("Elimina profilo").foregroundColor(.lightRed)
+                        Text("Elimina profilo").foregroundColor(.red)
                     })
                     
                     Button(action: {
                         self.state.logout()
                     }, label: {
-                        Text("Esci dall'account").foregroundColor(.lightRed)
+                        Text("Esci dall'account").foregroundColor(.red)
                     })
                 }
                 
@@ -79,7 +78,7 @@ struct ProfileView: View {
                             Button(action: {
                                 self.editProfile.toggle()
                             }, label: {
-                                Text("Annulla").foregroundColor(.lightRed)
+                                Text("Annulla").foregroundColor(.red)
                             })
                             
                         })

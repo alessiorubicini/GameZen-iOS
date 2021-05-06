@@ -97,6 +97,7 @@ struct CatalogView: View {
                 
             }
             .navigationTitle("Catalogo")
+            
         }
         
         
@@ -104,6 +105,7 @@ struct CatalogView: View {
 }
 
 struct CatalogView_Previews: PreviewProvider {
+    
     static var previews: some View {
         CatalogView()
             .environmentObject(CatalogManager())

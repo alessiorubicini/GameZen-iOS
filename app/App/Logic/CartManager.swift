@@ -13,6 +13,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftUIComponents
 import Alamofire
 
 // This object is responsible of managing the user's cart
@@ -66,9 +67,74 @@ class CartManager: ObservableObject {
             return false
         }
         
+        // Add product to local data
         self.products.append(product)
         
+        // Add product to user's cart in database through APIs
+        AF.request(API.addProductToCart.rawValue, method: .post, parameters: ["userID": UserDefaults.standard.integer(forKey: "userID"), "productID": product.id])
+            .response { response in
+                
+                if let statusCode = response.response?.statusCode {
+                    
+                    if statusCode == 200 {
+                        
+                        // Generate success haptic feedback
+                        HapticGenerator().notificationFeedback(type: .success)
+                        
+                    } else {
+                        
+                        // Generate error haptic feedback
+                        HapticGenerator().notificationFeedback(type: .error)
+                        
+                        // Display an alert
+                        //self.alert = (true, "Errore nell'aggiunta dell'indirizzo", String(data: response.data!, encoding: .utf8)!)
+                        
+                    }
+                    
+                }
+                
+            }
+        
         return true
+        
+    }
+    
+    func removeProduct(at offsets: IndexSet) {
+        
+        var productID = 0
+        
+        for index in offsets {
+            productID = self.products[index].id
+        }
+        
+        // Remove product from local data
+        self.products.remove(atOffsets: offsets)
+        
+        // Remove from database
+        AF.request(API.removeProductFromCart.rawValue, method: .post, parameters: ["userID": UserDefaults.standard.integer(forKey: "userID"), "productID": productID])
+            .response { response in
+                
+                if let statusCode = response.response?.statusCode {
+                    
+                    if statusCode == 200 {
+                        
+                        // Generate success haptic feedback
+                        HapticGenerator().notificationFeedback(type: .success)
+                        
+                    } else {
+                        
+                        // Generate error haptic feedback
+                        HapticGenerator().notificationFeedback(type: .error)
+                        
+                        // Display an alert
+                        //self.alert = (true, "Errore nell'aggiunta dell'indirizzo", String(data: response.data!, encoding: .utf8)!)
+                        
+                    }
+                    
+                }
+                
+            }
+        
         
     }
     

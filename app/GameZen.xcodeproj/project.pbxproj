@@ -252,6 +252,7 @@
 				CF726369263CA69700D38B99 /* Category.swift */,
 				CF726362263CA27B00D38B99 /* API.swift */,
 				CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */,
+				CF726360263C9FDE00D38B99 /* Errors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,7 +321,6 @@
 				CF3532FF263C8B2B00CC4A8E /* Application */,
 				CF353303263C8B6500CC4A8E /* Logic */,
 				CF353300263C8B3A00CC4A8E /* Model */,
-				CF726360263C9FDE00D38B99 /* Errors.swift */,
 				CF353302263C8B4600CC4A8E /* Style */,
 				CF353301263C8B4000CC4A8E /* UI */,
 				CF650E8E263C870F00B6C05A /* Assets.xcassets */,

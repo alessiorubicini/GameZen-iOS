@@ -59,7 +59,9 @@ struct CartView: View {
                             }
                         }
                         .onDelete(perform: { indexSet in
-                            cart.products.remove(atOffsets: indexSet)
+                            
+                            self.cart.removeProduct(at: indexSet)
+                            
                         })
 
                     }

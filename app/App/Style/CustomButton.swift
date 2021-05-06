@@ -27,7 +27,8 @@ struct BlueButton: ButtonStyle {
             .background(Color.bluePrimary)
             .cornerRadius(25)
             .shadow(color: .bluePrimary, radius: 5)
-            
+            .scaleEffect(configuration.isPressed ? 0.8 : 1)
+            .animation(.easeOut(duration: 0.2))
                 
     }
 }

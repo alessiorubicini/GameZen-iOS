@@ -72,13 +72,6 @@ struct ProductView: View {
                 }.buttonStyle(BlueButton()).disabled(!product.available)
                 .padding(.top, 20)
                 
-                Button("Condividi") {
-                    
-                    shareProduct(product: self.product)
-                    
-                }.buttonStyle(BlueButton()).disabled(!product.available)
-                .padding(.top, 20).padding(.bottom, 30)
-                
             }
             
         }
@@ -86,11 +79,22 @@ struct ProductView: View {
             Alert(title: Text("Errore"), message: Text("Il prodotto è già presente nel carrello"), dismissButton: .default(Text("Chiudi")))
         })
         
+        .navigationBarItems(trailing: HStack {
+            Button(action: {
+                shareProduct(product: self.product)
+            }, label: {
+                Image(systemName: "square.and.arrow.up").font(.title2).foregroundColor(.bluePrimary)
+            })
+        })
+        
     }
 }
 
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductView(product: Product.mocks[1], addToCart: { _ in return false})
+        NavigationView {
+            ProductView(product: Product.mocks[1], addToCart: { _ in return false})
+                .navigationTitle("Prodotto")
+        }
     }
 }
