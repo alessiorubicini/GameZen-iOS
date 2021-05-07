@@ -26,7 +26,7 @@ struct GameZenApp: App {
             
             if self.state.isLogged == false {
                 
-                AuthenticationView().environmentObject(state)
+                LoginView().environmentObject(state)
                 
             } else {
                 

@@ -54,7 +54,7 @@ struct SettingsView: View {
                                     Button(action: {
                                         self.showFAQ.toggle()
                                     }, label: {
-                                        Image(systemName: "xmark").foregroundColor(.darkBlue).font(.title).padding(5)
+                                        Image(systemName: "xmark").foregroundColor(.darkBlue).font(.title2).padding(5)
                                     })
                                 })
                         }

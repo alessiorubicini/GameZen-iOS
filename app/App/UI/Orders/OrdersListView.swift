@@ -28,7 +28,7 @@ struct OrdersListView: View {
                     OrderCard(order: order)
                 }
             }
-        }.listStyle(PlainListStyle())
+        }.listStyle(InsetGroupedListStyle())
     }
 }
 

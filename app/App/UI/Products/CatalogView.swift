@@ -106,9 +106,10 @@ struct CatalogView: View {
 
 struct CatalogView_Previews: PreviewProvider {
     
+    
     static var previews: some View {
         CatalogView()
-            .environmentObject(CatalogManager())
+            .environmentObject(CatalogManager(products: Product.mocks, categories: Category.mocks))
             .environmentObject(CartManager())
     }
 }

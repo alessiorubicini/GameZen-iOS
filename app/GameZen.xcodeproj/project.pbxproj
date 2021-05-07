@@ -47,6 +47,7 @@
 		CF650EA8263C870F00B6C05A /* GameZenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650EA7263C870F00B6C05A /* GameZenUITests.swift */; };
 		CF6B6D7C263F2B80007E88AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */; };
 		CF6B6D80263F38D5007E88AB /* CatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */; };
+		CF6EE90D26454EDF0042EE73 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6EE90C26454EDF0042EE73 /* RegistrationView.swift */; };
 		CF726361263C9FDE00D38B99 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726360263C9FDE00D38B99 /* Errors.swift */; };
 		CF726363263CA27B00D38B99 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726362263CA27B00D38B99 /* API.swift */; };
 		CF726366263CA2CC00D38B99 /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726365263CA2CC00D38B99 /* ProductCard.swift */; };
@@ -61,7 +62,7 @@
 		CF9083DC263DE5F80070CA6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353306263C8BD600CC4A8E /* User.swift */; };
 		CF9DD1D32642F396001D43E8 /* AddressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DD1D22642F396001D43E8 /* AddressTest.swift */; };
 		CF9FE6F6263C97F200C6577D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FE6F5263C97F200C6577D /* Colors.swift */; };
-		CF9FE6F8263C992600C6577D /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FE6F7263C992600C6577D /* AuthenticationView.swift */; };
+		CF9FE6F8263C992600C6577D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FE6F7263C992600C6577D /* LoginView.swift */; };
 		CFDCA659263F0CA4007FB5D9 /* AddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA658263F0CA4007FB5D9 /* AddressesView.swift */; };
 		CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA65A263F0FF7007FB5D9 /* AddAddressView.swift */; };
 		CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDCA65C263F11D4007FB5D9 /* OrderCard.swift */; };
@@ -129,6 +130,7 @@
 		CF650EA9263C870F00B6C05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTests.swift; sourceTree = "<group>"; };
+		CF6EE90C26454EDF0042EE73 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		CF726360263C9FDE00D38B99 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		CF726362263CA27B00D38B99 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CF726365263CA2CC00D38B99 /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 		CF9083D6263DE40B0070CA6C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CF9DD1D22642F396001D43E8 /* AddressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTest.swift; sourceTree = "<group>"; };
 		CF9FE6F5263C97F200C6577D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		CF9FE6F7263C992600C6577D /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		CF9FE6F7263C992600C6577D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CFDCA658263F0CA4007FB5D9 /* AddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesView.swift; sourceTree = "<group>"; };
 		CFDCA65A263F0FF7007FB5D9 /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
 		CFDCA65C263F11D4007FB5D9 /* OrderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCard.swift; sourceTree = "<group>"; };
@@ -215,7 +217,8 @@
 		CF27CAC1263D8E70003CB88F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				CF9FE6F7263C992600C6577D /* AuthenticationView.swift */,
+				CF9FE6F7263C992600C6577D /* LoginView.swift */,
+				CF6EE90C26454EDF0042EE73 /* RegistrationView.swift */,
 				CF353318263C8D8A00CC4A8E /* ProfileView.swift */,
 				CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */,
 				CFDCA658263F0CA4007FB5D9 /* AddressesView.swift */,
@@ -645,8 +648,9 @@
 				CF1A321E26432F8B0000ECAE /* OrderLogic.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
 				CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */,
-				CF9FE6F8263C992600C6577D /* AuthenticationView.swift in Sources */,
+				CF9FE6F8263C992600C6577D /* LoginView.swift in Sources */,
 				CF0ADF2A263D3BBE00283EA8 /* CustomButton.swift in Sources */,
+				CF6EE90D26454EDF0042EE73 /* RegistrationView.swift in Sources */,
 				CF726363263CA27B00D38B99 /* API.swift in Sources */,
 				CF72636D263CAD4200D38B99 /* ProductView.swift in Sources */,
 				CF0ADF2F263D3FF300283EA8 /* ProductsListView.swift in Sources */,

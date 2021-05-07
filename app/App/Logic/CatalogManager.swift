@@ -27,6 +27,11 @@ class CatalogManager: ObservableObject {
         self.loadAllProducts()
     }
     
+    init(products: [Product], categories: [Category]) {
+        self.products = products
+        self.categories = categories
+    }
+    
     // MARK: - Methods
     
     func loadAllProducts() {
