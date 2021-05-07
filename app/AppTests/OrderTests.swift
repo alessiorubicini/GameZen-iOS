@@ -1,4 +1,4 @@
-// UserTests.swift
+// OrderTests.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,29 +14,35 @@
 import XCTest
 import Alamofire
 
-class UserTests: XCTestCase {
+class OrderTests: XCTestCase {
 
-    func testLogin() throws {
+    func testMakeOrder() {
+        
         // Test async expectation
-        let e = expectation(description: "Login request")
+        let e = expectation(description: "Order POST request")
         
-        let email = "alessiorubicini16@icloud.com"
-        let password = "098f6bcd4621d373cade4e832627b4f6"
+        let body: [String:Any] = ["userID": 1, "date": "2021-05-07", "delivery": "2021-05-10", "address": 1, "total": 21.99, "products": Product.mocks.map{$0.id}]
         
-        AF.request(API.login.rawValue, method: .post, parameters: ["email": email, "password": password])
+        // Send order to database through API
+        AF.request(API.postOrder.rawValue, method: .post, parameters: body)
             .response { response in
                 
                 debugPrint(response)
                 
-                do {
-                    // Parse user info as JSON to Swift struct
-                    let _ = try JSONDecoder().decode(User.self, from: response.data!)
-                    XCTAssert(true)
-                    e.fulfill()
-                } catch {
-                    print(error)
-                    XCTAssert(false)
-                    e.fulfill()
+                if let statusCode = response.response?.statusCode {
+                    
+                    if statusCode == 200 {
+                        
+                        XCTAssert(true)
+                        e.fulfill()
+                        
+                    } else {
+                        
+                        XCTAssert(false)
+                        e.fulfill()
+                        
+                    }
+                    
                 }
                 
             }

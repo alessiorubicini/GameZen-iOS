@@ -10,6 +10,7 @@
 		54292D78C9082865F50D4AAF /* Pods_GameZen_GameZenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F424AC96504089B8D3F89B72 /* Pods_GameZen_GameZenUITests.framework */; };
 		6CD826E2BD13E6F3091C858B /* Pods_GameZenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A889E9E64B25E0F1CE8E3A2E /* Pods_GameZenTests.framework */; };
 		740496DBF9B67B74CF62872D /* Pods_GameZen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D410F4320471D96793023500 /* Pods_GameZen.framework */; };
+		CF0759AC2645CA9B0077EB9D /* OrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0759AB2645CA9B0077EB9D /* OrderTests.swift */; };
 		CF0ADF2A263D3BBE00283EA8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF29263D3BBE00283EA8 /* CustomButton.swift */; };
 		CF0ADF2D263D3D6500283EA8 /* SwiftUIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = CF0ADF2C263D3D6500283EA8 /* SwiftUIComponents */; };
 		CF0ADF2F263D3FF300283EA8 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADF2E263D3FF300283EA8 /* ProductsListView.swift */; };
@@ -96,6 +97,7 @@
 		82BA859789FFE3C81044907F /* Pods-GameZen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZen.release.xcconfig"; path = "Target Support Files/Pods-GameZen/Pods-GameZen.release.xcconfig"; sourceTree = "<group>"; };
 		A889E9E64B25E0F1CE8E3A2E /* Pods_GameZenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameZenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23EF043FD72AB8A8075DD10 /* Pods-GameZen-GameZenUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameZen-GameZenUITests.release.xcconfig"; path = "Target Support Files/Pods-GameZen-GameZenUITests/Pods-GameZen-GameZenUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CF0759AB2645CA9B0077EB9D /* OrderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTests.swift; sourceTree = "<group>"; };
 		CF0ADF29263D3BBE00283EA8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CF0ADF2E263D3FF300283EA8 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
 		CF0ADF33263D458500283EA8 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */,
 				CF33286A26407E54009C222B /* CartTests.swift */,
 				CF9DD1D22642F396001D43E8 /* AddressTest.swift */,
+				CF0759AB2645CA9B0077EB9D /* OrderTests.swift */,
 				CF650E9E263C870F00B6C05A /* Info.plist */,
 			);
 			path = AppTests;
@@ -678,6 +681,7 @@
 				CF33287326407F82009C222B /* DateFormatter.swift in Sources */,
 				CF33286B26407E54009C222B /* CartTests.swift in Sources */,
 				CF9083D7263DE40B0070CA6C /* UserTests.swift in Sources */,
+				CF0759AC2645CA9B0077EB9D /* OrderTests.swift in Sources */,
 				CF650E9D263C870F00B6C05A /* GameZenTests.swift in Sources */,
 				CF33287526407F82009C222B /* AddressLogic.swift in Sources */,
 				CF33287426407F82009C222B /* AppState.swift in Sources */,

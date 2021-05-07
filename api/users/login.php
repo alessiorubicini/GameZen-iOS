@@ -37,6 +37,7 @@
 
 	if(count($result) == 0) {
 		header("HTTP/1.1 403");
+		echo "Forbidden";
 	} else {
 
 		$userID = $result[0]['id'];

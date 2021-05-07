@@ -1,7 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='GameZenTests.xctest' tests='2' failures='0'>
+<testsuites name='GameZenTests.xctest' tests='8' failures='0'>
+  <testsuite name='GameZenTests.AddressTest' tests='1' failures='0'>
+    <testcase classname='GameZenTests.AddressTest' name='testLoadAddresses' time='0.326'/>
+  </testsuite>
+  <testsuite name='GameZenTests.CartTests' tests='1' failures='0'>
+    <testcase classname='GameZenTests.CartTests' name='testOrders' time='0.009'/>
+  </testsuite>
+  <testsuite name='GameZenTests.CatalogTests' tests='2' failures='0'>
+    <testcase classname='GameZenTests.CatalogTests' name='testCategories' time='0.013'/>
+    <testcase classname='GameZenTests.CatalogTests' name='testProducts' time='0.010'/>
+  </testsuite>
   <testsuite name='GameZenTests.GameZenTests' tests='2' failures='0'>
-    <testcase classname='GameZenTests.GameZenTests' name='testExample' time='0.003'/>
-    <testcase classname='GameZenTests.GameZenTests' name='testPerformanceExample' time='0.399'/>
+    <testcase classname='GameZenTests.GameZenTests' name='testExample' time='0.001'/>
+    <testcase classname='GameZenTests.GameZenTests' name='testPerformanceExample' time='0.402'/>
+  </testsuite>
+  <testsuite name='GameZenTests.OrderTests' tests='1' failures='0'>
+    <testcase classname='GameZenTests.OrderTests' name='testMakeOrder' time='0.006'/>
+  </testsuite>
+  <testsuite name='GameZenTests.UserTests' tests='1' failures='0'>
+    <testcase classname='GameZenTests.UserTests' name='testLogin' time='0.008'/>
   </testsuite>
 </testsuites>

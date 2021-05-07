@@ -99,8 +99,9 @@ class CartManager: ObservableObject {
         
     }
     
+    /// Remove a specific product from user's cart
     func removeProduct(at offsets: IndexSet) {
-        
+
         var productID = 0
         
         for index in offsets {
@@ -126,14 +127,18 @@ class CartManager: ObservableObject {
                         // Generate error haptic feedback
                         HapticGenerator().notificationFeedback(type: .error)
                         
-                        // Display an alert
-                        //self.alert = (true, "Errore nell'aggiunta dell'indirizzo", String(data: response.data!, encoding: .utf8)!)
-                        
                     }
                     
                 }
                 
             }
+    }
+    
+    /// Remove all products from user's cart
+    func removeAll() {
+        
+        self.products = []
+        
         
         
     }

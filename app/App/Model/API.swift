@@ -35,6 +35,7 @@ enum API: String {
     // Orders
     case getOrders = "http://localhost:8888/GameZen/api/orders/get.php"
     case postOrder = "http://localhost:8888/GameZen/api/orders/post.php"
+    case cancelOrder = "http://localhost:8888/GameZen/api/orders/remove.php"
     
     // Addresses
     case getAddresses = "http://localhost:8888/GameZen/api/addresses/get.php"

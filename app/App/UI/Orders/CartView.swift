@@ -48,6 +48,8 @@ struct CartView: View {
                     
                     Button("Invia ordine") {
                         
+                        self.state.makeOrder(addressID: self.deliveryAddress, total: self.cart.totalPrice, products: self.cart.products)
+                        
                     }.buttonStyle(BlueButton()).disabled(cart.products.count == 0 || self.deliveryAddress == 0)
                     .padding(.top, 30)
                     
@@ -59,9 +61,7 @@ struct CartView: View {
                             }
                         }
                         .onDelete(perform: { indexSet in
-                            
                             self.cart.removeProduct(at: indexSet)
-                            
                         })
 
                     }
