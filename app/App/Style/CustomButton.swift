@@ -24,9 +24,9 @@ struct BlueButton: ButtonStyle {
             .foregroundColor(isEnabled ? .white : .gray)
             .padding()
             .frame(width: 290)
-            .background(Color.bluePrimary)
+            .background(isEnabled ? Color.bluePrimary : Color.darkBlue)
             .cornerRadius(25)
-            .shadow(color: .bluePrimary, radius: 5)
+            .shadow(color: isEnabled ? .bluePrimary : .darkBlue, radius: 5)
             .scaleEffect(configuration.isPressed ? 0.8 : 1)
             .animation(.easeOut(duration: 0.2))
                 
@@ -48,5 +48,25 @@ struct RedButton: ButtonStyle {
             .shadow(color: .lightRed, radius: 5)
             
                 
+    }
+}
+
+struct CustomButton_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            Button(action: {
+                
+            }, label: {
+                Text("Invia ordine")
+            }).buttonStyle(BlueButton())
+            .disabled(true)
+            
+            Button(action: {
+                
+            }, label: {
+                Text("Invia ordine")
+            }).buttonStyle(BlueButton())
+            
+        }
     }
 }

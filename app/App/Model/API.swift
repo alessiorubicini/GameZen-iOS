@@ -26,6 +26,7 @@ enum API: String {
     case getCart = "http://localhost:8888/GameZen/api/cart/get.php"
     case addProductToCart = "http://localhost:8888/GameZen/api/cart/post.php"
     case removeProductFromCart = "http://localhost:8888/GameZen/api/cart/remove.php"
+    case clearCart = "http://localhost:8888/GameZen/api/cart/clear.php"
     
     // Catalog
     case getAllProducts = "http://localhost:8888/GameZen/api/catalog/get.php"

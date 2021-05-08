@@ -35,18 +35,25 @@
 	}
 
 	// Get the passed data
-	$userID = $_POST["userID"];
 	$date = $_POST["date"];
 	$delivery = $_POST["delivery"];
+	$userID = $_POST["userID"];
 	$addressID = $_POST["address"];
 	$total = $_POST["total"];
 	$products = $_POST["products"];
 
 	// Database
 	$db = new Database();
+	$db->queryWithoutResult("INSERT INTO orders(date, delivery, user, address, state, total) VALUES('$date', '$delivery', '$userID', '$addressID', '1', '$total')");
+
+	$orderID = $db->query("SELECT id FROM orders O WHERE O.date = '$date' AND O.delivery = '$delivery' AND O.user = '$userID'")[0]["id"];
+
+	echo $orderID;
+
+	foreach($products as $product) {
+		$query = "INSERT INTO detail (orderID, product, quantity) VALUES('$orderID', '$product', '0')";
+		$db->queryWithoutResult($query);
+	}
 
 	header("HTTP/1.1 200");
-	echo $products;
-
-
 ?>

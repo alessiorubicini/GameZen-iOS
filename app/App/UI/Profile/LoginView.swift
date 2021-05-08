@@ -35,6 +35,7 @@ struct LoginView: View {
             // App logo
             Image(systemName: "cart.fill").resizable().aspectRatio(contentMode: .fit).frame(height: 150).padding(.vertical, 50)
                 .foregroundColor(.white)
+                .shadow(color: .darkBlue, radius: 20)
             
             Spacer()
             
@@ -69,7 +70,7 @@ struct LoginView: View {
             
         }
         .alert(isPresented: self.$state.alert.0, content: {
-            Alert(title: Text(state.alert.1), message: Text(state.alert.1), dismissButton: .default(Text("Chiudi")))
+            Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
         })
         
         .sheet(isPresented: $showRegistrationView, content: {

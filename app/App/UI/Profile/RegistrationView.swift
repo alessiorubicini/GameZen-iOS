@@ -20,35 +20,82 @@ struct RegistrationView: View {
     @EnvironmentObject private var state: AppState
     
     // Registration fields
-    @State private var newName = ""
-    @State private var newSurname = ""
-    @State private var newEmail = ""
-    @State private var newPassword = ""
+    @State private var name = ""
+    @State private var surname = ""
+    @State private var email = ""
+    @State private var password = ""
+    @State private var confirmPassword = ""
     @State private var birthDate = Date()
+    @State private var acceptPolicy = false
     
     // MARK: - View body
     
     var body: some View {
         Form {
             
-            TextField("Nome", text: $newName).textFieldStyle(RoundedBorderTextFieldStyle()).padding(10)
+            Section {
+                TextField("Nome", text: $name)
+                
+                TextField("Cognome", text: $surname)
+                
+                TextField("Email", text: $email)
+                
+                SecureField("Password", text: $password)
+                SecureField("Conferma password", text: $confirmPassword)
+                
+                DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
+                    Text("Data di nascita")
+                }
+                
+                Toggle("Dichiaro di accettare le condizioni d'uso e la Privacy Policy", isOn: $acceptPolicy).font(.callout)
+            }
             
-            TextField("Cognome", text: $newSurname).textFieldStyle(RoundedBorderTextFieldStyle()).padding(10)
-            
-            TextField("Email", text: $newEmail).textFieldStyle(RoundedBorderTextFieldStyle()).padding(10)
-            
-            TextField("Password", text: $newPassword).textFieldStyle(RoundedBorderTextFieldStyle()).padding(10)
-            
-            DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
-                Text("Data di nascita")
+            Section {
+                Button(action: {
+                    
+                    // Check password
+                    if password != confirmPassword {
+                        self.state.alert = (true, "Errore", "Le password non corrispondono")
+                    }
+                    
+                    // Check if user accepted conditions and policy
+                    if acceptPolicy == false {
+                        self.state.alert = (true, "Errore", "Per registrarsi è necessario accettare le condizioni e la privacy policy")
+                    }
+                    
+                    // Register the new user
+                    self.state.register(name: name, surname: surname, email: email, password: password, birthDate: birthDate)
+                    
+                }, label: {
+                    Text("Conferma").fontWeight(.semibold)
+                })
+                
+                Button(action: {
+                    
+                }, label: {
+                    Text("Condizioni d'uso")
+                })
+                
+                Button(action: {
+                    
+                }, label: {
+                    Text("Privacy Policy")
+                })
             }
             
         }
+        .alert(isPresented: self.$state.alert.0, content: {
+            Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
+        })
+        
     }
 }
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView().environmentObject(AppState())
+        NavigationView {
+            RegistrationView().environmentObject(AppState())
+                .navigationTitle("Registrati")
+        }
     }
 }

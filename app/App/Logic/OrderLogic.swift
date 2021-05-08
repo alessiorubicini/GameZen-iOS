@@ -20,11 +20,41 @@ extension AppState {
     
     func loadOrders() {
         
-        
+        AF.request(API.getOrders.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
+            .response { response in
+                
+                debugPrint(response)
+                
+                do {
+                    
+                    // Parse user info as JSON to Swift struct
+                    let orders = try JSONDecoder().decode([Order].self, from: response.data!)
+                    
+                    // Generate success haptic feedback
+                    HapticGenerator().notificationFeedback(type: .success)
+                    
+                    // Update user's orders
+                    self.user!.orders = orders
+                    
+                    // Show an alert
+                    self.alert = (true, "Ordine inviato", "Controlla il riepilogo e lo stato dell'ordine nella sezione Ordini del tuo profilo")
+                    
+                } catch {
+                    
+                    // Generate error haptic feedback
+                    HapticGenerator().notificationFeedback(type: .error)
+                    
+                    // Show an alert
+                    self.alert = (true, "Errore nel caricamento degli ordini", error.localizedDescription)
+                    
+                }
+            }
         
     }
     
     func makeOrder(addressID: Int, total: Double, products: [Product]) {
+        
+        print("Making order")
         
         // Generate order date
         let orderDate = formatter.string(from: Date())
@@ -33,7 +63,7 @@ extension AppState {
         let deliveryEstimate = formatter.string(from: Calendar.current.date(byAdding: .day, value: 6, to: Date())!)
         
         // Form a dictionary for posting data
-        let body: [String:Any] = ["userID": UserDefaults.standard.integer(forKey: "userID"), "data": orderDate, "delivery": deliveryEstimate, "address": addressID, "total": total, "products": products.map{$0.id}]
+        let body: [String:Any] = ["userID": UserDefaults.standard.integer(forKey: "userID"), "date": orderDate, "delivery": deliveryEstimate, "address": addressID, "total": total, "products": products.map{$0.id}]
         
         // Send order to database through API
         AF.request(API.postOrder.rawValue, method: .post, parameters: body)
@@ -48,14 +78,11 @@ extension AppState {
                         // Generate success haptic feedback
                         HapticGenerator().notificationFeedback(type: .success)
                         
+                        // Remove products from cart
+                        self.cartManager.removeAll()
+                        
                         // Show alert
                         self.alert = (true, "Ordine inviato con successo", "Controlla la sezione Ordini nel tuo profilo")
-                        
-                        // Remove products from cart
-                        self.cartManager.products = []
-                        
-                        // Reload user orders
-                        self.loadOrders()
                         
                     } else {
                         

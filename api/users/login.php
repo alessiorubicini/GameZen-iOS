@@ -51,7 +51,8 @@
 
 		// For each order, select the products
 		foreach($orders as &$order) {
-			$products = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, detail D, orders O, categories C, producers WHERE P.code = D.product AND D.OrderId = O.id AND P.category = C.id AND P.producer = producers.id AND O.user = 1");
+			$orderID = $order["id"];
+			$products = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, detail D, orders O, categories C, producers WHERE O.id = $orderID AND P.code = D.product AND D.orderID = O.id AND P.category = C.id AND P.producer = producers.id AND O.user = 1");
 
 			foreach($products as &$product) {
 				if($product["available"] == 1) {

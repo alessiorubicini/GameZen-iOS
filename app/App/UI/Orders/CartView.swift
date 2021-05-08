@@ -72,6 +72,10 @@ struct CartView: View {
                 
             }
             .navigationTitle("Il tuo carrello")
+            
+            .alert(isPresented: self.$state.alert.0, content: {
+                Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
+            })
 
         }
     }

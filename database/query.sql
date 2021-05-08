@@ -33,4 +33,4 @@ GROUP BY P.code
 -- Seleziona i prodotti di un ordine
 SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer'
 FROM products P, detail D, orders O, categories C, producers
-WHERE P.code = D.product AND D.OrderId = O.id AND P.category = C.id AND P.producer = producers.id AND O.user = 1
+WHERE O.id = 1 AND P.code = D.product AND D.OrderId = O.id AND P.category = C.id AND P.producer = producers.id AND O.user = 1

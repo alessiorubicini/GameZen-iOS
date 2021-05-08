@@ -44,16 +44,23 @@ class CartManager: ObservableObject {
         // Send a GET request
         AF.request(API.getCart.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
             .response { response in
-                do {
-                    // Parse user info as JSON to Swift struct
-                    let products = try JSONDecoder().decode([Product].self, from: response.data!)
-                    
-                    self.products = products
-                    
-                } catch {
-                    
-                    
+                
+                if let statusCode = response.response?.statusCode {
+                    if statusCode == 200 {
+                        do {
+                            // Parse user info as JSON to Swift struct
+                            let products = try JSONDecoder().decode([Product].self, from: response.data!)
+                            
+                            self.products = products
+                            
+                        } catch {
+                            
+                            
+                        }
+                    }
                 }
+                
+                
             }
         
     }
@@ -139,7 +146,11 @@ class CartManager: ObservableObject {
         
         self.products = []
         
-        
+        // Send a GET request
+        AF.request(API.clearCart.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
+            .response { response in
+                
+            }
         
     }
     

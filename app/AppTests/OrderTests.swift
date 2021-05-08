@@ -21,7 +21,7 @@ class OrderTests: XCTestCase {
         // Test async expectation
         let e = expectation(description: "Order POST request")
         
-        let body: [String:Any] = ["userID": 1, "date": "2021-05-07", "delivery": "2021-05-10", "address": 1, "total": 21.99, "products": Product.mocks.map{$0.id}]
+        let body: [String:Any] = ["userID": 1, "date": "2021-05-07", "delivery": "2021-05-10", "address": 1, "total": 50.00, "products": Product.mocks.map{$0.id}]
         
         // Send order to database through API
         AF.request(API.postOrder.rawValue, method: .post, parameters: body)
