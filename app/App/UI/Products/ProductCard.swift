@@ -25,12 +25,7 @@ struct ProductCard: View {
         HStack {
             
             // Product image
-            #if DEBUG
-            Image(product.name).resizable().aspectRatio(contentMode: .fit).padding()
-            #else
-            RemoteImage(url: API.images.rawValue + product.imageURL)
-                .shadow(radius: 10).padding()
-            #endif
+            RemoteImage(type: .card, url: API.images.rawValue + product.imageURL)
             
             // Info
             VStack(alignment: .leading) {

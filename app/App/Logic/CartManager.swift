@@ -55,6 +55,8 @@ class CartManager: ObservableObject {
                             
                         } catch {
                             
+                            print("ERROR while fetching user's cart")
+                            fatalError(error.localizedDescription)
                             
                         }
                     }

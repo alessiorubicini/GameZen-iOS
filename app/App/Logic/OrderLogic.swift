@@ -23,8 +23,6 @@ extension AppState {
         AF.request(API.getOrders.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
             .response { response in
                 
-                debugPrint(response)
-                
                 do {
                     
                     // Parse user info as JSON to Swift struct
@@ -54,8 +52,6 @@ extension AppState {
     
     func makeOrder(addressID: Int, total: Double, products: [Product]) {
         
-        print("Making order")
-        
         // Generate order date
         let orderDate = formatter.string(from: Date())
         
@@ -68,8 +64,6 @@ extension AppState {
         // Send order to database through API
         AF.request(API.postOrder.rawValue, method: .post, parameters: body)
             .response { response in
-                
-                debugPrint(response)
                 
                 if let statusCode = response.response?.statusCode {
                     
@@ -100,8 +94,26 @@ extension AppState {
         
     }
     
-    func cancelOrder() {
+    func cancelOrder(of id: Int) {
         
+        // Remove order from database
+        AF.request(API.cancelOrder.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
+            .response { response in
+                
+                if let statusCode = response.response?.statusCode {
+                    
+                    if statusCode == 200 {
+                        self.alert = (true, "Ordine annullato con successo", "")
+                    } else {
+                        self.alert = (true, "Errore nell'annullamento dell'ordine", String(data: response.data!, encoding: .utf8)!)
+                    }
+                    
+                }
+                
+            }
+        
+        // Reload user's orders
+        self.loadOrders()
     }
     
 }

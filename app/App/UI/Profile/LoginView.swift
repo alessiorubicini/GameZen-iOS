@@ -30,67 +30,84 @@ struct LoginView: View {
     @ViewBuilder
     var body: some View {
         
-        VStack {
+        if keepConnected {
             
-            // App logo
-            Image(systemName: "cart.fill").resizable().aspectRatio(contentMode: .fit).frame(height: 150).padding(.vertical, 50)
-                .foregroundColor(.white)
-                .shadow(color: .darkBlue, radius: 20)
+            ProgressView()
             
-            Spacer()
+            Text("Login automatico in corso...")
             
-            // Login form
+            Button(action: {
+                self.keepConnected = false
+            }, label: {
+                Text("Interrompi login automatico")
+            }).buttonStyle(RedButton())
+            .padding(.top, 30)
+            
+        } else {
+            
             VStack {
                 
-                Text("Accedi a GameZen").font(.largeTitle).foregroundColor(.darkBlue)
-                    .padding(.vertical)
+                // App logo
+                Image(systemName: "cart.fill").resizable().aspectRatio(contentMode: .fit).frame(height: 150).padding(.vertical, 50)
+                    .foregroundColor(.white)
+                    .shadow(color: .darkBlue, radius: 20)
                 
-                TextField("Email", text: $email).autocapitalization(.none).disableAutocorrection(true)
-                    .textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                Spacer()
                 
-                SecureField("Password", text: $password).autocapitalization(.none).disableAutocorrection(true)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-                
-                Toggle("Rimani collegato", isOn: $keepConnected).padding()
-                
-                Button(action: {
-                    self.showRegistrationView.toggle()
-                }, label: {
-                    Text("Non hai un profilo? Registrati!")
-                }).padding(.vertical)
-                
-                Button("Accedi") {
-                    self.state.login(email: email, password: password)
-                }.buttonStyle(BlueButton()).padding()
+                // Login form
+                VStack {
+                    
+                    Text("Accedi a GameZen").font(.largeTitle).foregroundColor(.darkBlue)
+                        .padding(.vertical)
+                    
+                    TextField("Email", text: $email).autocapitalization(.none).disableAutocorrection(true)
+                        .textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                    
+                    SecureField("Password", text: $password).autocapitalization(.none).disableAutocorrection(true)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                    
+                    Toggle("Rimani collegato", isOn: $keepConnected).padding()
+                    
+                    Button(action: {
+                        self.showRegistrationView.toggle()
+                    }, label: {
+                        Text("Non hai un profilo? Registrati!")
+                    }).padding(.vertical)
+                    
+                    Button("Accedi") {
+                        self.state.login(email: email, password: password)
+                    }.buttonStyle(BlueButton()).padding()
+                    
+                }
+                .background(Rectangle().fill(Color.white).cornerRadius(30.0)
+                                .frame(height: 550))
                 
             }
-            .background(Rectangle().fill(Color.white).cornerRadius(30.0)
-                            .frame(height: 550))
+            .alert(isPresented: self.$state.alert.0, content: {
+                Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
+            })
+            
+            .sheet(isPresented: $showRegistrationView, content: {
+                NavigationView {
+                    RegistrationView()
+                        .navigationTitle("Registrati")
+                        
+                        .navigationBarItems(leading: HStack {
+                            Button(action: {
+                                self.showRegistrationView.toggle()
+                            }, label: {
+                                Text("Annulla").foregroundColor(.red)
+                            })
+                        })
+                        
+                        .environmentObject(self.state)
+                }
+            })
+
+            .background(Color.bluePrimary.edgesIgnoringSafeArea(.all))
             
         }
-        .alert(isPresented: self.$state.alert.0, content: {
-            Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
-        })
-        
-        .sheet(isPresented: $showRegistrationView, content: {
-            NavigationView {
-                RegistrationView()
-                    .navigationTitle("Registrati")
-                    
-                    .navigationBarItems(leading: HStack {
-                        Button(action: {
-                            self.showRegistrationView.toggle()
-                        }, label: {
-                            Text("Annulla").foregroundColor(.red)
-                        })
-                    })
-                    
-                    .environmentObject(self.state)
-            }
-        })
-
-        .background(Color.bluePrimary.edgesIgnoringSafeArea(.all))
         
     }
     

@@ -50,7 +50,8 @@ class CatalogManager: ObservableObject {
                             
                         } catch {
                             
-                            
+                            print("ERROR while fetching products from catalog")
+                            fatalError(error.localizedDescription)
                             
                         }
                     }

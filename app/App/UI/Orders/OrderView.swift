@@ -16,6 +16,8 @@ import SwiftUI
 struct OrderView: View {
     
     // MARK: - View properties
+    @EnvironmentObject private var state: AppState
+    
     let order: Order
     
     // MARK: - View body
@@ -42,6 +44,12 @@ struct OrderView: View {
             
             Button("Annulla Ordine") {
                 
+                if order.state == "In attesa di pagamento" || order.state == "Pagamento ricevuto" || order.state == "In elaborazione" {
+                    self.state.cancelOrder(of: order.id)
+                } else {
+                    self.state.alert = (true, "Errore", "Non puoi annullare un ordine già spedito dall'app. Per un rimborso contatta il supporto clienti")
+                }
+                
             }.buttonStyle(RedButton())
             .padding(.top, 20)
             
@@ -66,6 +74,7 @@ struct OrderView_Previews: PreviewProvider {
         NavigationView {
             OrderView(order: Order.mocks[0])
                 .navigationTitle("Ordine n.#\(Order.mocks[0].id)")
+                .environmentObject(AppState())
         }
     }
 }

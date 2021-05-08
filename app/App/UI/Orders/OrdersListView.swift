@@ -16,15 +16,16 @@ import SwiftUI
 struct OrdersListView: View {
     
     // MARK: - View properties
-    let orders: [Order]
+    @EnvironmentObject private var state: AppState
     
+    let orders: [Order]
     
     // MARK: - View body
     
     var body: some View {
         List {
             ForEach(orders) { order in
-                NavigationLink(destination: OrderView(order: order).navigationTitle("Ordine n. #\(order.id)")) {
+                NavigationLink(destination: OrderView(order: order).environmentObject(self.state).navigationTitle("Ordine n. #\(order.id)")) {
                     OrderCard(order: order)
                 }
             }
@@ -36,6 +37,7 @@ struct OrdersListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             OrdersListView(orders: Order.mocks).navigationTitle("Ordini")
+                .environmentObject(AppState())
         }
     }
 }

@@ -32,11 +32,8 @@ struct ProductView: View {
             ScrollView {
                 
                 // Product image
-                #if DEBUG
-                Image(product.name).resizable().aspectRatio(contentMode: .fit).frame(height: 230).padding()
-                #else
-                RemoteImage(url: product.imageURL).padding()
-                #endif
+                RemoteImage(type: .view, url: API.images.rawValue + product.imageURL).padding()
+                //.resizable().aspectRatio(contentMode: .fit).frame(height: 230).padding()
                 
                 // Product info
                 Group {

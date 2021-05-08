@@ -30,21 +30,24 @@ struct SettingsView: View {
             
             List {
                 
-                Section(header: Text("Preferenze")) {
+                Section(header: Text("Generale")) {
                     Toggle("Rimani collegato", isOn: $keepConnected)
+                    
+                    Button(action: {
+                        shareApp()
+                    }, label: {
+                        Label("Condividi l'app", systemImage: "square.and.arrow.up")
+                    })
+                    
+                    Link(destination: URL(string: "mailto:gamezensupport@icloud.com")!) {
+                        Label("Contatta il supporto", systemImage: "envelope.fill")
+                    }
                 }
                 
                 Section(header: Text("Informazioni")) {
-                    HStack {
-                        Text("Versione app")
-                        Spacer()
-                        Text("1.0.0")
-                    }
                     
-                    Button(action: {
+                    Button("Domande frequenti", action: {
                         self.showFAQ.toggle()
-                    }, label: {
-                        Text("F.A.Q.")
                     })
                     .sheet(isPresented: $showFAQ, content: {
                         NavigationView {
@@ -60,12 +63,25 @@ struct SettingsView: View {
                         }
                     })
                     
-                    Button(action: {
-                        shareApp()
-                    }, label: {
-                        Text("Condividi l'app")
-                    })
+                    NavigationLink(destination: EmptyView()) {
+                        Text("Privacy policy")
+                    }
+                    NavigationLink(destination: EmptyView()) {
+                        Text("Termini di utilizzo")
+                    }
+                    
                 }
+                
+                Section {
+                    HStack {
+                        Text("Versione app")
+                        Spacer()
+                        Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
+                    }
+                    
+                    Link("Sviluppatore", destination: URL(string: "http://alessiorubicini.altervista.org")!)
+                }
+
                 
             }
             .listStyle(InsetGroupedListStyle())

@@ -51,14 +51,15 @@ extension AppState {
                             
                         } catch {
                             print(error)
+                            self.alert = (true, "Errore sconosciuto nell'autenticazione", "-")
                         }
                         
                     } else if statusCode == 403 {
                         self.alert = (true, "Credenziali non corrette", "Controlla le credenziali inserite")
                     } else if statusCode == 404 {
-                        self.alert = (true, "Utente non trovato", "Controlla le credenziali inserite o registrati al negozio")
+                        self.alert = (true, "Utente non trovato", "Controlla le credenziali inserite o registrati al negozio se non possiedi un account")
                     } else if statusCode == 500 {
-                        self.alert = (true, "Errore", "Errore interno al server. Se l'errore persiste contatta il supporto tecnico.")
+                        self.alert = (true, "Errore interno al server", "Se l'errore persiste contatta il supporto tecnico.")
                     }
                 }
             }
@@ -92,7 +93,13 @@ extension AppState {
         AF.request(API.register.rawValue, method: .post, parameters: body)
             .response { response in
                 
-                if let _ = response.response?.statusCode {
+                if let statusCode = response.response?.statusCode {
+                    
+                    if statusCode == 200 {
+                        
+                    } else {
+                        
+                    }
                     
                 }
                 

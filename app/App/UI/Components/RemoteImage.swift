@@ -17,10 +17,12 @@ struct RemoteImage: View {
     
     @StateObject var loader: Loader
     var failure: Image
+    var imageType: RemoteImage.imageType
     
-    init(url: String, failure: Image = Image(systemName: "multiply.circle")) {
+    init(type: RemoteImage.imageType, url: String, failure: Image = Image(systemName: "multiply.circle")) {
         _loader = StateObject(wrappedValue: Loader(url: url))
         self.failure = failure
+        self.imageType = type
     }
     
     @ViewBuilder
@@ -31,7 +33,7 @@ struct RemoteImage: View {
             Image(systemName: "xmark.square.fill").foregroundColor(.red)
         } else {
             if let image = UIImage(data: loader.data) {
-                Image(uiImage: image).resizable().aspectRatio(contentMode: .fit)
+                Image(uiImage: image).resizable().aspectRatio(contentMode: .fit).frame(height: self.imageType == .card ? 150 : 230)
             } else {
                 failure
             }
@@ -47,17 +49,15 @@ struct RemoteImage: View {
             guard let parsedURL = URL(string: url) else {
                 fatalError("Invalid URL")
             }
-            print("Loading image from \(url)")
+            
             URLSession.shared.dataTask(with: parsedURL) { data, response, error in
                 DispatchQueue.main.async {
                     
                     if let data = data, data.count > 0 {
                         self.data = data
                         self.state = .success
-                        print("Success loading")
                     } else {
                         self.state = .failure
-                        print("ERROR")
                     }
                 }
             }.resume()
@@ -70,10 +70,15 @@ struct RemoteImage: View {
         case success
         case failure
     }
+    
+    enum imageType {
+        case card
+        case view
+    }
 }
 
 struct RemoteImage_Previews: PreviewProvider {
     static var previews: some View {
-        RemoteImage(url: "http://localhost:8888/test/smerillo.jpg")
+        RemoteImage(type: .view, url: "http://localhost:8888/test/smerillo.jpg")
     }
 }
