@@ -15,6 +15,32 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
-	echo "Register";
+	if(!isset($_POST["name"]) || !isset($_POST["surname"]) || !isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["birthDate"])) {
+		header("HTTP/1.1 400");
+		echo "Missing some user info";
+		exit;
+	}
+
+	$name = $_POST["name"];
+	$surname = $_POST["surname"];
+	$email = $_POST["email"];
+	$password = $_POST["password"];
+	$birthDate = $_POST["birthDate"];
+
+	$db = new Database();
+
+	// Check if user already exists
+	$result = $db->query("SELECT * FROM users U WHERE U.email = '$email'");
+
+	if(count($result) != 0) {
+		header("HTTP/1.1 409");
+		echo "User with this email already exists";
+		exit;
+	}
+
+	// Create the new user
+	$db->queryWithoutResult("INSERT INTO users(name, surname, email, password, birth) VALUES('$name', '$surname', '$email', '$password', '$birthDate')");
+
+	header("HTTP/1.1 200");
 
 ?>

@@ -23,13 +23,24 @@ struct OrdersListView: View {
     // MARK: - View body
     
     var body: some View {
-        List {
-            ForEach(orders) { order in
-                NavigationLink(destination: OrderView(order: order).environmentObject(self.state).navigationTitle("Ordine n. #\(order.id)")) {
-                    OrderCard(order: order)
+        if orders.count == 0 {
+            
+            Group {
+                Image(systemName: "bag").foregroundColor(.bluePrimary).font(.system(size: 150))
+                Text("Non hai effettuato alcun ordine").font(.title2).foregroundColor(.bluePrimary)
+            }.padding(.vertical)
+            
+        } else {
+            
+            List {
+                ForEach(orders) { order in
+                    NavigationLink(destination: OrderView(order: order).environmentObject(self.state).navigationTitle("Ordine n. #\(order.id)")) {
+                        OrderCard(order: order)
+                    }
                 }
-            }
-        }.listStyle(InsetGroupedListStyle())
+            }.listStyle(InsetGroupedListStyle())
+            
+        }
     }
 }
 

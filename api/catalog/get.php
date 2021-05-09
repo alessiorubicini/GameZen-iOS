@@ -20,10 +20,10 @@
 	$result = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers WHERE C.ID = P.category AND producers.id = P.producer");
 
 	foreach($result as &$product) {
-		if($result["available"] == 1) {
-			$product["available"] = false;
-		} else {
+		if($product["available"]) {
 			$product["available"] = true;
+		} else {
+			$product["available"] = false;
 		}
 	}
 

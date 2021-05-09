@@ -18,6 +18,7 @@ struct RegistrationView: View {
     // MARK: - View properties
     
     @EnvironmentObject private var state: AppState
+    @Environment(\.presentationMode) var presentationMode
     
     // Registration fields
     @State private var name = ""
@@ -38,10 +39,10 @@ struct RegistrationView: View {
                 
                 TextField("Cognome", text: $surname)
                 
-                TextField("Email", text: $email)
+                TextField("Email", text: $email).autocapitalization(.none)
                 
-                SecureField("Password", text: $password)
-                SecureField("Conferma password", text: $confirmPassword)
+                SecureField("Password", text: $password).autocapitalization(.none)
+                SecureField("Conferma password", text: $confirmPassword).autocapitalization(.none)
                 
                 DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
                     Text("Data di nascita")
@@ -56,11 +57,13 @@ struct RegistrationView: View {
                     // Check password
                     if password != confirmPassword {
                         self.state.alert = (true, "Errore", "Le password non corrispondono")
+                        return
                     }
                     
                     // Check if user accepted conditions and policy
                     if acceptPolicy == false {
                         self.state.alert = (true, "Errore", "Per registrarsi è necessario accettare le condizioni e la privacy policy")
+                        return
                     }
                     
                     // Register the new user

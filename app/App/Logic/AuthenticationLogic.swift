@@ -74,14 +74,15 @@ extension AppState {
         
         // Log out from account
         DispatchQueue.main.async {
-            self.user = nil
+            self.isLogged = false
         }
     }
     
     func register(name: String, surname: String, email: String, password: String, birthDate: Date) {
         
         // Generate the password MD5 hash
-        let hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!)
+        var hashedPassw = Insecure.MD5.hash(data: password.data(using: .utf8)!).description.split(separator: ":")[1]
+        hashedPassw.remove(at: hashedPassw.startIndex)
         
         // Transform birth date to string
         let stringDate = formatter.string(from: birthDate)
@@ -97,7 +98,13 @@ extension AppState {
                     
                     if statusCode == 200 {
                         
+                        self.showRegistrationSheet = false
+                        
+                        showStatusAlert(icon: "", title: "Registrato con successo", message: "Inserisci le credenziali per effettuare l'accesso")
+                        
                     } else {
+                        
+                        self.alert = (true, "Errore nella registrazione", String(data: response.data!, encoding: .utf8)!)
                         
                     }
                     

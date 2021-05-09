@@ -24,7 +24,7 @@
 	$db = new Database();
 	$userID = $_GET["userID"];
 
-	$products = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers, save S, users U WHERE C.ID = P.category AND producers.ID = P.producer AND U.id = S.user AND S.product = P.code GROUP BY P.code");
+	$products = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers, save S, users U WHERE U.id = $userID AND C.ID = P.category AND producers.ID = P.producer AND U.id = S.user AND S.product = P.code GROUP BY P.code");
 
 	if(count($products) == 0) {
 		header("HTTP/1.1 404");

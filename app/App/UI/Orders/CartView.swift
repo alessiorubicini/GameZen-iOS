@@ -40,11 +40,15 @@ struct CartView: View {
                     
                     Text("Totale: \(cart.totalPrice, specifier: "%.2f") €").font(.title).padding(.top)
                     
-                    Picker(deliveryAddress == 0 ? "Seleziona indirizzo di consegna" : "Cambia indirizzo di consegna", selection: $deliveryAddress) {
-                        ForEach(state.user!.addresses) { address in
-                            Text("\(address.address) \(address.civic) - \(address.city)").font(.body)
-                        }
-                    }.pickerStyle(MenuPickerStyle())
+                    if self.state.user!.addresses.count == 0 {
+                        Text("Per effettuare un ordine è necessario aggiungere un indirizzo di consegna").multilineTextAlignment(.center).padding()
+                    } else {
+                        Picker(deliveryAddress == 0 ? "Seleziona indirizzo di consegna" : "Cambia indirizzo di consegna", selection: $deliveryAddress) {
+                            ForEach(state.user!.addresses) { address in
+                                Text("\(address.address) \(address.civic) - \(address.city)").font(.body)
+                            }
+                        }.pickerStyle(MenuPickerStyle())
+                    }
                     
                     Button("Invia ordine") {
                         
@@ -68,6 +72,7 @@ struct CartView: View {
 
                     }
                     .listStyle(PlainListStyle())
+                    .padding(.top, 15)
 
                 }
                 

@@ -45,7 +45,10 @@ struct CatalogView: View {
                     HStack {
                         Text("Catalogo completo").font(.title3).foregroundColor(.darkBlue).fontWeight(.medium)
                         Spacer()
-                        NavigationLink(destination: ProductsListView(addToCart: cart.addProduct, products: catalog.products).navigationTitle("Catalogo").navigationBarTitleDisplayMode(.inline)) {
+                        NavigationLink(destination:
+                                        ProductsListView(addToCart: cart.addProduct, products: catalog.products)
+                                        .navigationTitle("Catalogo")
+                                        .navigationBarTitleDisplayMode(.inline)) {
                             Text("Sfoglia").foregroundColor(.bluePrimary).fontWeight(.medium)
                         }
                     }.padding()
@@ -53,7 +56,7 @@ struct CatalogView: View {
                     // Horizontal list of available products
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(catalog.products.filter{$0.available == true}) { product in
+                            ForEach(catalog.products[0...2].filter{$0.available == true}) { product in
                                 NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name).navigationBarTitleDisplayMode(.inline)) {
                                     ProductCard(product: product).frame(height: 200)
                                 }
@@ -100,7 +103,7 @@ struct CatalogView: View {
             }
             .navigationTitle("Catalogo")
             
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         
         
     }

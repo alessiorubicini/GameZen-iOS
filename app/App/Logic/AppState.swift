@@ -20,6 +20,7 @@ class AppState: ObservableObject {
     
     // User account properties
     @Published var user: User? = nil
+    @Published var showRegistrationSheet = false
     @Published var isLogged: Bool = false
     @Published var alert = (false, "", "")
     

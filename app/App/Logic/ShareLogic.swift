@@ -25,7 +25,7 @@ func shareApp() {
 }
 
 func shareProduct(product: Product) {
-    let shared = "Controlla il gioco \(product.name) su GameZen al prezzo di \(product.price) €"
+    let shared = "Acquista il gioco \(product.name) su GameZen al prezzo di \(product.price) €"
     
     let activityVC = UIActivityViewController(activityItems: [shared], applicationActivities: nil)
     

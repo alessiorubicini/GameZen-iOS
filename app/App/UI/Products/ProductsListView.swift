@@ -10,7 +10,9 @@
 // GNU General Public License for more details.
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 import SwiftUI
+import SwiftUIX
 
 struct ProductsListView: View {
     
@@ -19,18 +21,31 @@ struct ProductsListView: View {
     let addToCart: (Product) -> Bool
     let products: [Product]
     
+    // Search bar variables
+    @State var isEditing: Bool = false
+    @State var searchText: String = ""
+    
     // MARK: - View body
     
     var body: some View {
-        List {
+        
+        VStack {
+            // Product search bar
+            SearchBar("Cerca prodotto", text: $searchText, isEditing: $isEditing)
+                .showsCancelButton(isEditing)
+                .padding(5)
             
-            ForEach(products) { product in
-                NavigationLink(destination: ProductView(product: product, addToCart: addToCart).navigationTitle(product.name)) {
-                    ProductCard(product: product).frame(height: 200)
+            List {
+
+                ForEach(searchText.isEmpty ? products : products.filter({$0.name.contains(searchText)})) { product in
+                    NavigationLink(destination: ProductView(product: product, addToCart: addToCart).navigationTitle(product.name)) {
+                        ProductCard(product: product).frame(height: 200)
+                    }
                 }
+                
             }
-            
         }
+        
     }
 }
 

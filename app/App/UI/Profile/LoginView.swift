@@ -19,8 +19,6 @@ struct LoginView: View {
     
     @EnvironmentObject var state: AppState
     
-    @State private var showRegistrationView = false
-    
     @AppStorage("email") private var email = ""
     @AppStorage("password") private var password = ""
     @AppStorage("keepConnected") private var keepConnected = false
@@ -68,7 +66,7 @@ struct LoginView: View {
                         .padding(.horizontal)
                     
                     Button(action: {
-                        self.showRegistrationView.toggle()
+                        self.state.showRegistrationSheet.toggle()
                     }, label: {
                         Text("Non hai un profilo? Registrati!")
                     }).padding(.vertical)
@@ -86,14 +84,14 @@ struct LoginView: View {
                 Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
             })
             
-            .sheet(isPresented: $showRegistrationView, content: {
+            .sheet(isPresented: self.$state.showRegistrationSheet, content: {
                 NavigationView {
                     RegistrationView()
                         .navigationTitle("Registrati")
                         
                         .navigationBarItems(leading: HStack {
                             Button(action: {
-                                self.showRegistrationView.toggle()
+                                self.state.showRegistrationSheet = false
                             }, label: {
                                 Text("Annulla").foregroundColor(.red)
                             })
