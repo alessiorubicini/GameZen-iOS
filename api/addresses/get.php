@@ -15,18 +15,21 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
+	// Check if all data has been passed
 	if(!isset($_GET["userID"])) {
 		header("HTTP/1.1 400");
 		echo "Missing user ID";
 		exit;
 	}
 
+	// Get passed data
 	$userID = $_GET["userID"];
 
+	// Select user's addresses
 	$db = new Database();
-
 	$addresses = $db->query("SELECT A.id, A.address, A.civic, A.city, A.CAP, A.province, A.phone FROM addresses A INNER JOIN delivery D ON A.id = D.address AND D.user = $userID");
 
+	// Return final result as JSON
 	header("HTTP/1.1 200");
 	echo json_encode($addresses, JSON_NUMERIC_CHECK);
 ?>

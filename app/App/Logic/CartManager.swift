@@ -123,7 +123,7 @@ class CartManager: ObservableObject {
         self.products.remove(atOffsets: offsets)
         
         // Remove from database
-        AF.request(API.removeProductFromCart.rawValue, method: .post, parameters: ["userID": UserDefaults.standard.integer(forKey: "userID"), "productID": productID])
+        AF.request(API.deleteProductFromCart.rawValue, method: .post, parameters: ["userID": UserDefaults.standard.integer(forKey: "userID"), "productID": productID])
             .response { response in
                 
                 if let statusCode = response.response?.statusCode {

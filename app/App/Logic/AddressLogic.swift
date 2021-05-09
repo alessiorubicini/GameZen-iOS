@@ -52,7 +52,7 @@ extension AppState {
         let body: [String:Any] = ["userID": UserDefaults.standard.integer(forKey: "userID"), "address": data.address, "civic": Int(data.civic) ?? 0, "city": data.city, "CAP": Int(data.CAP) ?? 0, "province": data.province, "phone": Int(data.phone) ?? 0]
         
         // Add address to database through API
-        AF.request(API.addAddress.rawValue, method: .post, parameters: body)
+        AF.request(API.postAddress.rawValue, method: .post, parameters: body)
             .response { response in
                 
                 if let statusCode = response.response?.statusCode {
@@ -89,7 +89,7 @@ extension AppState {
     func removeAddress(of id: Int) {
         
         // Remove address from database through API
-        AF.request(API.removeAddress.rawValue, method: .post, parameters: ["addressID": id])
+        AF.request(API.deleteAddress.rawValue, method: .post, parameters: ["addressID": id])
             .response { response in
                 
                 if let statusCode = response.response?.statusCode {
@@ -98,6 +98,8 @@ extension AppState {
                         
                         // Generate success haptic feedback
                         HapticGenerator().notificationFeedback(type: .success)
+                        
+                        showStatusAlert(icon: "mappin.slash", title: "Rimosso", message: "Indirizzo di consegna rimosso")
                         
                         // Reload addresses
                         self.loadAddresses()

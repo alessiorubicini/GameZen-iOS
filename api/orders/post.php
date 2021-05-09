@@ -16,6 +16,7 @@
 	require_once('../core/database.php');
 	require_once('../core/config.php');
 
+	// Check if all data has been passed
 	if(!isset($_POST["userID"])) {
 		header("HTTP/1.1 400");
 		echo "Missing user ID";
@@ -42,16 +43,15 @@
 	$total = $_POST["total"];
 	$products = $_POST["products"];
 
-	// Database
+	// Add the new order to the database
 	$db = new Database();
 	$db->queryWithoutResult("INSERT INTO orders(date, delivery, user, address, state, total) VALUES('$date', '$delivery', '$userID', '$addressID', '1', '$total')");
 
 	$orderID = $db->query("SELECT id FROM orders O WHERE O.date = '$date' AND O.delivery = '$delivery' AND O.user = '$userID'")[0]["id"];
 
-	echo $orderID;
-
+	// For each order's product, add order-product relationship
 	foreach($products as $product) {
-		$query = "INSERT INTO detail (orderID, product, quantity) VALUES('$orderID', '$product', '0')";
+		$query = "INSERT INTO detail (orderID, product, quantity) VALUES('$orderID', '$product', '1')";
 		$db->queryWithoutResult($query);
 	}
 

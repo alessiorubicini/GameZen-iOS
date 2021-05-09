@@ -1,5 +1,5 @@
 <?php
-	// get.php (products)
+	// post.php (cart)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by

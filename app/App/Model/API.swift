@@ -25,7 +25,7 @@ enum API: String {
     // Cart
     case getCart = "http://localhost:8888/GameZen/api/cart/get.php"
     case addProductToCart = "http://localhost:8888/GameZen/api/cart/post.php"
-    case removeProductFromCart = "http://localhost:8888/GameZen/api/cart/remove.php"
+    case deleteProductFromCart = "http://localhost:8888/GameZen/api/cart/delete.php"
     case clearCart = "http://localhost:8888/GameZen/api/cart/clear.php"
     
     // Catalog
@@ -36,11 +36,11 @@ enum API: String {
     // Orders
     case getOrders = "http://localhost:8888/GameZen/api/orders/get.php"
     case postOrder = "http://localhost:8888/GameZen/api/orders/post.php"
-    case cancelOrder = "http://localhost:8888/GameZen/api/orders/remove.php"
+    case cancelOrder = "http://localhost:8888/GameZen/api/orders/delete.php"
     
     // Addresses
     case getAddresses = "http://localhost:8888/GameZen/api/addresses/get.php"
-    case addAddress = "http://localhost:8888/GameZen/api/addresses/add.php"
-    case removeAddress = "http://localhost:8888/GameZen/api/addresses/remove.php"
+    case postAddress = "http://localhost:8888/GameZen/api/addresses/post.php"
+    case deleteAddress = "http://localhost:8888/GameZen/api/addresses/delete.php"
     
 }

@@ -1,5 +1,5 @@
 <?php
-	// get.php (orders)
+	// remove.php (cart)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -14,19 +14,24 @@
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
-	require_once('../core/config.php');
 
-	if(!isset($_GET["orderID"])) {
+	if(!isset($_POST["userID"])) {
 		header("HTTP/1.1 400");
-		echo "Missing order ID";
+		echo "Missing user ID";
 		exit;
 	}
 
+	if(!isset($_POST["productID"])) {
+		header("HTTP/1.1 400");
+		echo "Missing product ID";
+		exit;
+	}
+
+	$userID = $_POST["userID"];
+	$productID = $_POST["productID"];
+
 	$db = new Database();
-	$orderID = $_GET["orderID"];
-	
-	$db->queryWithoutResult("DELETE FROM orders WHERE id = '$orderID'");
+	$db->queryWithoutResult("DELETE FROM save WHERE user = '$userID' AND product = '$productID'");
 
 	header("HTTP/1.1 200");
-	
 ?>

@@ -15,6 +15,7 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
+	// Check if all data has been passed
 	if(!isset($_POST["email"])) {
 		header("HTTP/1.1 400");
 		echo "Missing email";
@@ -27,14 +28,15 @@
 		exit;
 	}
 
+	// Get passed data
 	$email = $_POST["email"];
 	$password = $_POST["password"];
 
-	
+	// Check user's credentials
 	$db = new Database();
 	$result = $db->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
 
-
+	// If credentials are wrong, return HTTP 403 forbidden
 	if(count($result) == 0) {
 		header("HTTP/1.1 403");
 		echo "Forbidden";
@@ -54,6 +56,7 @@
 			$orderID = $order["id"];
 			$products = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, detail D, orders O, categories C, producers WHERE O.id = $orderID AND P.code = D.product AND D.orderID = O.id AND P.category = C.id AND P.producer = producers.id AND O.user = 1");
 
+			// Transforming boolean value from tinyint to true|false
 			foreach($products as &$product) {
 				if($product["available"]) {
 					$product["available"] = true;
@@ -67,7 +70,7 @@
 
 		$result[0]["orders"] = $orders;
 
-		// Returns result as JSON
+		// Return final result as JSON
 		header("HTTP/1.1 200");
 		echo json_encode($result[0], JSON_NUMERIC_CHECK);
 	

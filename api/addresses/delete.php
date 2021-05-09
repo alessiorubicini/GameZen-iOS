@@ -1,5 +1,5 @@
 <?php
-	// addAddress.php
+	// delete.php (addresses)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -15,16 +15,18 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
+	// Check if all data has been passed
 	if(!isset($_POST["addressID"])) {
 		header("HTTP/1.1 400");
 		echo "Missing address ID";
 		exit;
 	}
 
+	// Get passed data
 	$addressID = $_POST["addressID"];
 
+	// Remove address from database
 	$db = new Database();
-
 	$db->queryWithoutResult("DELETE FROM delivery WHERE address = '$addressID'");
 	$db->queryWithoutResult("DELETE FROM addresses WHERE id = '$addressID'");
 

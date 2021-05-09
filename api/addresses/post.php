@@ -1,5 +1,5 @@
 <?php
-	// addAddress.php
+	// post.php (addresses)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -15,6 +15,7 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
+	// Check if all data has been passed
 	if(!isset($_POST["userID"])) {
 		header("HTTP/1.1 400");
 		echo "Missing userID";
@@ -27,7 +28,7 @@
 		exit;
 	}
 
-	// Get the passed data
+	// Get passed data
 	$userID = $_POST["userID"];
 	$address = $_POST["address"];
 	$civic = $_POST["civic"];
@@ -43,14 +44,13 @@
 	// Add the address to the database
 	$addResult = $db->queryWithoutResult("INSERT INTO addresses(address, civic, city, CAP, province, phone) VALUES('$address', '$civic', '$city', '$CAP', '$province', '$phone')");
 	
-	// Select the ID
+	// Select the address' ID
 	$addressID = $db->query("SELECT A.id FROM addresses A WHERE A.address = '$address' AND A.civic = '$civic' AND A.city = '$city' AND A.province = '$province' AND A.phone = '$phone'")[0]["id"];
 	
-	echo "INSERT INTO delivery (user, address) VALUES ('$userID', '$addressID')";
 	// Add user-address relationship
 	$relResult = $db->queryWithoutResult("INSERT INTO delivery (user, address) VALUES ('$userID', '$addressID[0]')");
 
-	// Commit transaction
+	// Commit transaction and return HTTP response
 	$db->conn->commit();
 	header("HTTP/1.1 200");
 

@@ -1,5 +1,5 @@
 <?php
-	// get.php (products)
+	// get.php (catalog)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -15,10 +15,11 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
+	// Select all products from database
 	$db = new Database();
-
 	$result = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers WHERE C.ID = P.category AND producers.id = P.producer");
 
+	// Transforming boolean value from tinyint to true|false
 	foreach($result as &$product) {
 		if($product["available"]) {
 			$product["available"] = true;

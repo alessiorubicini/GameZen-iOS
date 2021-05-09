@@ -1,5 +1,5 @@
 <?php
-	// getCategories.php (products)
+	// getCategories.php (catalog)
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -15,10 +15,11 @@
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
 
+	// Select catalog's categories from database
 	$db = new Database();
-
 	$categories = $db->query("SELECT c.id, c.name, COUNT(P.code) AS 'numberOfProducts' FROM products P, categories C WHERE P.category = C.id GROUP BY C.id");
 
+	// Return result as JSON
 	echo json_encode($categories, JSON_NUMERIC_CHECK);
 
 ?>

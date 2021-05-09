@@ -77,7 +77,7 @@ struct AddressesView: View {
                     Button(action: {
                         self.state.removeAddress(of: address.id)
                     }, label: {
-                        Text("Elimina indirizzo").foregroundColor(.red)
+                        Text("Rimuovi indirizzo").foregroundColor(.red)
                     })
                     
                 }
