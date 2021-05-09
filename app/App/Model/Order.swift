@@ -35,6 +35,18 @@ struct Order: Identifiable {
         case products = "products"
     }
     
+    func orderStateId() -> Float {
+        switch self.state {
+        case "In attesa di pagamento": return 1.0
+        case "Pagamento ricevuto": return 2.0
+        case "In elaborazione": return 3.0
+        case "Spedito": return 4.0
+        case "In consegna": return 5.0
+        case "Consegnato": return 6.0
+        default: return 0.0
+        }
+    }
+    
 }
 
 // Making the Order struct conform to Decodable protocol
@@ -51,6 +63,8 @@ extension Order: Decodable {
         self.products = try container.decode([Product].self, forKey: .products)
     }
 }
+
+
 
 
 // Mock objects for debugging purposes

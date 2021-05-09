@@ -67,8 +67,6 @@ struct LoginView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
                     
-                    Toggle("Rimani collegato", isOn: $keepConnected).padding()
-                    
                     Button(action: {
                         self.showRegistrationView.toggle()
                     }, label: {

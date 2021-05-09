@@ -74,10 +74,14 @@ extension AppState {
                         HapticGenerator().notificationFeedback(type: .success)
                         
                         // Remove products from cart
-                        self.cartManager.removeAll()
+                        withAnimation {
+                            self.cartManager.removeAll()
+                        }
                         
                         // Show alert
                         showStatusAlert(icon: "checkmark", title: "Ordine inviato", message: "Controlla la sezione Ordini nel tuo profilo")
+                        
+                        self.loadOrders()
                         
                     } else {
                         

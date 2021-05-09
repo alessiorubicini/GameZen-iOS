@@ -45,7 +45,7 @@ struct CatalogView: View {
                     HStack {
                         Text("Catalogo completo").font(.title3).foregroundColor(.darkBlue).fontWeight(.medium)
                         Spacer()
-                        NavigationLink(destination: ProductsListView(addToCart: cart.addProduct, products: catalog.products).navigationTitle("Catalogo")) {
+                        NavigationLink(destination: ProductsListView(addToCart: cart.addProduct, products: catalog.products).navigationTitle("Catalogo").navigationBarTitleDisplayMode(.inline)) {
                             Text("Sfoglia").foregroundColor(.bluePrimary).fontWeight(.medium)
                         }
                     }.padding()
@@ -87,8 +87,10 @@ struct CatalogView: View {
                     List {
                         // Filter product list for searched name
                         ForEach(catalog.products.filter{$0.name.contains(searchText)}) { product in
-                            ProductCard(product: product)
-                                .frame(height: 200)
+                            NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name).navigationBarTitleDisplayMode(.inline)) {
+                                ProductCard(product: product).frame(height: 200)
+                            }
+
                         }
                     }
                     .listStyle(PlainListStyle())

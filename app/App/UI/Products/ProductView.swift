@@ -36,27 +36,39 @@ struct ProductView: View {
                 //.resizable().aspectRatio(contentMode: .fit).frame(height: 230).padding()
                 
                 // Product info
-                Group {
-                    Divider()
+                VStack(alignment: .leading) {
+                    Text(product.name).font(.title).fontWeight(.semibold)
+                        .padding(.horizontal)
+                        .padding(.bottom, 1)
                     
-                    Text(product.available ? "Disponibile" : "Esaurito").foregroundColor(product.available ? .green : .red)
+                    HStack {
+                        Text("\(product.price, specifier: "%.2f") €")
+                        Text(product.available ? "Disponibile" : "Esaurito")
+                            .foregroundColor(product.available ? .green : .red)
+                    }.font(.title3).padding(.horizontal)
                     
-                    Divider()
+                    VStack {
+                        Divider()
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("CATEGORIA")
+                                Text(product.category)
+                            }
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                                Text("LINGUA")
+                                Text(product.language)
+                            }
+                        }
+                        Divider()
+                    }.padding(.horizontal).padding(.vertical, 5)
+
+                    Text(product.description).lineLimit(10).minimumScaleFactor(0.5).padding()
                     
-                    Text(product.description).padding()
                     
-                    Divider()
-                    
-                    Text("Categoria: \(product.category)")
-                    
-                    Divider()
-                    
-                    Text("Lingua: \(product.language)")
-                    
-                    Divider()
-                    
-                    Text("\(product.price, specifier: "%.2f") €").font(.title)
-                }
+                }.foregroundColor(.darkBlue)
+                
+                
                 
                 Button("Aggiungi al carrello") {
                     
@@ -72,6 +84,7 @@ struct ProductView: View {
             }
             
         }
+        
         .alert(isPresented: $productAlreadyAdded, content: {
             Alert(title: Text("Errore"), message: Text("Il prodotto è già presente nel carrello"), dismissButton: .default(Text("Chiudi")))
         })
@@ -82,7 +95,7 @@ struct ProductView: View {
             }, label: {
                 Image(systemName: "square.and.arrow.up").font(.title2).foregroundColor(.bluePrimary)
             })
-        })
+    })
         
     }
 }
@@ -90,8 +103,9 @@ struct ProductView: View {
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProductView(product: Product.mocks[1], addToCart: { _ in return false})
-                .navigationTitle("Prodotto")
+            ProductView(product: Product.mocks[0], addToCart: { _ in return false})
+                .navigationTitle(Product.mocks[1].name)
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

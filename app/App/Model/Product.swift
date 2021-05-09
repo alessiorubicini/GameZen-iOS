@@ -61,7 +61,7 @@ extension Product: Decodable {
 extension Product {
         
     static let mocks = [
-        Product(id: 1, name: "Monopoly", category: "Strategici", description: "Gioco da tavolo a squadre", year: 2014, language: "ITA", price: 19.99, available: true, imageURL: ""),
+        Product(id: 1, name: "Monopoly", category: "Strategici", description: "Il gioco di contrattazione più famoso del mondo. Compra, vendi, sogna e programma la tua strada verso la ricchezza. I giocatori comprano, vendono e contrattano per vincere; compra e vendi proprietà.", year: 2014, language: "ITA", price: 19.99, available: true, imageURL: "monopoly.jpg"),
         Product(id: 2, name: "Risiko", category: "Wargames", description: "Gioco da tavolo a squadre", year: 2018, language: "ITA", price: 29.99, available: false, imageURL: "")
     ]
     

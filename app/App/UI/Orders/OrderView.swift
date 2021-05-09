@@ -17,6 +17,7 @@ struct OrderView: View {
     
     // MARK: - View properties
     @EnvironmentObject private var state: AppState
+    @Environment(\.presentationMode) var presentationMode
     
     let order: Order
     
@@ -26,44 +27,54 @@ struct OrderView: View {
         VStack {
             
             // Order info
-            Group {
-                Text(order.state).foregroundColor(orderStateColor(for: order.state))
+            VStack {
+                
+                ProgressView("Monitoraggio ordine", value: order.orderStateId(), total: 6.0).padding()
+                Text(order.state).foregroundColor(orderStateColor(for: order.state)).font(.title2)
                 
                 Divider()
                 
-                Text("Data dell'ordine: \(order.date)")
-                
+                Group {
+                    HStack {
+                        Text("Data dell'ordine")
+                        Text("\(order.date)")
+                    }
+                    
+                    HStack {
+                        Text("Consegna stimata:")
+                        Text("\(order.delivery)")
+                    }
+                }.font(.title2).padding(.vertical)
+
                 Divider()
                 
-                Text("Stima consegna: \(order.delivery)")
+                Text("Totale: \(order.total, specifier: "%.2f") €").font(.title3)
                 
-                Divider()
-                
-                Text("Totale: \(order.total, specifier: "%.2f") €")
-            }
+            }.foregroundColor(.darkBlue).padding(.vertical)
             
-            Button("Annulla Ordine") {
-                
-                if order.state == "In attesa di pagamento" || order.state == "Pagamento ricevuto" || order.state == "In elaborazione" {
-                    self.state.cancelOrder(of: order.id)
-                } else {
-                    self.state.alert = (true, "Errore", "Non puoi annullare un ordine già spedito dall'app. Per un rimborso contatta il supporto clienti")
-                }
-                
-            }.buttonStyle(RedButton())
-            .padding(.top, 20)
+            if order.state != "Consegnato" {
+                Button("Annulla Ordine") {
+                    
+                    if order.state == "In attesa di pagamento" || order.state == "Pagamento ricevuto" || order.state == "In elaborazione" {
+                        self.state.cancelOrder(of: order.id)
+                        self.presentationMode.wrappedValue.dismiss()
+                    } else {
+                        self.state.alert = (true, "Errore", "Non puoi annullare un ordine già spedito dall'app. Per un rimborso contatta il supporto clienti")
+                    }
+                    
+                }.buttonStyle(RedButton())
+                .padding(.top, 20)
+            }
             
             // Order products
             
             List {
-                
                 ForEach(self.order.products) { product in
                     ProductCard(product: product).frame(height: 150)
                 }
-
-
             }
             .listStyle(PlainListStyle())
+            .padding(.top, 10)
             
         }
     }

@@ -23,10 +23,10 @@ Questa repository contiene il codice sorgente del client iOS di GameZen, un'app 
 
 # Struttura repository
 
-├── api:                 API HTTP per l'interazione app-database<br>
+├── api:                 API HTTP per l'interazione con il database<br>
 ├── app:                 App iOS<br>
-├── database:            Database della piattaforma<br>
-├── design:              Assets dell'app e design<br>
+├── database:            Database<br>
+├── design:              Mockup e assets<br>
 ├── docs:                Documentazione<br>
 ├── README_EN.md:        File in inglese contenente informazioni sulla repository<br>
 └── README.md:           File in italiano contenente informazioni sulla repository
@@ -55,8 +55,8 @@ Controllare il file AUTHORS per un riferimento esteso.
 | ----------------------------------------------------------- | ------------------------- |
 | [Alamofire](https://github.com/Alamofire/Alamofire)         | MIT                       |
 | [SwiftUIX](https://github.com/SwiftUIX/SwiftUIX)			  | MIT                       |
-| [StatusAlert](https://github.com/LowKostKustomz/StatusAlert)			  | MIT                       |
 | [SwiftUIComponents](https://github.com/alessiorubiciniSwiftUI-Components)                                    | MIT |
+| [StatusAlert](https://github.com/LowKostKustomz/StatusAlert)			  | MIT                       |
 | [Cocoapods](https://cocoapods.org/)                         | MIT                       |
 | [Fastlane](https://fastlane.tools)                         | MIT                       |
 

@@ -33,7 +33,7 @@ struct RemoteImage: View {
             Image(systemName: "xmark.square.fill").foregroundColor(.red)
         } else {
             if let image = UIImage(data: loader.data) {
-                Image(uiImage: image).resizable().aspectRatio(contentMode: .fit).frame(height: self.imageType == .card ? 150 : 230)
+                Image(uiImage: image).resizable().aspectRatio(contentMode: .fit).frame(height: self.imageType == .card ? 150 : 210)
             } else {
                 failure
             }

@@ -55,8 +55,8 @@ Check the AUTHORS file for extended reference.
 | ----------------------------------------------------------- | ------------------------- |
 | [Alamofire](https://github.com/Alamofire/Alamofire)         | MIT                       |
 | [SwiftUIX](https://github.com/SwiftUIX/SwiftUIX)			  | MIT                       |
+| [SwiftUIComponents](https://github.com/alessiorubicini/SwiftUI-Components)                                    | MIT |
 | [StatusAlert](https://github.com/LowKostKustomz/StatusAlert)			  | MIT                       |
-| [SwiftUIComponents](https://github.com/alessiorubiciniSwiftUI-Components)                                    | MIT |
 | [Cocoapods](https://cocoapods.org/)                         | MIT                       |
 | [Fastlane](https://fastlane.tools)                         | MIT                       |
 
