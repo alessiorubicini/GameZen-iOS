@@ -71,7 +71,7 @@ class CartManager: ObservableObject {
     /// - Parameter product: the product to be added
     func addProduct(product: Product) -> Bool {
         
-        // Check if the product is already in the cart
+        // Check if the product was already to the cart
         if self.products.contains(where: {$0.name == product.name}) {
             return false
         }
@@ -89,6 +89,8 @@ class CartManager: ObservableObject {
                         
                         // Generate success haptic feedback
                         HapticGenerator().notificationFeedback(type: .success)
+                        
+                        showStatusAlert(icon: "cart.fill.badge.plus", title: "Aggiunto", message: "Articolo aggiunto al carrello")
                         
                     } else {
                         

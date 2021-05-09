@@ -61,7 +61,9 @@ struct CartView: View {
                             }
                         }
                         .onDelete(perform: { indexSet in
-                            self.cart.removeProduct(at: indexSet)
+                            withAnimation {
+                                self.cart.removeProduct(at: indexSet)
+                            }
                         })
 
                     }

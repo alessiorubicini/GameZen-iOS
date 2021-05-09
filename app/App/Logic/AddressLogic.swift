@@ -34,6 +34,8 @@ extension AppState {
                     
                 } catch {
                     
+                    print("ERROR while fetching addresses from catalog")
+                    fatalError(error.localizedDescription)
                     
                 }
             }
@@ -59,6 +61,8 @@ extension AppState {
                         
                         // Generate success haptic feedback
                         HapticGenerator().notificationFeedback(type: .success)
+                        
+                        showStatusAlert(icon: "mappin.and.ellipse", title: "Aggiunto", message: "Indirizzo di consegna aggiunto con successo")
                         
                         // Reload addresses
                         self.loadAddresses()

@@ -7,6 +7,7 @@ target 'GameZen' do
 
   # Pods for GameZen
   pod 'Alamofire', '~> 5.2' 
+  pod 'StatusAlert', '~> 1.1.1'
 
   target 'GameZenTests' do
     inherit! :search_paths

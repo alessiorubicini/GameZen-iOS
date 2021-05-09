@@ -41,6 +41,7 @@
 		CF353317263C8D8400CC4A8E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353316263C8D8400CC4A8E /* CartView.swift */; };
 		CF353319263C8D8A00CC4A8E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353318263C8D8A00CC4A8E /* ProfileView.swift */; };
 		CF35331B263C8D9000CC4A8E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35331A263C8D9000CC4A8E /* SettingsView.swift */; };
+		CF63F3592647A7B4004ECD27 /* PopupAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF63F3582647A7B4004ECD27 /* PopupAlert.swift */; };
 		CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650E8A263C870E00B6C05A /* GameZenApp.swift */; };
 		CF650E8F263C870F00B6C05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF650E8E263C870F00B6C05A /* Assets.xcassets */; };
 		CF650E92263C870F00B6C05A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF650E91263C870F00B6C05A /* Preview Assets.xcassets */; };
@@ -119,6 +120,7 @@
 		CF353318263C8D8A00CC4A8E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CF35331A263C8D9000CC4A8E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CF35331C263C8DB500CC4A8E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CF63F3582647A7B4004ECD27 /* PopupAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAlert.swift; sourceTree = "<group>"; };
 		CF650E87263C870E00B6C05A /* GameZen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameZen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF650E8A263C870E00B6C05A /* GameZenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameZenApp.swift; sourceTree = "<group>"; };
 		CF650E8E263C870F00B6C05A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 			children = (
 				CF9FE6F5263C97F200C6577D /* Colors.swift */,
 				CF0ADF29263D3BBE00283EA8 /* CustomButton.swift */,
+				CF63F3582647A7B4004ECD27 /* PopupAlert.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				CFED5DD426405F0900F3DC97 /* AuthenticationLogic.swift in Sources */,
 				CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */,
 				CF726361263C9FDE00D38B99 /* Errors.swift in Sources */,
+				CF63F3592647A7B4004ECD27 /* PopupAlert.swift in Sources */,
 				CF1A321E26432F8B0000ECAE /* OrderLogic.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
 				CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */,

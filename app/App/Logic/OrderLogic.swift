@@ -20,6 +20,8 @@ extension AppState {
     
     func loadOrders() {
         
+        self.user!.orders = []
+        
         AF.request(API.getOrders.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
             .response { response in
                 
@@ -34,8 +36,7 @@ extension AppState {
                     // Update user's orders
                     self.user!.orders = orders
                     
-                    // Show an alert
-                    self.alert = (true, "Ordine inviato", "Controlla il riepilogo e lo stato dell'ordine nella sezione Ordini del tuo profilo")
+                    print("Ordini ricaricati")
                     
                 } catch {
                     
@@ -76,7 +77,7 @@ extension AppState {
                         self.cartManager.removeAll()
                         
                         // Show alert
-                        self.alert = (true, "Ordine inviato con successo", "Controlla la sezione Ordini nel tuo profilo")
+                        showStatusAlert(icon: "checkmark", title: "Ordine inviato", message: "Controlla la sezione Ordini nel tuo profilo")
                         
                     } else {
                         
@@ -97,13 +98,13 @@ extension AppState {
     func cancelOrder(of id: Int) {
         
         // Remove order from database
-        AF.request(API.cancelOrder.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
+        AF.request(API.cancelOrder.rawValue + "?orderID=\(id)", method: .get)
             .response { response in
                 
                 if let statusCode = response.response?.statusCode {
                     
                     if statusCode == 200 {
-                        self.alert = (true, "Ordine annullato con successo", "")
+                        showStatusAlert(icon: "xmark.square.fill", title: "Annullato", message: "Ordine annullato con successo")
                     } else {
                         self.alert = (true, "Errore nell'annullamento dell'ordine", String(data: response.data!, encoding: .utf8)!)
                     }

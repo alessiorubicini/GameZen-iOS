@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.4.1)
+  - StatusAlert (1.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - StatusAlert (~> 1.1.1)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - StatusAlert
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
 
-PODFILE CHECKSUM: a473568f47e5c1d064358e67b8a2db00cf00222e
+PODFILE CHECKSUM: 46376632265e9ca3cd989a610b4e32e64213550a
 
 COCOAPODS: 1.10.0

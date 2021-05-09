@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-GameZen-GameZenUITests/Pods-GameZen-GameZenUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework
