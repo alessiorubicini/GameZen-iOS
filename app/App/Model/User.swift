@@ -66,6 +66,7 @@ extension User: Decodable {
 }
 
 extension User {
+    
     struct Data {
         var name = ""
         var surname = ""
@@ -77,5 +78,10 @@ extension User {
         return Data(name: name, surname: surname, email: email, birthDate: formatter.date(from: birthDate)!)
     }
     
+}
+
+// Mock structure for debugging purposes
+extension User {
+    static let mock = User(id: 1, name: "Alessio", surname: "Rubicini", email: "alessiorubicini16@icloud.com", password: "test", birthDate: "2002-07-16", addresses: [], orders: [])
 }
 

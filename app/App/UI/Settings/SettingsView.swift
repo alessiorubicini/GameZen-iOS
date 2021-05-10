@@ -22,6 +22,7 @@ struct SettingsView: View {
     @AppStorage("keepConnected") private var keepConnected = false
     
     @State private var showFAQ = false
+    @State private var showCredits = false
     
     // MARK: - View body
     
@@ -80,6 +81,24 @@ struct SettingsView: View {
                     }
                     
                     Link("Sviluppatore", destination: URL(string: "http://alessiorubicini.altervista.org")!)
+                    
+                    Button("Crediti e ringraziamenti") {
+                        self.showCredits.toggle()
+                    }
+                    .sheet(isPresented: $showCredits, content: {
+                        NavigationView {
+                            CreditsView()
+                                .navigationTitle("Crediti e ringraziamenti")
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarItems(trailing: HStack {
+                                    Button(action: {
+                                        self.showCredits.toggle()
+                                    }, label: {
+                                        Image(systemName: "xmark").foregroundColor(.darkBlue).font(.title2).padding(5)
+                                    })
+                                })
+                        }
+                    })
                 }
 
                 

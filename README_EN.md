@@ -1,7 +1,7 @@
 <h1 align="center">GameZen iOS</h1>
 
 <div align="center">
-	<img width="256" height="256" src="design/logo.png">
+	<img width="256" height="256" src=".github/logo.png">
 </div>
 
 NOTE: this README is also available [in Italian](README.md).

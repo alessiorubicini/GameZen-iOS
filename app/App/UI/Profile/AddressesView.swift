@@ -25,6 +25,7 @@ struct AddressesView: View {
     // MARK: - View body
     
     var body: some View {
+        
         List {
             Section {
                 Button(action: {

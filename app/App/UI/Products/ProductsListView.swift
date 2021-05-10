@@ -24,6 +24,7 @@ struct ProductsListView: View {
     // Search bar variables
     @State var isEditing: Bool = false
     @State var searchText: String = ""
+
     
     // MARK: - View body
     

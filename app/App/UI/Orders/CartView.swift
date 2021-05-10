@@ -32,8 +32,8 @@ struct CartView: View {
                 if cart.products.count == 0 {
                     
                     Group {
-                        Image(systemName: "cart").foregroundColor(.bluePrimary).font(.system(size: 150))
-                        Text("Il tuo carrello è vuoto").font(.title2).foregroundColor(.bluePrimary)
+                        Image("EmptyCart").resizable().aspectRatio(contentMode: .fit).frame(width: 230)
+                        Text("Il tuo carrello è vuoto").font(.title2).foregroundColor(.darkBlue).fontWeight(.medium)
                     }.padding(.vertical)
                     
                 } else {

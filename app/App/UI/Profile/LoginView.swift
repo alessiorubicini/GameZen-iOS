@@ -46,9 +46,8 @@ struct LoginView: View {
             VStack {
                 
                 // App logo
-                Image(systemName: "cart.fill").resizable().aspectRatio(contentMode: .fit).frame(height: 150).padding(.vertical, 50)
+                Image("Icon-BlueBG").resizable().aspectRatio(contentMode: .fit).frame(height: 200).padding(.vertical, 50)
                     .foregroundColor(.white)
-                    .shadow(color: .darkBlue, radius: 20)
                 
                 Spacer()
                 
@@ -56,7 +55,7 @@ struct LoginView: View {
                 VStack {
                     
                     Text("Accedi a GameZen").font(.largeTitle).foregroundColor(.darkBlue)
-                        .padding(.vertical)
+                        .padding(.bottom)
                     
                     TextField("Email", text: $email).autocapitalization(.none).disableAutocorrection(true)
                         .textFieldStyle(RoundedBorderTextFieldStyle()).padding()
@@ -77,7 +76,7 @@ struct LoginView: View {
                     
                 }
                 .background(Rectangle().fill(Color.white).cornerRadius(30.0)
-                                .frame(height: 550))
+                                .frame(height: 500))
                 
             }
             .alert(isPresented: self.$state.alert.0, content: {
@@ -101,7 +100,7 @@ struct LoginView: View {
                 }
             })
 
-            .background(Color.bluePrimary.edgesIgnoringSafeArea(.all))
+            .background(Color.iconBlue.edgesIgnoringSafeArea(.all))
             
         }
         
