@@ -46,23 +46,22 @@ struct LoginView: View {
             VStack {
                 
                 // App logo
-                Image("Icon-BlueBG").resizable().aspectRatio(contentMode: .fit).frame(height: 200).padding(.vertical, 50)
-                    .foregroundColor(.white)
+                Image("Icon-BlueBG").resizable().aspectRatio(contentMode: .fit).frame(height: 200)
+                    .foregroundColor(.white).padding(.vertical, 50)
                 
                 Spacer()
                 
                 // Login form
                 VStack {
                     
-                    Text("Accedi a GameZen").font(.largeTitle).foregroundColor(.darkBlue)
+                    Text("Accedi a GameZen").font(.largeTitle).foregroundColor(.darkBlue).fontWeight(.medium)
                         .padding(.bottom)
                     
                     TextField("Email", text: $email).autocapitalization(.none).disableAutocorrection(true)
-                        .textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                        .foregroundColor(.darkBlue).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
                     
                     SecureField("Password", text: $password).autocapitalization(.none).disableAutocorrection(true)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
+                        .foregroundColor(.darkBlue).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.horizontal)
                     
                     Button(action: {
                         self.state.showRegistrationSheet.toggle()
@@ -75,8 +74,7 @@ struct LoginView: View {
                     }.buttonStyle(BlueButton()).padding()
                     
                 }
-                .background(Rectangle().fill(Color.white).cornerRadius(30.0)
-                                .frame(height: 500))
+                .background(Rectangle().fill(Color.white).cornerRadius(30.0).frame(height: 500))
                 
             }
             .alert(isPresented: self.$state.alert.0, content: {
