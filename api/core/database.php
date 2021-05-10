@@ -31,8 +31,7 @@
 			} 
 		}
 
-
-		// Run a SQL query and returns the mysqli result
+		// Run a SQL query and returns the mysqli result as a dictionary
 		public function query($query) {
 			$query = strip_tags($query);
 			
@@ -66,7 +65,6 @@
 			
 			return $result;
 		}
-
 
 		// Close connection to database
 		public function close() {
