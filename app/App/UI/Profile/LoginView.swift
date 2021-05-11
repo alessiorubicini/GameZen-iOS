@@ -98,7 +98,7 @@ struct LoginView: View {
                 }
             })
 
-            .background(Color.iconBlue.edgesIgnoringSafeArea(.all))
+            .background(Color.bluePrimary.edgesIgnoringSafeArea(.all))
             
         }
         
