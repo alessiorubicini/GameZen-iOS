@@ -16,10 +16,13 @@ NOTE: this README is also available [in English](README_EN.md).
 - [Licenza](#licenza)
 	- [Autori/Copyright](#autori/copyright)
 	- [Librerie di terze parti](#librerie-di-terze-parti)
+	- [Dettagli licenza](#dettagli-licenza)
 
 
 # Contesto
 Questa repository contiene il codice sorgente del client iOS di GameZen, un'app per l'acquisto di giochi da tavolo da un negozio online. Questo progetto è stato realizzato dallo studente Alessio Rubicini come elaborato per l'Esame di Stato 2020/2021. L'applicazione è stata quindi realizzata a puro scopo didattico.
+
+Per informazioni dettagliate sull'app iOS controllare il file [app/README.MD](app/README.MD)
 
 # Struttura repository
 
@@ -37,6 +40,15 @@ Requisiti:
 - macOS 11.0 o superiore
 - Xcode 12.0 o superiore
 
+```bash
+git clone https://github.com/alessiorubicini/GameZen-iOS
+
+cd GameZen-iOS
+
+pod install
+```
+
+Apri il file `GameZen.xcworkspace`.
 
 
 # Licenza
@@ -45,11 +57,10 @@ Requisiti:
 
 Copyright 2021 (©) Alessio Rubicini.
 
-Controllare il file AUTHORS per un riferimento esteso.
+Controllare il file AUTHORS per un riferimento completo.
 
 
 ## Librerie di terze parti
-
 
 | Nome                                                        | Licensa                   |
 | ----------------------------------------------------------- | ------------------------- |
@@ -61,3 +72,6 @@ Controllare il file AUTHORS per un riferimento esteso.
 | [Fastlane](https://fastlane.tools)                         | MIT                       |
 
 
+## Dettagli licenza
+
+La licenza per questa repository è [GNU Affero General Public License versione 3](https://www.gnu.org/licenses/agpl-3.0.html) (SPDX: AGPL-3.0). Si prega di consultare il file [LICENSE](LICENSE) per riferimento completo.

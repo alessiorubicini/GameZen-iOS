@@ -16,18 +16,21 @@ NOTA: questo README è disponibile anche [in Italiano](README.md).
 - [License](#license)
 	- [Authors/Copyright](#authors/copyright)
 	- [Third-party components](#third-party-components)
+	- [License details](#license-details) 
 
 
 # Context
 This repository contains the source code of GameZen's iOS client, an app for purchasing board games from an online store. This project was created by the student Alessio Rubicini as an elaborate for the 2020/2021 State school Exam. The application was therefore created for educational purposes only.
+
+For detailed information about the iOS app check [app/README.MD](app/README.MD).
 
 # Repository structure
 
 
 ├── api:                 HTTP API for app-database interaction<br>
 ├── app:                 iOS app<br>
-├── database:            Platform's database<br>
-├── design:              App assets and design<br>
+├── database:            Database<br>
+├── design:              Mockups and assets<br>
 ├── docs:                Documentation<br>
 ├── README_EN.md:        English file containing information about the repository<br>
 └── README.md:           Italian file containing information about the repository
@@ -35,10 +38,18 @@ This repository contains the source code of GameZen's iOS client, an app for pur
 # Installation
 
 Requirements:
-- macOS 11.0 o superiore
-- Xcode 12.0 o superiore
+- macOS 11.0 or above
+- Xcode 12.0 or above
 
+```bash
+git clone https://github.com/alessiorubicini/GameZen-iOS
 
+cd GameZen-iOS
+
+pod install
+```
+
+Then open `GameZen.xcworkspace` file.
 
 # License
 
@@ -60,3 +71,7 @@ Check the AUTHORS file for extended reference.
 | [Cocoapods](https://cocoapods.org/)                         | MIT                       |
 | [Fastlane](https://fastlane.tools)                         | MIT                       |
 
+
+## License details
+
+The licence for this repository is a [GNU Affero General Public Licence version 3](https://www.gnu.org/licenses/agpl-3.0.html) (SPDX: AGPL-3.0). Please see the [LICENSE](LICENSE) file for full reference.
