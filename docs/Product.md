@@ -3,14 +3,10 @@
 ## Table of contents
 
 - [Context](#context)
+- [Authentication](#authentication)
 - [Catalog](#catalog)
-	- [Full catalog](#full-catalog)
-	- [Categories](#categories)
 - [Cart](#cart)
 - [Profile](#profile)
-	- [User info](#user-info)
-	- [Delivery addresses](#delivery-addresses)
-	- [Orders](#orders)
 - [Settings](#settings)
 
 ## Context
@@ -21,26 +17,38 @@ Each section covers a specific part of the app. Features are described from the 
 
 In most of the cases, screenshots demonstrate how features are displayed on screen, based on the latest design of the app’s user interface.
 
+## Authentication
+
+I log into the app using my own account.
+
+If I am not registered to the shop, I create a new account.
+
+<img src="../design/Product/Authentication.png" style="border-radius: 30px;">
+
 
 ## Catalog
+I consult the catalog through the complete products list, the specific categories or searching in the search bar.
 
-### Full catalog
-
-### Categories
+<img src="../design/Product/Catalog.png" style="border-radius: 30px;">
 
 
 ## Cart
 
+I add one or more product to my cart. Then I choose a delivery address from my own addresses.
+Finally I send the order and my cart is emptied.
+
+<img src="../design/Product/Cart.png" style="border-radius: 30px;">
+
 
 ## Profile
 
-### User info
+I can consult my profile's information. I can logout from my account or delete it.
+I can add or remove delivery addresses.
+I can consult my orders and eventually cancel one.
 
-### Delivery addresses
-
-### Orders
+<img src="../design/Product/Profile.png" style="border-radius: 30px;">
 
 
 ## Settings
 
-
+<img src="../design/Product/Settings.png" style="border-radius: 30px;">

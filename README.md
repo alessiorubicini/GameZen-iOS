@@ -43,7 +43,7 @@ Requisiti:
 ```bash
 git clone https://github.com/alessiorubicini/GameZen-iOS
 
-cd GameZen-iOS
+cd GameZen-iOS/app
 
 pod install
 ```
