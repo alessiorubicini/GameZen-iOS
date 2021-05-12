@@ -10,7 +10,7 @@
 	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	// GNU General Public License for more details.
 	// You should have received a copy of the GNU General Public License
-	// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
@@ -33,6 +33,11 @@
 	$result = $db->query("SELECT * FROM users U WHERE U.email = '$email'");
 
 	if(count($result) != 0) {
+
+		// Close database connection
+		$db->close();
+
+		// Return HTTP response
 		header("HTTP/1.1 409");
 		echo "User with this email already exists";
 		exit;
@@ -41,6 +46,10 @@
 	// Create the new user
 	$db->queryWithoutResult("INSERT INTO users(name, surname, email, password, birth) VALUES('$name', '$surname', '$email', '$password', '$birthDate')");
 
+	// Close database connection
+	$db->close();
+
+	// Return HTTP response
 	header("HTTP/1.1 200");
 
 ?>

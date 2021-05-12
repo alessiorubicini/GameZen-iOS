@@ -10,7 +10,7 @@
 	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	// GNU General Public License for more details.
 	// You should have received a copy of the GNU General Public License
-	// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
@@ -29,9 +29,21 @@
 	}
 
 	if(count($result) == 0) {
+
+		// Close database connection
+		$db->close();
+
+		// Return HTTP response
 		header("HTTP/1.1 404");
+
 	} else {
+
+		// Close database connection
+		$db->close();
+
+		// Return result as JSON
 		echo json_encode($result, JSON_NUMERIC_CHECK);
+		header("HTTP/1.1 200");
 	}
 
 ?>

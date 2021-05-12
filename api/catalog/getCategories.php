@@ -10,7 +10,7 @@
 	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	// GNU General Public License for more details.
 	// You should have received a copy of the GNU General Public License
-	// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
@@ -19,7 +19,11 @@
 	$db = new Database();
 	$categories = $db->query("SELECT c.id, c.name, COUNT(P.code) AS 'numberOfProducts' FROM products P, categories C WHERE P.category = C.id GROUP BY C.id");
 
+	// Close database connection
+	$db->close();
+
 	// Return result as JSON
 	echo json_encode($categories, JSON_NUMERIC_CHECK);
+	header("HTTP/1.1 200");
 
 ?>

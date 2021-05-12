@@ -10,7 +10,7 @@
 	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	// GNU General Public License for more details.
 	// You should have received a copy of the GNU General Public License
-	// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
@@ -27,7 +27,13 @@
 	$products = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers, save S, users U WHERE U.id = $userID AND C.ID = P.category AND producers.ID = P.producer AND U.id = S.user AND S.product = P.code GROUP BY P.code");
 
 	if(count($products) == 0) {
+
+		// Close database connection
+		$db->close();
+
+		// Return HTTP response
 		header("HTTP/1.1 404");
+
 	} else {
 
 		foreach($products as &$product) {
@@ -39,6 +45,9 @@
 		}
 
 		echo json_encode($products, JSON_NUMERIC_CHECK);
+
+		// Close database connection
+		$db->close();
 	}
 
 ?>

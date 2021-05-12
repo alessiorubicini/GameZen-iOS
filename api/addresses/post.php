@@ -10,7 +10,7 @@
 	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	// GNU General Public License for more details.
 	// You should have received a copy of the GNU General Public License
-	// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
@@ -52,6 +52,11 @@
 
 	// Commit transaction and return HTTP response
 	$db->conn->commit();
+
+	// Close database connection
+	$db->close();
+
+	// Return HTTP response
 	header("HTTP/1.1 200");
 
 ?>

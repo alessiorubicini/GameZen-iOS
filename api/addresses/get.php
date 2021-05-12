@@ -10,7 +10,7 @@
 	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	// GNU General Public License for more details.
 	// You should have received a copy of the GNU General Public License
-	// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
@@ -28,6 +28,9 @@
 	// Select user's addresses
 	$db = new Database();
 	$addresses = $db->query("SELECT A.id, A.address, A.civic, A.city, A.CAP, A.province, A.phone FROM addresses A INNER JOIN delivery D ON A.id = D.address AND D.user = $userID");
+
+	// Close database connection
+	$db->close();
 
 	// Return final result as JSON
 	header("HTTP/1.1 200");

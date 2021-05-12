@@ -10,7 +10,7 @@
 	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	// GNU General Public License for more details.
 	// You should have received a copy of the GNU General Public License
-	// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 	header('Content-Type: application/json');
 	require_once('../core/database.php');
@@ -32,7 +32,13 @@
 
 	// If the user has no orders return HTTP 404 not found
 	if(count($orders) == 0) {
+
+		// Close database connection
+		$db->close();
+
+		// Return HTTP response
 		header("HTTP/1.1 404");
+
 	} else {
 
 		foreach($orders as &$order) {
@@ -53,7 +59,10 @@
 			$order["products"] = $result;
 		}
 
-		// Return final result as JSON
+		// Close database connection
+		$db->close();
+
+		// Return result as JSON
 		header("HTTP/1.1 200");
 		echo json_encode($orders, JSON_NUMERIC_CHECK);
 	}
