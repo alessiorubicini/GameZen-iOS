@@ -14,7 +14,7 @@
 
 	class Database {
 
-		public $conn;
+		private $conn;
 		private $host = "localhost";
 		private $username = "root";
 		private $password = "root";
@@ -29,6 +29,19 @@
 				header("HTTP/1.1 500");
 				echo "Connection failed: " . $this->conn->connect_error;
 			} 
+		}
+
+		// Make a query parameter secure by preventing security vulnerabilities
+		public function makeSecure($parameter) {
+			
+			// Prevent XSS
+			$result = strip_tags($parameter);
+			$result = htmlspecialchars($result);
+
+			// Prevent SQL injection
+			$result = $this->conn->real_escape_string($result);
+			
+			return $result;
 		}
 
 		// Run a SQL query and returns the mysqli result as a dictionary
@@ -54,6 +67,7 @@
 			return $array;
 		}
 
+		// Run a SQL query without returning data
 		public function queryWithoutResult($query) {
 			$query = strip_tags($query);
 			
@@ -66,6 +80,15 @@
 			}
 			
 			return $result;
+		}
+
+		// Begin an SQL transaction
+		public function beginTransaction() {
+			$this->conn->begin_transaction();
+		}
+
+		public function commitTransaction() {
+			$this->conn->commit();
 		}
 
 		// Close connection to database

@@ -12,9 +12,11 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	header('Content-Type: application/json');
+	// HTTP response headers
+	header('Content-Type: text/plain');
+	
+	// Including database interface class
 	require_once('../core/database.php');
-	require_once('../core/config.php');
 
 	// Check if all data has been passed
 	if(!isset($_GET["orderID"])) {
@@ -23,11 +25,13 @@
 		exit;
 	}
 
-	// Get passed data
-	$orderID = $_GET["orderID"];
+	// Setup database interface
+	$db = new Database();
 
-	// Remove order from database
-	$db = new Database();	
+	// Get passed data with GET
+	$orderID = $db->makeSecure($_GET["orderID"]);
+
+	// Remove order from database	
 	$db->queryWithoutResult("DELETE FROM orders WHERE id = '$orderID'");
 
 	// Close database connection
@@ -35,5 +39,6 @@
 
 	// Return HTTP response
 	header("HTTP/1.1 200");
+	echo "Order successfully canceled";
 	
 ?>

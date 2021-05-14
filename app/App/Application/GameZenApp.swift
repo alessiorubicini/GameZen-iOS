@@ -19,7 +19,7 @@ import SwiftUI
 struct GameZenApp: App {
     
     // AppState is declared as @StateObject
-    // In this way, it's instantiated only one time in the whole app life-cycle
+    // In this way, it's instantiated only once in the whole app life-cycle
     @StateObject private var state = AppState()
     
     @ViewBuilder

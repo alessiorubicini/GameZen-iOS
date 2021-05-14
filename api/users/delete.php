@@ -1,5 +1,5 @@
 <?php
-	// security.php
+	// login.php
 	// Copyright (C) 2021 Alessio Rubicini.
 	// This program is free software: you can redistribute it and/or modify
 	// it under the terms of the GNU General Public License as published by
@@ -10,19 +10,11 @@
 	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	// GNU General Public License for more details.
 	// You should have received a copy of the GNU General Public License
-	// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	// Make a query parameter secure, preventing SQL injections and XSS (cross-site scripting)
-	function makeSecure($parameter) {
+	header('Content-Type: application/json');
+	require_once('../core/database.php');
 
-		// Prevent XSS
-		$result = strip_tags($parameter);
-		$result = htmlspecialchars($result);
-
-		// Prevent SQL injections
-
-
-
-	}
+	
 
 ?>

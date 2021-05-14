@@ -136,6 +136,7 @@ extension AppState {
         // Log out from account
         DispatchQueue.main.async {
             self.isLogged = false
+            self.user = nil
         }
     }
     

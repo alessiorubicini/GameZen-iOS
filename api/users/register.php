@@ -12,22 +12,28 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	header('Content-Type: application/json');
+	// HTTP response headers
+	header('Content-Type: text/plain');
+	
+	// Including database interface class
 	require_once('../core/database.php');
 
+	// Check if all data has been passed
 	if(!isset($_POST["name"]) || !isset($_POST["surname"]) || !isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["birthDate"])) {
 		header("HTTP/1.1 400");
 		echo "Missing some user info";
 		exit;
 	}
 
-	$name = $_POST["name"];
-	$surname = $_POST["surname"];
-	$email = $_POST["email"];
-	$password = $_POST["password"];
-	$birthDate = $_POST["birthDate"];
-
+	// Setup database interface
 	$db = new Database();
+
+	// Get passed data with POST
+	$name = $db->makeSecure($_POST["name"]);
+	$surname = $db->makeSecure($_POST["surname"]);
+	$email = $db->makeSecure($_POST["email"]);
+	$password = $db->makeSecure($_POST["password"]);
+	$birthDate = $db->makeSecure($_POST["birthDate"]);
 
 	// Check if user already exists
 	$result = $db->query("SELECT * FROM users U WHERE U.email = '$email'");

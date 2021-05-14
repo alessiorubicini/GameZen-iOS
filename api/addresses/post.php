@@ -12,7 +12,10 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	header('Content-Type: application/json');
+	// HTTP response headers
+	header('Content-Type: text/plain');
+
+	// Including database interface class
 	require_once('../core/database.php');
 
 	// Check if all data has been passed
@@ -28,18 +31,20 @@
 		exit;
 	}
 
+	// Create database interface
+	$db = new Database();
+
 	// Get passed data
-	$userID = $_POST["userID"];
-	$address = $_POST["address"];
-	$civic = $_POST["civic"];
-	$city  = $_POST["city"];
-	$CAP = $_POST["CAP"];
-	$province = $_POST["province"];
-	$phone = $_POST["phone"];
+	$userID = $db->makeSecure($_POST["userID"]);
+	$address = $db->makeSecure($_POST["address"]);
+	$civic = $db->makeSecure($_POST["civic"]);
+	$city  = $db->makeSecure($_POST["city"]);
+	$CAP = $db->makeSecure($_POST["CAP"]);
+	$province = $db->makeSecure($_POST["province"]);
+	$phone = $db->makeSecure($_POST["phone"]);
 
 	// Begin transaction
-	$db = new Database();
-	$db->conn->begin_transaction();
+	$db->beginTransaction();
 	
 	// Add the address to the database
 	$addResult = $db->queryWithoutResult("INSERT INTO addresses(address, civic, city, CAP, province, phone) VALUES('$address', '$civic', '$city', '$CAP', '$province', '$phone')");
@@ -50,13 +55,14 @@
 	// Add user-address relationship
 	$relResult = $db->queryWithoutResult("INSERT INTO delivery (user, address) VALUES ('$userID', '$addressID[0]')");
 
-	// Commit transaction and return HTTP response
-	$db->conn->commit();
+	// Commit transaction
+	$db->commitTransaction();
 
 	// Close database connection
 	$db->close();
 
 	// Return HTTP response
 	header("HTTP/1.1 200");
+	echo "Address added successfully"
 
 ?>

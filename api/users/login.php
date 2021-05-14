@@ -12,7 +12,10 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+	// HTTP response headers
 	header('Content-Type: application/json');
+
+	// Including database interface class
 	require_once('../core/database.php');
 
 	// Check if all data has been passed
@@ -28,12 +31,14 @@
 		exit;
 	}
 
-	// Get passed data
-	$email = $_POST["email"];
-	$password = $_POST["password"];
+	// Setup database interface
+	$db = new Database();
+
+	// Get passed data with POST
+	$email = $db->makeSecure($_POST["email"]);
+	$password = $db->makeSecure($_POST["password"]);
 
 	// Check user's credentials
-	$db = new Database();
 	$result = $db->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
 
 	// If credentials are wrong, return HTTP 403 forbidden

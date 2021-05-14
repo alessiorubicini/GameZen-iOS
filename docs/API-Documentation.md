@@ -36,7 +36,7 @@ convertita in MD5 lato client per motivi di sicurezza.
 ```
 
 **Status code**
-- 200: user logged succesfully
+- 200: user logged successfully
 - 401: incorrect credentials
 - 403: user banned
 - 404: user not found

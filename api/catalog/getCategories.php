@@ -12,18 +12,23 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+	// HTTP response headers
 	header('Content-Type: application/json');
+	
+	// Including database interface class
 	require_once('../core/database.php');
 
-	// Select catalog's categories from database
+	// Setup database interface
 	$db = new Database();
+
+	// Select catalog's categories from database
 	$categories = $db->query("SELECT c.id, c.name, COUNT(P.code) AS 'numberOfProducts' FROM products P, categories C WHERE P.category = C.id GROUP BY C.id");
 
 	// Close database connection
 	$db->close();
 
 	// Return result as JSON
-	echo json_encode($categories, JSON_NUMERIC_CHECK);
 	header("HTTP/1.1 200");
+	echo json_encode($categories, JSON_NUMERIC_CHECK);
 
 ?>

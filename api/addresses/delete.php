@@ -12,7 +12,10 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	header('Content-Type: application/json');
+	// HTTP response headers
+	header('Content-Type: text/plain');
+	
+	// Including database interface class
 	require_once('../core/database.php');
 
 	// Check if all data has been passed
@@ -22,11 +25,13 @@
 		exit;
 	}
 
+	// Setup database interface
+	$db = new Database();
+
 	// Get passed data
-	$addressID = $_POST["addressID"];
+	$addressID = $db->makeSecure($_POST["addressID"]);
 
 	// Remove address from database
-	$db = new Database();
 	$db->queryWithoutResult("DELETE FROM delivery WHERE address = '$addressID'");
 	$db->queryWithoutResult("DELETE FROM addresses WHERE id = '$addressID'");+
 

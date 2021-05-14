@@ -48,7 +48,7 @@ class CartManager: ObservableObject {
                 // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
-                    // Check if the response has been completed succesfully
+                    // Check if the response has been completed successfully
                     if statusCode == 200 {
                         
                         // Try to parse received products as Product struct
@@ -92,7 +92,7 @@ class CartManager: ObservableObject {
                 // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
-                    // Check if the response has been completed succesfully
+                    // Check if the response has been completed successfully
                     if statusCode == 200 {
                         
                         // Generate success haptic feedback
@@ -137,7 +137,7 @@ class CartManager: ObservableObject {
                 // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
-                    // Check if the response has been completed succesfully
+                    // Check if the response has been completed successfully
                     if statusCode == 200 {
                         
                         // Generate success haptic feedback
@@ -168,7 +168,7 @@ class CartManager: ObservableObject {
                 // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
-                    // Check if the response has been completed succesfully
+                    // Check if the response has been completed successfully
                     if statusCode == 200 {
                         
                         // Generate success haptic feedback

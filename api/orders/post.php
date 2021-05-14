@@ -12,9 +12,11 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	header('Content-Type: application/json');
+	// HTTP response headers
+	header('Content-Type: text/plain');
+	
+	// Including database interface class
 	require_once('../core/database.php');
-	require_once('../core/config.php');
 
 	// Check if all data has been passed
 	if(!isset($_POST["userID"])) {
@@ -35,21 +37,22 @@
 		exit;
 	}
 
+	// Setup database interface
+	$db = new Database();
+
 	// Get the passed data
-	$date = $_POST["date"];
-	$delivery = $_POST["delivery"];
-	$userID = $_POST["userID"];
-	$addressID = $_POST["address"];
-	$total = $_POST["total"];
+	$date = $db->makeSecure($_POST["date"]);
+	$delivery = $db->makeSecure($_POST["delivery"]);
+	$userID = $db->makeSecure($_POST["userID"]);
+	$addressID = $db->makeSecure($_POST["address"]);
+	$total = $db->makeSecure($_POST["total"]);
 	$products = $_POST["products"];
 
 	// Add the new order to the database
-	$db = new Database();
 	$db->queryWithoutResult("INSERT INTO orders(date, delivery, user, address, state, total) VALUES('$date', '$delivery', '$userID', '$addressID', '1', '$total')");
 
-	$orderID = $db->query("SELECT id FROM orders O WHERE O.date = '$date' AND O.delivery = '$delivery' AND O.user = '$userID'")[0]["id"];
-
 	// For each order's product, add order-product relationship
+	$orderID = $db->query("SELECT id FROM orders O WHERE O.date = '$date' AND O.delivery = '$delivery' AND O.user = '$userID'")[0]["id"];
 	foreach($products as $product) {
 		$query = "INSERT INTO detail (orderID, product, quantity) VALUES('$orderID', '$product', '1')";
 		$db->queryWithoutResult($query);
@@ -60,4 +63,6 @@
 
 	// Return HTTP response
 	header("HTTP/1.1 200");
+	echo "Order sent successfully";
+	
 ?>

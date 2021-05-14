@@ -21,6 +21,7 @@ struct CartView: View {
     @EnvironmentObject private var cart: CartManager
     
     @State private var deliveryAddress = 0
+    @State private var selectAddress = false
     
     // MARK: - View body
     
@@ -43,11 +44,9 @@ struct CartView: View {
                     if self.state.user!.addresses.count == 0 {
                         Text("Per effettuare un ordine è necessario aggiungere un indirizzo di consegna").multilineTextAlignment(.center).padding()
                     } else {
-                        Picker(deliveryAddress == 0 ? "Seleziona indirizzo di consegna" : "Cambia indirizzo di consegna", selection: $deliveryAddress) {
-                            ForEach(state.user!.addresses) { address in
-                                Text("\(address.address) \(address.civic) - \(address.city)").font(.body)
-                            }
-                        }.pickerStyle(MenuPickerStyle())
+                        Button(deliveryAddress == 0 ? "Seleziona un indirizzo di consegna" : "Cambia indirizzo di consegna") {
+                            self.selectAddress.toggle()
+                        }.padding(.top)
                     }
                     
                     Button("Invia ordine") {
@@ -73,6 +72,14 @@ struct CartView: View {
                     }
                     .listStyle(PlainListStyle())
                     .padding(.top, 15)
+                    
+                    .actionSheet(isPresented: $selectAddress) {
+                        let buttons = self.state.user!.addresses.enumerated().map { i, address in
+                            Alert.Button.default(self.deliveryAddress == 0 ? Text(address.address) : Text("✅ \(address.address)"),
+                                                 action: { self.deliveryAddress = address.id} )
+                        }
+                        return ActionSheet(title: Text("Indirizzo di consegna"), message: Text("Indica l'indirizzo a cui consegnare l'ordine"), buttons: buttons + [Alert.Button.cancel()])
+                    }
 
                 }
                 

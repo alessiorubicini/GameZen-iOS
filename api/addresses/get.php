@@ -12,7 +12,10 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+	// HTTP response headers
 	header('Content-Type: application/json');
+	
+	// Including database interface class
 	require_once('../core/database.php');
 
 	// Check if all data has been passed
@@ -22,11 +25,13 @@
 		exit;
 	}
 
+	// Setup database interface
+	$db = new Database();
+
 	// Get passed data
-	$userID = $_GET["userID"];
+	$userID = $db->makeSecure($_GET["userID"]);
 
 	// Select user's addresses
-	$db = new Database();
 	$addresses = $db->query("SELECT A.id, A.address, A.civic, A.city, A.CAP, A.province, A.phone FROM addresses A INNER JOIN delivery D ON A.id = D.address AND D.user = $userID");
 
 	// Close database connection

@@ -12,18 +12,26 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	header('Content-Type: application/json');
+	// HTTP response headers
+	header('Content-Type: text/plain');
+
+	// Including database interface class
 	require_once('../core/database.php');
 
+	// Check if the client passed the user ID
 	if(!isset($_GET["userID"])) {
 		header("HTTP/1.1 400");
 		echo "Missing user ID";
 		exit;
 	}
 
+	// Setup database interface
 	$db = new Database();
-	$userID = $_GET["userID"];
 
+	// Get the user ID
+	$userID = $db->makeSecure($_GET["userID"]);
+
+	// Delete all products in cart
 	$db->queryWithoutResult("DELETE FROM save WHERE user = '$userID'");
 
 	// Close database connection
@@ -31,5 +39,6 @@
 
 	// Return HTTP response
 	header("HTTP/1.1 200");
+	echo "Cart cleared successfully";
 
 ?>

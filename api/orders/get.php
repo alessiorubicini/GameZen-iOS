@@ -12,9 +12,11 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+	// HTTP response headers
 	header('Content-Type: application/json');
+
+	// Including database interface class
 	require_once('../core/database.php');
-	require_once('../core/config.php');
 
 	// Check if all data has been passed
 	if(!isset($_GET["userID"])) {
@@ -23,11 +25,13 @@
 		exit;
 	}
 
-	// Get passed data
-	$userID = $_GET["userID"];
+	// Setup database interface
+	$db = new Database();
+
+	// Get passed data with GET
+	$userID = $db->makeSecure($_GET["userID"]);
 
 	// Select user's orders from database
-	$db = new Database();
 	$orders = $db->query("SELECT O.id, O.date, O.delivery, CONCAT(A.address, ' ', A.civic, ' - ', A.city, ', ', A.CAP) AS 'address', S.state, O.total FROM orders O, addresses A, states S WHERE O.user = $userID AND O.address = A.ID AND O.state = S.ID GROUP BY O.ID");
 
 	// If the user has no orders return HTTP 404 not found

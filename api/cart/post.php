@@ -12,9 +12,13 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	header('Content-Type: application/json');
+	// HTTP response headers
+	header('Content-Type: text/plain');
+
+	// Including database interface class
 	require_once('../core/database.php');
 
+	// Check if all data has been passed
 	if(!isset($_POST["userID"])) {
 		header("HTTP/1.1 400");
 		echo "Missing user ID";
@@ -27,10 +31,14 @@
 		exit;
 	}
 
-	$userID = $_POST["userID"];
-	$productID = $_POST["productID"];
-
+	// Setup database interface
 	$db = new Database();
+
+	// Get passed data with POST
+	$userID = $db->makeSecure($_POST["userID"]);
+	$productID = $db->makeSecure($_POST["productID"]);
+
+	// Add the product to the cart
 	$db->queryWithoutResult("INSERT INTO save (user, product) VALUES('$userID', '$productID')");
 
 	// Close database connection
@@ -38,4 +46,6 @@
 
 	// Return HTTP response
 	header("HTTP/1.1 200");
+	echo "Product added successfully";
+
 ?>

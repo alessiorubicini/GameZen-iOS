@@ -45,7 +45,6 @@ extension AppState {
         
     }
     
-    
     /// Add a new address to the user's delivery addresses
     /// - Parameter data: struct containing Address' data
     func addAddress(data: Address.Data) {

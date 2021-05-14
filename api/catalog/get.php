@@ -12,11 +12,16 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+	// HTTP response headers
 	header('Content-Type: application/json');
+	
+	// Including database interface class
 	require_once('../core/database.php');
 
-	// Select all products from database
+	// Setup database interface
 	$db = new Database();
+
+	// Select all products from database
 	$result = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers WHERE C.ID = P.category AND producers.id = P.producer");
 
 	// Transforming boolean value from tinyint to true|false
@@ -28,22 +33,19 @@
 		}
 	}
 
-	if(count($result) == 0) {
+	// Close database connection
+	$db->close();
 
-		// Close database connection
-		$db->close();
+	if(count($result) == 0) {
 
 		// Return HTTP response
 		header("HTTP/1.1 404");
 
 	} else {
 
-		// Close database connection
-		$db->close();
-
-		// Return result as JSON
-		echo json_encode($result, JSON_NUMERIC_CHECK);
+		// Return data as JSON
 		header("HTTP/1.1 200");
+		echo json_encode($result, JSON_NUMERIC_CHECK);
 	}
 
 ?>

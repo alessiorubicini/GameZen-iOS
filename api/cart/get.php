@@ -12,30 +12,40 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+	// HTTP response headers
 	header('Content-Type: application/json');
+	
+	// Including database interface class
 	require_once('../core/database.php');
 
+	// Check if all data has been passed
 	if(!isset($_GET["userID"])) {
 		header("HTTP/1.1 400");
 		echo "Missing user ID";
 		exit;
 	}
 
+	// Setup database interface
 	$db = new Database();
-	$userID = $_GET["userID"];
 
+	// Get userID passed with GET
+	$userID = $db->makeSecure($_GET["userID"]);
+
+	// Select all the products in user cart
 	$products = $db->query("SELECT P.code, P.name, P.description, P.year, P.language, P.price, P.available, P.image, C.name AS 'category', producers.name AS 'producer' FROM products P, categories C, producers, save S, users U WHERE U.id = $userID AND C.ID = P.category AND producers.ID = P.producer AND U.id = S.user AND S.product = P.code GROUP BY P.code");
 
-	if(count($products) == 0) {
+	// Close database connection
+	$db->close();
 
-		// Close database connection
-		$db->close();
+	// Check if cart is empty
+	if(count($products) == 0) {
 
 		// Return HTTP response
 		header("HTTP/1.1 404");
 
 	} else {
 
+		// Transforming boolean value from tinyint to true|false
 		foreach($products as &$product) {
 			if($products["available"] == 1) {
 				$product["available"] = false;
@@ -44,10 +54,8 @@
 			}
 		}
 
+		// Return data as JSON
 		echo json_encode($products, JSON_NUMERIC_CHECK);
-
-		// Close database connection
-		$db->close();
 	}
 
 ?>
