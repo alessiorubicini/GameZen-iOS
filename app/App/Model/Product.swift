@@ -43,6 +43,7 @@ struct Product: Identifiable {
 
 // Making the Product struct conform to Decodable protocol
 extension Product: Decodable {
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -56,6 +57,7 @@ extension Product: Decodable {
         self.available = try container.decode(Bool.self, forKey: .available)
         self.imageURL = try container.decode(String.self, forKey: .imageURL)
     }
+    
 }
 
 // Mock objects for debugging purposes

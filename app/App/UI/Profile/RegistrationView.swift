@@ -13,6 +13,8 @@
 
 import SwiftUI
 
+// This view displays the form to create a new account in the shop
+// It's displayed as a sheet in the authentication view
 struct RegistrationView: View {
     
     // MARK: - View properties
@@ -26,7 +28,7 @@ struct RegistrationView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
-    @State private var birthDate = Date()
+    @State private var birthDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())!
     @State private var acceptPolicy = false
     
     // MARK: - View body
@@ -35,19 +37,21 @@ struct RegistrationView: View {
         Form {
             
             Section {
+                // User info input fields
                 TextField("Nome", text: $name)
-                
                 TextField("Cognome", text: $surname)
-                
                 TextField("Email", text: $email).autocapitalization(.none)
                 
+                // Password input fields
                 SecureField("Password", text: $password).autocapitalization(.none)
                 SecureField("Conferma password", text: $confirmPassword).autocapitalization(.none)
                 
+                // Birth date input
                 DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
                     Text("Data di nascita")
                 }
                 
+                // Privacy policy and use conditions toggle
                 Toggle("Dichiaro di accettare le condizioni d'uso e la Privacy Policy", isOn: $acceptPolicy).font(.callout)
             }
             
@@ -73,17 +77,13 @@ struct RegistrationView: View {
                     Text("Conferma").fontWeight(.semibold)
                 })
                 
-                Button(action: {
-                    
-                }, label: {
+                NavigationLink(destination: EmptyView()) {
                     Text("Condizioni d'uso")
-                })
+                }
                 
-                Button(action: {
-                    
-                }, label: {
+                NavigationLink(destination: EmptyView()) {
                     Text("Privacy Policy")
-                })
+                }
             }
             
         }
@@ -94,6 +94,7 @@ struct RegistrationView: View {
     }
 }
 
+// SwiftUI debugging preview
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

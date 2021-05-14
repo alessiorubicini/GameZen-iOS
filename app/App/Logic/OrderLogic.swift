@@ -16,6 +16,7 @@ import SwiftUI
 import SwiftUIComponents
 import Alamofire
 
+// Extends the AppState object for orders logic
 extension AppState {
     
     func loadOrders() {

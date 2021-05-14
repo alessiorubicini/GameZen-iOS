@@ -16,6 +16,7 @@ import SwiftUI
 import Alamofire
 import CryptoKit
 
+// Extends the AppState object for authentication logic
 extension AppState {
     
     /// Login into an existing account
@@ -55,8 +56,10 @@ extension AppState {
                             self.cartManager.getUserCart()
                             
                         } catch {
+                            
                             print(error)
-                            self.alert = (true, "Errore sconosciuto nell'autenticazione", "-")
+                            self.alert = (true, "Errore sconosciuto nell'autenticazione", error.localizedDescription)
+                            
                         }
                         
                     } else if statusCode == 403 {
@@ -77,20 +80,6 @@ extension AppState {
                     }
                 }
             }
-    }
-    
-    /// Logout from user account
-    func logout() {
-        
-        // Reset user preferences and information
-        UserDefaults.standard.setValue(false, forKey: "keepConnected")
-        UserDefaults.standard.setValue("", forKey: "email")
-        UserDefaults.standard.setValue("", forKey: "password")
-        
-        // Log out from account
-        DispatchQueue.main.async {
-            self.isLogged = false
-        }
     }
     
     
@@ -136,4 +125,26 @@ extension AppState {
         
     }
     
+    /// Logout from user account
+    func logout() {
+        
+        // Reset user preferences and information
+        UserDefaults.standard.setValue(false, forKey: "keepConnected")
+        UserDefaults.standard.setValue("", forKey: "email")
+        UserDefaults.standard.setValue("", forKey: "password")
+        
+        // Log out from account
+        DispatchQueue.main.async {
+            self.isLogged = false
+        }
+    }
+    
+    /// Delete the user account
+    func deleteAccount() {
+        
+        // Delete account from database through APIs
+        
+        
+        
+    }
 }

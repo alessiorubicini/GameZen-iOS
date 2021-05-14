@@ -21,6 +21,9 @@
 		CF1A3222264331600000ECAE /* ShareLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A3220264331600000ECAE /* ShareLogic.swift */; };
 		CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */; };
 		CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC5263DA990003CB88F /* FAQView.swift */; };
+		CF28B283264E73F5005B6C28 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B282264E73F5005B6C28 /* InfoRow.swift */; };
+		CF28B285264E74F9005B6C28 /* BiometricLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B284264E74F9005B6C28 /* BiometricLogic.swift */; };
+		CF28B287264E77B4005B6C28 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B286264E77B4005B6C28 /* DeleteAccountView.swift */; };
 		CF33286826407D76009C222B /* AddressLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286726407D76009C222B /* AddressLogic.swift */; };
 		CF33286B26407E54009C222B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286A26407E54009C222B /* CartTests.swift */; };
 		CF33287026407F82009C222B /* CatalogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353312263C8D5700CC4A8E /* CatalogManager.swift */; };
@@ -107,6 +110,9 @@
 		CF1A3220264331600000ECAE /* ShareLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLogic.swift; sourceTree = "<group>"; };
 		CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		CF27CAC5263DA990003CB88F /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		CF28B282264E73F5005B6C28 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		CF28B284264E74F9005B6C28 /* BiometricLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLogic.swift; sourceTree = "<group>"; };
+		CF28B286264E77B4005B6C28 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		CF33286726407D76009C222B /* AddressLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressLogic.swift; sourceTree = "<group>"; };
 		CF33286A26407E54009C222B /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 		CF353304263C8BBC00CC4A8E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 				CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */,
 				CFDCA658263F0CA4007FB5D9 /* AddressesView.swift */,
 				CFDCA65A263F0FF7007FB5D9 /* AddAddressView.swift */,
+				CF28B286264E77B4005B6C28 /* DeleteAccountView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -284,6 +291,7 @@
 				CF9FE6F5263C97F200C6577D /* Colors.swift */,
 				CF0ADF29263D3BBE00283EA8 /* CustomButton.swift */,
 				CF63F3582647A7B4004ECD27 /* PopupAlert.swift */,
+				CF28B282264E73F5005B6C28 /* InfoRow.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -294,6 +302,7 @@
 				CF35330C263C8CF800CC4A8E /* AppState.swift */,
 				CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */,
 				CF33286726407D76009C222B /* AddressLogic.swift */,
+				CF28B284264E74F9005B6C28 /* BiometricLogic.swift */,
 				CF1A321D26432F8B0000ECAE /* OrderLogic.swift */,
 				CF353312263C8D5700CC4A8E /* CatalogManager.swift */,
 				CF353310263C8D3B00CC4A8E /* CartManager.swift */,
@@ -655,14 +664,17 @@
 				CF63F3592647A7B4004ECD27 /* PopupAlert.swift in Sources */,
 				CF1A321E26432F8B0000ECAE /* OrderLogic.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
+				CF28B285264E74F9005B6C28 /* BiometricLogic.swift in Sources */,
 				CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */,
 				CF9FE6F8263C992600C6577D /* LoginView.swift in Sources */,
 				CF0ADF2A263D3BBE00283EA8 /* CustomButton.swift in Sources */,
 				CF5D080D2649C3E000C48243 /* CreditsView.swift in Sources */,
 				CF6EE90D26454EDF0042EE73 /* RegistrationView.swift in Sources */,
 				CF726363263CA27B00D38B99 /* API.swift in Sources */,
+				CF28B287264E77B4005B6C28 /* DeleteAccountView.swift in Sources */,
 				CF72636D263CAD4200D38B99 /* ProductView.swift in Sources */,
 				CF0ADF2F263D3FF300283EA8 /* ProductsListView.swift in Sources */,
+				CF28B283264E73F5005B6C28 /* InfoRow.swift in Sources */,
 				CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */,
 				CF726366263CA2CC00D38B99 /* ProductCard.swift in Sources */,
 				CF353305263C8BBC00CC4A8E /* Product.swift in Sources */,

@@ -13,6 +13,8 @@
 
 import SwiftUI
 
+// This view displays the list of user delivery addresses
+// It's displayed in the profile view on the button click
 struct AddressesView: View {
     
     // MARK: - View properties

@@ -16,6 +16,7 @@ import SwiftUI
 import SwiftUIComponents
 import Alamofire
 
+// Extends the AppState object for delivery address logic
 extension AppState {
     
     /// Load user's addresses from database through APIs

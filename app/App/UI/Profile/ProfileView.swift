@@ -12,16 +12,18 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import SwiftUI
+import LocalAuthentication
 
+// This view displays the user info after the login
+// It's displayed as one of the views in the bottom tab bar
 struct ProfileView: View {
     
     // MARK: - View properties
     
     @EnvironmentObject private var state: AppState
     
-    @State private var editProfile = false
     @State private var data = User.Data()
-    
+    @State private var showDeleteAccountView = false
     
     // MARK: - View body
     
@@ -30,6 +32,7 @@ struct ProfileView: View {
             
             List {
                 
+                // User general information
                 Section(header: Text("Informazioni")) {
                     InfoRow(key: "Nome", value: state.user!.name)
                     InfoRow(key: "Cognome", value: state.user!.surname)
@@ -45,19 +48,48 @@ struct ProfileView: View {
                     }
                 }
                 
+                // Actions that the user can execute
                 Section(header: Text("Azioni")) {
-                    Button(action: {
-                        self.editProfile.toggle()
-                    }, label: {
-                        Text("Modifica profilo").foregroundColor(.bluePrimary)
-                    })
                     
+                    // Delete account
                     Button(action: {
+                        
+                        // Authenticate user with biometric authentication
+                        authenticateWithBiometric { result in
+                            if result == false {
+                                
+                                // Biometric authentication resulted in error
+                                // Show a view to manually confirm with password
+                                self.showDeleteAccountView.toggle()
+                                
+                            } else {
+                                
+                                // Biometric authentication completed successfully
+                                self.state.deleteAccount()
+                                
+                            }
+                        }
                         
                     }, label: {
                         Text("Elimina profilo").foregroundColor(.red)
                     })
                     
+                    .sheet(isPresented: $showDeleteAccountView, content: {
+                        NavigationView {
+                            DeleteAccountView().environmentObject(self.state)
+                                
+                                .navigationBarItems(leading: HStack {
+                                    Button(action: {
+                                        self.showDeleteAccountView.toggle()
+                                    }, label: {
+                                        Text("Annulla")
+                                    })
+                                })
+                            
+                        }
+                    })
+                    
+                    // Logout
                     Button(action: {
                         self.state.logout()
                     }, label: {
@@ -69,41 +101,11 @@ struct ProfileView: View {
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("Il tuo profilo")
             
-            .sheet(isPresented: $editProfile, content: {
-                NavigationView {
-                    EditProfileView(data: $data)
-                        .navigationTitle("Modifica profilo")
-                        .navigationBarItems(leading: HStack {
-                            
-                            Button(action: {
-                                self.editProfile.toggle()
-                            }, label: {
-                                Text("Annulla").foregroundColor(.red)
-                            })
-                            
-                        })
-                        
-                        
-                }
-            })
-            
         }
     }
 }
 
-struct InfoRow: View {
-    let key: String
-    let value: String
-    
-    var body: some View {
-        HStack {
-            Text(key)
-            Spacer()
-            Text(value).foregroundColor(.bluePrimary)
-        }
-    }
-}
-
+// SwiftUI debugging preview
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView().environmentObject(AppState())

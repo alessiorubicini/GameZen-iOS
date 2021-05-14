@@ -1,4 +1,4 @@
-// AddAddressView.swift
+//  InfoRow.swift
 // Copyright (C) 2021 Alessio Rubicini.
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,31 +11,26 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+import Foundation
 import SwiftUI
 
-// This view displays a form to add a new delivery address
-// It's displayed as a sheet when the user want to add a new address
-struct AddAddressView: View {
-    
-    // MARK: - View properties
-    @Binding var data: Address.Data
-    
-    // MARK: - View body
+struct InfoRow: View {
+    let key: String
+    let value: String
     
     var body: some View {
-        Form {
-            TextField("Via", text: $data.address)
-            TextField("Numero civico", text: $data.civic)
-            TextField("Città", text: $data.city)
-            TextField("CAP", text: $data.CAP)
-            TextField("Provincia", text: $data.province)
-            TextField("Telefono", text: $data.phone)
+        HStack {
+            Text(key).foregroundColor(.darkBlue)
+            Spacer()
+            Text(value).foregroundColor(.bluePrimary)
         }
     }
 }
 
-struct AddAddressView_Previews: PreviewProvider {
+// SwiftUI debugging preview
+struct InfoRow_Previews: PreviewProvider {
     static var previews: some View {
-        AddAddressView(data: .constant(Address.Data()))
+        InfoRow(key: "Hello", value: "World")
     }
 }
+

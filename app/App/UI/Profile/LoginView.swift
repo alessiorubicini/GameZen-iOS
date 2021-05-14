@@ -13,6 +13,8 @@
 
 import SwiftUI
 
+// This view displays the form to login into an existing account
+// It's displayed by default
 struct LoginView: View {
     
     // MARK: - View properties
@@ -28,8 +30,10 @@ struct LoginView: View {
     @ViewBuilder
     var body: some View {
         
+        // If the "Keep connected" preference is activated, show an automatic login view
         if keepConnected {
             
+            // Show an undefined progress circle
             ProgressView()
             
             Text("Login automatico in corso...")
@@ -38,8 +42,7 @@ struct LoginView: View {
                 self.keepConnected = false
             }, label: {
                 Text("Interrompi login automatico")
-            }).buttonStyle(RedButton())
-            .padding(.top, 30)
+            }).buttonStyle(RedButton()).padding(.top, 30)
             
         } else {
             
@@ -77,10 +80,12 @@ struct LoginView: View {
                 .background(Rectangle().fill(Color.white).cornerRadius(30.0).frame(height: 500))
                 
             }
+            // Error alert
             .alert(isPresented: self.$state.alert.0, content: {
                 Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
             })
             
+            // Registration sheet view
             .sheet(isPresented: self.$state.showRegistrationSheet, content: {
                 NavigationView {
                     RegistrationView()
@@ -98,6 +103,7 @@ struct LoginView: View {
                 }
             })
 
+            // Color background
             .background(Color.bluePrimary.edgesIgnoringSafeArea(.all))
             
         }
@@ -106,6 +112,7 @@ struct LoginView: View {
     
 }
 
+// SwiftUI debugging preview
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView().environmentObject(AppState())
