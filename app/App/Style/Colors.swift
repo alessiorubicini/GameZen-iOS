@@ -14,15 +14,16 @@
 import Foundation
 import SwiftUI
 
+// Custom color palette
+// Colors are defined inside Assets.xcassets
 extension Color {
     
-    static let bluePrimary = Color("BluePrimary")
-    static let darkBlue = Color("DarkBlue")
-    static let grayPurple = Color("GrayPurple")
-    static let ice = Color("Ice")
-    static let lightBlue = Color("LightBlue")
-    static let lightRed = Color("LightRed")
+    static let bluePrimary = Color("BluePrimary") // #5751FF
+    static let darkBlue = Color("DarkBlue")       // #2F4F75
+    static let grayPurple = Color("GrayPurple")   // #6D72A6
+    static let ice = Color("Ice")                 // #E9EFFF
     
-    static let iconBlue = Color("IconBlue")
+    static let lightBlue = Color("LightBlue")     // #B8BCFF
+    static let lightRed = Color("LightRed")       // #FF0156
     
 }

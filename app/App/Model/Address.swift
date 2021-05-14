@@ -13,6 +13,7 @@
 
 import Foundation
 
+// Identifies a delivery address
 struct Address: Codable, Identifiable {
     
     let id: Int
@@ -25,6 +26,7 @@ struct Address: Codable, Identifiable {
     
 }
 
+// Empty data for adding data
 extension Address {
     
     struct Data {
@@ -36,7 +38,6 @@ extension Address {
         var phone: String = ""
     }
     
-
 }
 
 // Mock objects for debugging purposes

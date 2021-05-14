@@ -16,6 +16,7 @@ import SwiftUI
 import Alamofire
 import CryptoKit
 
+// Identifies the app state and manages all the data
 class AppState: ObservableObject {
     
     // User account properties

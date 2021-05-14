@@ -51,12 +51,17 @@ extension AppState {
         
     }
     
+    /// Send a new order to the shop database through APIs
+    /// - Parameters:
+    ///   - addressID: delivery address ID
+    ///   - total: total price of the order
+    ///   - products: array of products contained in the order
     func makeOrder(addressID: Int, total: Double, products: [Product]) {
         
-        // Generate order date
+        // Generate the order date
         let orderDate = formatter.string(from: Date())
         
-        // Generate estimate delivery date
+        // Generate the estimate delivery date
         let deliveryEstimate = formatter.string(from: Calendar.current.date(byAdding: .day, value: 6, to: Date())!)
         
         // Form a dictionary for posting data
@@ -66,8 +71,10 @@ extension AppState {
         AF.request(API.postOrder.rawValue, method: .post, parameters: body)
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
+                    // Check if the request has been completed successfully
                     if statusCode == 200 {
                         
                         // Generate success haptic feedback
@@ -81,6 +88,7 @@ extension AppState {
                         // Show alert
                         showStatusAlert(icon: "checkmark", title: "Ordine inviato", message: "Controlla la sezione Ordini nel tuo profilo")
                         
+                        // Reload user orders
                         self.loadOrders()
                         
                     } else {
@@ -99,18 +107,28 @@ extension AppState {
         
     }
     
+    /// Cancel an order
+    /// - Parameter id: order's id
     func cancelOrder(of id: Int) {
         
         // Remove order from database
         AF.request(API.cancelOrder.rawValue + "?orderID=\(id)", method: .get)
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
+                    // Check if the request has been completed successfully
                     if statusCode == 200 {
+                        
+                        // Display an alert
                         showStatusAlert(icon: "xmark.square.fill", title: "Annullato", message: "Ordine annullato con successo")
+                        
                     } else {
+                        
+                        // Display an alert
                         self.alert = (true, "Errore nell'annullamento dell'ordine", String(data: response.data!, encoding: .utf8)!)
+                        
                     }
                     
                 }

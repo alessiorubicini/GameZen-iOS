@@ -13,24 +13,30 @@
 
 import SwiftUI
 
+// This is the main entry point of the app
+
 @main
 struct GameZenApp: App {
     
+    // AppState is declared as @StateObject
+    // In this way, it's instantiated only one time in the whole app life-cycle
     @StateObject private var state = AppState()
-    
-    
     
     @ViewBuilder
     var body: some Scene {
         WindowGroup {
             
+            // If the user is not logged show the authentication view
             if self.state.isLogged == false {
                 
                 LoginView().environmentObject(state)
                 
             } else {
                 
+                // If the user is logged, show the default app tab view
+                // By default the catalog view is displayed as first
                 TabView {
+                    
                     CatalogView()
                         .environmentObject(state.catalogManager)
                         .environmentObject(state.cartManager)

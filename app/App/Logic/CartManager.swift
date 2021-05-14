@@ -23,6 +23,7 @@ class CartManager: ObservableObject {
     
     @Published var products: [Product] = []
     
+    // Computed property: represents the total cart price
     var totalPrice: Double {
         var sum: Double = 0.0
         
@@ -33,24 +34,29 @@ class CartManager: ObservableObject {
         return sum
     }
     
-    init() {
-
-    }
+    init() { }
     
     // MARK: - Methods
     
+    /// Get the user cart from database thorugh APIs
     func getUserCart() {
         
         // Send a GET request
         AF.request(API.getCart.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
+                    
+                    // Check if the response has been completed succesfully
                     if statusCode == 200 {
+                        
+                        // Try to parse received products as Product struct
                         do {
                             // Parse user info as JSON to Swift struct
                             let products = try JSONDecoder().decode([Product].self, from: response.data!)
                             
+                            // Update products array
                             self.products = products
                             
                         } catch {
@@ -83,22 +89,22 @@ class CartManager: ObservableObject {
         AF.request(API.addProductToCart.rawValue, method: .post, parameters: ["userID": UserDefaults.standard.integer(forKey: "userID"), "productID": product.id])
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
+                    // Check if the response has been completed succesfully
                     if statusCode == 200 {
                         
                         // Generate success haptic feedback
                         HapticGenerator().notificationFeedback(type: .success)
                         
+                        // Display an alert
                         showStatusAlert(icon: "cart.fill.badge.plus", title: "Aggiunto", message: "Articolo aggiunto al carrello")
                         
                     } else {
                         
                         // Generate error haptic feedback
                         HapticGenerator().notificationFeedback(type: .error)
-                        
-                        // Display an alert
-                        //self.alert = (true, "Errore nell'aggiunta dell'indirizzo", String(data: response.data!, encoding: .utf8)!)
                         
                     }
                     
@@ -113,8 +119,10 @@ class CartManager: ObservableObject {
     /// Remove a specific product from user's cart
     func removeProduct(at offsets: IndexSet) {
 
+        // Set a default value
         var productID = 0
         
+        // Get the product ID from SwiftUI list through offsets
         for index in offsets {
             productID = self.products[index].id
         }
@@ -126,8 +134,10 @@ class CartManager: ObservableObject {
         AF.request(API.deleteProductFromCart.rawValue, method: .post, parameters: ["userID": UserDefaults.standard.integer(forKey: "userID"), "productID": productID])
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
+                    // Check if the response has been completed succesfully
                     if statusCode == 200 {
                         
                         // Generate success haptic feedback
@@ -148,11 +158,30 @@ class CartManager: ObservableObject {
     /// Remove all products from user's cart
     func removeAll() {
         
+        // Clear local array
         self.products = []
         
         // Send a GET request
         AF.request(API.clearCart.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
             .response { response in
+                
+                // Check and convert status code to non-optional value
+                if let statusCode = response.response?.statusCode {
+                    
+                    // Check if the response has been completed succesfully
+                    if statusCode == 200 {
+                        
+                        // Generate success haptic feedback
+                        HapticGenerator().notificationFeedback(type: .success)
+                        
+                    } else {
+                        
+                        // Generate error haptic feedback
+                        HapticGenerator().notificationFeedback(type: .error)
+                        
+                    }
+                    
+                }
                 
             }
         

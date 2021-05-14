@@ -14,6 +14,13 @@
 import Foundation
 import StatusAlert
 
+
+/// Show a blurred alert like Apple's default apps
+/// It's used to display succesfull operations alerts to the user
+/// - Parameters:
+///   - icon: Apple SF Symbol's icon name
+///   - title: alert title
+///   - message: alert text description
 func showStatusAlert(icon: String, title: String, message: String) {
     
     // Creating StatusAlert instance

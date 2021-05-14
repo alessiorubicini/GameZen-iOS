@@ -34,14 +34,20 @@ class CatalogManager: ObservableObject {
     
     // MARK: - Methods
     
+    /// Load all the products from database through APIs
     func loadAllProducts() {
         
         // Send a GET request
         AF.request(API.getAllProducts.rawValue, method: .get)
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
+                    
+                    // Check if the response has been completed succesfully
                     if statusCode == 200 {
+                        
+                        // Try to parse received products as Product struct
                         do {
                             // Parse user info as JSON to Swift struct
                             let products = try JSONDecoder().decode([Product].self, from: response.data!)
@@ -50,7 +56,7 @@ class CatalogManager: ObservableObject {
                             
                         } catch {
                             
-                            print("ERROR while fetching products from catalog")
+                            print("Error while fetching products from catalog")
                             fatalError(error.localizedDescription)
                             
                         }
@@ -60,15 +66,20 @@ class CatalogManager: ObservableObject {
         
     }
     
-    
+    /// Load all product categories from database through APIs
     func loadCategories() {
         
         // Send a GET request
         AF.request(API.getCategories.rawValue, method: .get)
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
+                    
+                    // Check if the response has been completed succesfully
                     if statusCode == 200 {
+                        
+                        // Try to parse received categories as Category struct
                         do {
                             // Parse user info as JSON to Swift struct
                             let categories = try JSONDecoder().decode([Category].self, from: response.data!)
@@ -77,16 +88,17 @@ class CatalogManager: ObservableObject {
                             
                         } catch {
                             
-                            
+                            print("Error while fetching categories from catalog")
+                            fatalError(error.localizedDescription)
                             
                         }
+                        
                     }
+                    
                 }
-                
                 
             }
         
     }
-    
     
 }

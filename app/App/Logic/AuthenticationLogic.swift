@@ -18,6 +18,7 @@ import CryptoKit
 
 extension AppState {
     
+    /// Login into an existing account
     func login(email: String, password: String) {
         
         // Generate the password MD5 hash
@@ -28,9 +29,13 @@ extension AppState {
         AF.request(API.login.rawValue, method: .post, parameters: ["email": email, "password": hashedPassw])
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
+                    
+                    // Check if the request has been completed successfully
                     if statusCode == 200 {
                       
+                        // Try to save user information
                         do {
                             // Parse user info as JSON to Swift struct
                             let user = try JSONDecoder().decode(User.self, from: response.data!)
@@ -41,10 +46,10 @@ extension AppState {
                                 self.user = user
                             }
                             
-                            // Save user ID
+                            // Save user ID to the app local storage
                             UserDefaults.standard.setValue(user.id, forKey: "userID")
                             
-                            // Fetch data from API
+                            // Fetch all the data from APIs
                             self.catalogManager.loadAllProducts()
                             self.catalogManager.loadCategories()
                             self.cartManager.getUserCart()
@@ -55,16 +60,26 @@ extension AppState {
                         }
                         
                     } else if statusCode == 403 {
+                        
+                        // HTTP status code 403: forbidden access
                         self.alert = (true, "Credenziali non corrette", "Controlla le credenziali inserite")
+                        
                     } else if statusCode == 404 {
+                        
+                        // HTTP Status code 404: user not found
                         self.alert = (true, "Utente non trovato", "Controlla le credenziali inserite o registrati al negozio se non possiedi un account")
+                        
                     } else if statusCode == 500 {
+                        
+                        // HTTP Status code 500: internal server error
                         self.alert = (true, "Errore interno al server", "Se l'errore persiste contatta il supporto tecnico.")
+                        
                     }
                 }
             }
     }
     
+    /// Logout from user account
     func logout() {
         
         // Reset user preferences and information
@@ -78,6 +93,8 @@ extension AppState {
         }
     }
     
+    
+    /// Register a new user
     func register(name: String, surname: String, email: String, password: String, birthDate: Date) {
         
         // Generate the password MD5 hash
@@ -94,16 +111,21 @@ extension AppState {
         AF.request(API.register.rawValue, method: .post, parameters: body)
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
+                    // Check if the request has been completed successfully
                     if statusCode == 200 {
                         
+                        // Close the registration sheet view
                         self.showRegistrationSheet = false
                         
+                        // Display an alert
                         showStatusAlert(icon: "", title: "Registrato con successo", message: "Inserisci le credenziali per effettuare l'accesso")
                         
                     } else {
                         
+                        // Display an alert
                         self.alert = (true, "Errore nella registrazione", String(data: response.data!, encoding: .utf8)!)
                         
                     }

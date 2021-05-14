@@ -13,6 +13,7 @@
 
 import Foundation
 
+// Object for formatting date according to the database date format
 var formatter: DateFormatter {
     
     let formatter = DateFormatter()

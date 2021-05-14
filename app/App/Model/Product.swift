@@ -13,6 +13,7 @@
 
 import Foundation
 
+// Identifies a single product in the catalog
 struct Product: Identifiable {
     
     let id: Int

@@ -13,6 +13,7 @@
 
 import Foundation
 
+// Identifies a product category
 struct Category: Identifiable, Codable {
     
     let id: Int
@@ -23,9 +24,11 @@ struct Category: Identifiable, Codable {
 
 // Mock objects for debugging purposes
 extension Category {
+    
     static let mocks = [
         Category(id: 1, name: "Wargames", numberOfProducts: 3),
         Category(id: 2, name: "Carte collezionabili", numberOfProducts: 1),
         Category(id: 3, name: "Strategici", numberOfProducts: 1)
     ]
+    
 }

@@ -24,6 +24,8 @@ extension AppState {
         // Send a GET request
         AF.request(API.getAddresses.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
             .response { response in
+                
+                // Try to parse received addresses as Address structs
                 do {
                     // Parse user info as JSON to Swift struct
                     let addresses = try JSONDecoder().decode([Address].self, from: response.data!)
@@ -41,7 +43,6 @@ extension AppState {
             }
         
     }
-    
     
     
     /// Add a new address to the user's delivery addresses
@@ -92,16 +93,19 @@ extension AppState {
         AF.request(API.deleteAddress.rawValue, method: .post, parameters: ["addressID": id])
             .response { response in
                 
+                // Check and convert status code to non-optional value
                 if let statusCode = response.response?.statusCode {
                     
+                    // Check if the request has been completed successfully
                     if statusCode == 200 {
                         
                         // Generate success haptic feedback
                         HapticGenerator().notificationFeedback(type: .success)
                         
+                        // Display an alert
                         showStatusAlert(icon: "mappin.slash", title: "Rimosso", message: "Indirizzo di consegna rimosso")
                         
-                        // Reload addresses
+                        // Reload user addresses
                         self.loadAddresses()
                         
                     } else {
@@ -117,9 +121,6 @@ extension AppState {
                 }
                 
             }
-        
-        // Reload addresses
-        self.loadAddresses()
         
     }
     

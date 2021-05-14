@@ -14,6 +14,8 @@
 import Foundation
 import SwiftUI
 
+// Custom blue button for the app
+// Indicates a generic action
 struct BlueButton: ButtonStyle {
     
     @Environment(\.isEnabled) private var isEnabled: Bool
@@ -33,6 +35,8 @@ struct BlueButton: ButtonStyle {
     }
 }
 
+// Custom red button for the app
+// Indicates a dangerous action
 struct RedButton: ButtonStyle {
     
     @Environment(\.isEnabled) private var isEnabled: Bool
@@ -51,8 +55,11 @@ struct RedButton: ButtonStyle {
     }
 }
 
+// SwiftUI preview for debugging
 struct CustomButton_Previews: PreviewProvider {
+    
     static var previews: some View {
+        
         VStack {
             Button(action: {
                 
@@ -68,5 +75,7 @@ struct CustomButton_Previews: PreviewProvider {
             }).buttonStyle(BlueButton())
             
         }
+        
     }
+    
 }

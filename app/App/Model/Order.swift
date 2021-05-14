@@ -14,6 +14,7 @@
 import Foundation
 import SwiftUI
 
+// Identifies a sent order
 struct Order: Identifiable {
     
     let id: Int
@@ -35,7 +36,9 @@ struct Order: Identifiable {
         case products = "products"
     }
     
-    func orderStateId() -> Float {
+    /// Get the order's progress based on string status
+    /// - Returns: order's progress as float
+    func getOrderProgress() -> Float {
         switch self.state {
         case "In attesa di pagamento": return 1.0
         case "Pagamento ricevuto": return 2.0

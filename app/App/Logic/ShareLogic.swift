@@ -17,6 +17,7 @@ import UIKit
 // These functions are used to display a share sheet to share some information through other apps
 
 func shareApp() {
+    
     let shared = "Scarica GameZen per iOS!"
     
     let activityVC = UIActivityViewController(activityItems: [shared], applicationActivities: nil)
@@ -25,6 +26,7 @@ func shareApp() {
 }
 
 func shareProduct(product: Product) {
+    
     let shared = "Acquista il gioco \(product.name) su GameZen al prezzo di \(product.price) €"
     
     let activityVC = UIActivityViewController(activityItems: [shared], applicationActivities: nil)
