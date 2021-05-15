@@ -58,7 +58,8 @@ struct SettingsView: View {
                                     Button(action: {
                                         self.showFAQ.toggle()
                                     }, label: {
-                                        Image(systemName: "xmark").foregroundColor(.darkBlue).font(.title2).padding(5)
+                                        Image(systemName: "xmark").foregroundColor(.darkBlue)
+                                            .font(Font.title2.weight(.bold)).padding(5)
                                     })
                                 })
                         }
@@ -94,7 +95,8 @@ struct SettingsView: View {
                                     Button(action: {
                                         self.showCredits.toggle()
                                     }, label: {
-                                        Image(systemName: "xmark").foregroundColor(.darkBlue).font(.title2).padding(5)
+                                        Image(systemName: "xmark").foregroundColor(.darkBlue)
+                                            .font(Font.title2.weight(.bold)).padding(5)
                                     })
                                 })
                         }

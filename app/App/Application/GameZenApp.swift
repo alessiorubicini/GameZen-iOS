@@ -22,6 +22,8 @@ struct GameZenApp: App {
     // In this way, it's instantiated only once in the whole app life-cycle
     @StateObject private var state = AppState()
     
+    @AppStorage("isFirstLaunch") private var isFirstLaunch = true
+    
     init() {
         // Setting navigation title foreground color
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.darkBlue)]
@@ -36,6 +38,9 @@ struct GameZenApp: App {
             if self.state.isLogged == false {
                 
                 LoginView().environmentObject(state)
+                    .sheet(isPresented: $isFirstLaunch, content: {
+                        OnboardingView()
+                    })
                 
             } else {
                 

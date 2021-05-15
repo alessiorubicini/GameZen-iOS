@@ -19,6 +19,8 @@
 		CF1A321F26432F8B0000ECAE /* OrderLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A321D26432F8B0000ECAE /* OrderLogic.swift */; };
 		CF1A3221264331600000ECAE /* ShareLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A3220264331600000ECAE /* ShareLogic.swift */; };
 		CF1A3222264331600000ECAE /* ShareLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A3220264331600000ECAE /* ShareLogic.swift */; };
+		CF249FC826505CA000405300 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249FC726505CA000405300 /* OnboardingView.swift */; };
+		CF249FCA26505CAA00405300 /* OnboardingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249FC926505CAA00405300 /* OnboardingDetail.swift */; };
 		CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */; };
 		CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC5263DA990003CB88F /* FAQView.swift */; };
 		CF28B283264E73F5005B6C28 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B282264E73F5005B6C28 /* InfoRow.swift */; };
@@ -108,6 +110,8 @@
 		CF0ADF33263D458500283EA8 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
 		CF1A321D26432F8B0000ECAE /* OrderLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLogic.swift; sourceTree = "<group>"; };
 		CF1A3220264331600000ECAE /* ShareLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLogic.swift; sourceTree = "<group>"; };
+		CF249FC726505CA000405300 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		CF249FC926505CAA00405300 /* OnboardingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDetail.swift; sourceTree = "<group>"; };
 		CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		CF27CAC5263DA990003CB88F /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		CF28B282264E73F5005B6C28 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
@@ -225,6 +229,15 @@
 			path = Orders;
 			sourceTree = "<group>";
 		};
+		CF249FC626505C5300405300 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CF249FC726505CA000405300 /* OnboardingView.swift */,
+				CF249FC926505CAA00405300 /* OnboardingDetail.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		CF27CAC1263D8E70003CB88F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +290,7 @@
 		CF353301263C8B4000CC4A8E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CF249FC626505C5300405300 /* Onboarding */,
 				CF27CAC1263D8E70003CB88F /* Profile */,
 				CF0ADF30263D457100283EA8 /* Orders */,
 				CF72636B263CAD3300D38B99 /* Products */,
@@ -656,6 +670,7 @@
 				CF35330D263C8CF800CC4A8E /* AppState.swift in Sources */,
 				CF35331B263C8D9000CC4A8E /* SettingsView.swift in Sources */,
 				CF353317263C8D8400CC4A8E /* CartView.swift in Sources */,
+				CF249FC826505CA000405300 /* OnboardingView.swift in Sources */,
 				CF353309263C8BEB00CC4A8E /* Order.swift in Sources */,
 				CF0ADF34263D458500283EA8 /* OrdersListView.swift in Sources */,
 				CF353315263C8D7B00CC4A8E /* CatalogView.swift in Sources */,
@@ -665,6 +680,7 @@
 				CF63F3592647A7B4004ECD27 /* PopupAlert.swift in Sources */,
 				CF1A321E26432F8B0000ECAE /* OrderLogic.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
+				CF249FCA26505CAA00405300 /* OnboardingDetail.swift in Sources */,
 				CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */,
 				CF9FE6F8263C992600C6577D /* LoginView.swift in Sources */,
 				CF0ADF2A263D3BBE00283EA8 /* CustomButton.swift in Sources */,
