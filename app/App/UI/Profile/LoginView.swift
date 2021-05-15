@@ -23,7 +23,7 @@ struct LoginView: View {
     
     @AppStorage("email") private var email = ""
     @AppStorage("password") private var password = ""
-    @AppStorage("keepConnected") private var keepConnected = false
+    @AppStorage("keepConnected") private var keepConnected = true
     
     // MARK: - View body
     
@@ -33,16 +33,27 @@ struct LoginView: View {
         // If the "Keep connected" preference is activated, show an automatic login view
         if keepConnected {
             
-            // Show an undefined progress circle
-            ProgressView()
-            
-            Text("Login automatico in corso...")
-            
-            Button(action: {
-                self.keepConnected = false
-            }, label: {
-                Text("Interrompi login automatico")
-            }).buttonStyle(RedButton()).padding(.top, 30)
+            ZStack {
+                
+                Color.ice.edgesIgnoringSafeArea(.all)
+                
+                VStack(alignment: .center) {
+                    
+                    // App logo
+                    Image("Icon-NoBG").resizable().aspectRatio(contentMode: .fit).frame(height: 150)
+                        .padding(.vertical, 40)
+                    
+                    // Show an undefined progress circle
+                    ProgressView().padding(.vertical, 15)
+                    
+                    Button(action: {
+                        self.keepConnected = false
+                    }, label: {
+                        Text("Interrompi login automatico")
+                    }).buttonStyle(RedButton()).padding(.top, 30)
+                    
+                }
+            }
             
         } else {
             

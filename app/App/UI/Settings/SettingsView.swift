@@ -32,7 +32,7 @@ struct SettingsView: View {
             List {
                 
                 Section(header: Text("Generale")) {
-                    Toggle("Rimani collegato", isOn: $keepConnected)
+                    Toggle("Rimani collegato", isOn: $keepConnected).foregroundColor(.darkBlue)
                     
                     Button(action: {
                         shareApp()
@@ -40,7 +40,7 @@ struct SettingsView: View {
                         Label("Condividi l'app", systemImage: "square.and.arrow.up")
                     })
                     
-                    Link(destination: URL(string: "mailto:gamezensupport@icloud.com")!) {
+                    Link(destination: URL(string: "http://alessiorubicini.altervista.org")!) {
                         Label("Contatta il supporto", systemImage: "envelope.fill")
                     }
                 }
@@ -65,10 +65,10 @@ struct SettingsView: View {
                     })
                     
                     NavigationLink(destination: EmptyView()) {
-                        Text("Privacy policy")
+                        Text("Privacy policy").foregroundColor(.darkBlue)
                     }
                     NavigationLink(destination: EmptyView()) {
-                        Text("Termini di utilizzo")
+                        Text("Termini di utilizzo").foregroundColor(.darkBlue)
                     }
                     
                 }
@@ -78,7 +78,7 @@ struct SettingsView: View {
                         Text("Versione app")
                         Spacer()
                         Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
-                    }
+                    }.foregroundColor(.darkBlue)
                     
                     Link("Sviluppatore", destination: URL(string: "http://alessiorubicini.altervista.org")!)
                     

@@ -39,7 +39,9 @@ struct ProductsListView: View {
             List {
 
                 ForEach(searchText.isEmpty ? products : products.filter({$0.name.contains(searchText)})) { product in
-                    NavigationLink(destination: ProductView(product: product, addToCart: addToCart).navigationTitle(product.name)) {
+                    NavigationLink(destination: ProductView(product: product, addToCart: addToCart)
+                                    .navigationTitle(product.name)
+                                    .navigationBarTitleDisplayMode(.inline)) {
                         ProductCard(product: product).frame(height: 200)
                     }
                 }

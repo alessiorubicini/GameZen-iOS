@@ -57,7 +57,9 @@ struct CatalogView: View {
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(catalog.products[0...2].filter{$0.available == true}) { product in
-                                NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name).navigationBarTitleDisplayMode(.inline)) {
+                                NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct)
+                                                .navigationTitle(product.name)
+                                                .navigationBarTitleDisplayMode(.inline)) {
                                     ProductCard(product: product).frame(height: 200).listRowBackground(Color.ice)
                                 }
                             }
@@ -90,7 +92,9 @@ struct CatalogView: View {
                     List {
                         // Filter product list for searched name
                         ForEach(catalog.products.filter{$0.name.contains(searchText)}) { product in
-                            NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name).navigationBarTitleDisplayMode(.inline)) {
+                            NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct)
+                                            .navigationTitle(product.name)
+                                            .navigationBarTitleDisplayMode(.inline)) {
                                 ProductCard(product: product).frame(height: 200)
                             }
 

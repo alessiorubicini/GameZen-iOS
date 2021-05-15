@@ -22,7 +22,7 @@
 	$db = new Database();
 
 	// Select catalog's categories from database
-	$categories = $db->query("SELECT c.id, c.name, COUNT(P.code) AS 'numberOfProducts' FROM products P, categories C WHERE P.category = C.id GROUP BY C.id");
+	$categories = $db->query("SELECT C.id, C.name, COUNT(P.code) AS 'numberOfProducts' FROM products P, categories C WHERE P.category = C.id GROUP BY C.id");
 
 	// Close database connection
 	$db->close();

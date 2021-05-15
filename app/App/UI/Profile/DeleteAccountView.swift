@@ -34,9 +34,11 @@ struct DeleteAccountView: View {
             Text("Inserisci la password per confermare l'eliminazione dell'account\n\nL'operazione è irreversibile")
                 .foregroundColor(.darkBlue)
                 .multilineTextAlignment(.center)
+                .padding()
             
             TextField("Password", text: $password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none).disableAutocorrection(true)
                 .padding()
             
             Button(action: {

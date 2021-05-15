@@ -22,7 +22,6 @@
 		CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */; };
 		CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC5263DA990003CB88F /* FAQView.swift */; };
 		CF28B283264E73F5005B6C28 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B282264E73F5005B6C28 /* InfoRow.swift */; };
-		CF28B285264E74F9005B6C28 /* BiometricLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B284264E74F9005B6C28 /* BiometricLogic.swift */; };
 		CF28B287264E77B4005B6C28 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B286264E77B4005B6C28 /* DeleteAccountView.swift */; };
 		CF33286826407D76009C222B /* AddressLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286726407D76009C222B /* AddressLogic.swift */; };
 		CF33286B26407E54009C222B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33286A26407E54009C222B /* CartTests.swift */; };
@@ -60,6 +59,7 @@
 		CF726368263CA3B600D38B99 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726367263CA3B600D38B99 /* RemoteImage.swift */; };
 		CF72636A263CA69700D38B99 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726369263CA69700D38B99 /* Category.swift */; };
 		CF72636D263CAD4200D38B99 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72636C263CAD4200D38B99 /* ProductView.swift */; };
+		CF77E25D26501095007FA8B6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF77E25C26501095007FA8B6 /* Launch Screen.storyboard */; };
 		CF9083D7263DE40B0070CA6C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9083D6263DE40B0070CA6C /* UserTests.swift */; };
 		CF9083D8263DE5F80070CA6C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353308263C8BEB00CC4A8E /* Order.swift */; };
 		CF9083D9263DE5F80070CA6C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353304263C8BBC00CC4A8E /* Product.swift */; };
@@ -111,7 +111,6 @@
 		CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		CF27CAC5263DA990003CB88F /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		CF28B282264E73F5005B6C28 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
-		CF28B284264E74F9005B6C28 /* BiometricLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLogic.swift; sourceTree = "<group>"; };
 		CF28B286264E77B4005B6C28 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		CF33286726407D76009C222B /* AddressLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressLogic.swift; sourceTree = "<group>"; };
 		CF33286A26407E54009C222B /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		CF726367263CA3B600D38B99 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		CF726369263CA69700D38B99 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CF72636C263CAD4200D38B99 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		CF77E25C26501095007FA8B6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CF9083D6263DE40B0070CA6C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CF9DD1D22642F396001D43E8 /* AddressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTest.swift; sourceTree = "<group>"; };
 		CF9FE6F5263C97F200C6577D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -254,6 +254,7 @@
 			children = (
 				CF650E8A263C870E00B6C05A /* GameZenApp.swift */,
 				CF650E93263C870F00B6C05A /* Info.plist */,
+				CF77E25C26501095007FA8B6 /* Launch Screen.storyboard */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -302,7 +303,6 @@
 				CF35330C263C8CF800CC4A8E /* AppState.swift */,
 				CFED5DD326405F0900F3DC97 /* AuthenticationLogic.swift */,
 				CF33286726407D76009C222B /* AddressLogic.swift */,
-				CF28B284264E74F9005B6C28 /* BiometricLogic.swift */,
 				CF1A321D26432F8B0000ECAE /* OrderLogic.swift */,
 				CF353312263C8D5700CC4A8E /* CatalogManager.swift */,
 				CF353310263C8D3B00CC4A8E /* CartManager.swift */,
@@ -513,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF77E25D26501095007FA8B6 /* Launch Screen.storyboard in Resources */,
 				CF650E92263C870F00B6C05A /* Preview Assets.xcassets in Resources */,
 				CF650E8F263C870F00B6C05A /* Assets.xcassets in Resources */,
 			);
@@ -664,7 +665,6 @@
 				CF63F3592647A7B4004ECD27 /* PopupAlert.swift in Sources */,
 				CF1A321E26432F8B0000ECAE /* OrderLogic.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
-				CF28B285264E74F9005B6C28 /* BiometricLogic.swift in Sources */,
 				CFDCA65B263F0FF7007FB5D9 /* AddAddressView.swift in Sources */,
 				CF9FE6F8263C992600C6577D /* LoginView.swift in Sources */,
 				CF0ADF2A263D3BBE00283EA8 /* CustomButton.swift in Sources */,

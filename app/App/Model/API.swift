@@ -21,6 +21,7 @@ enum API: String {
     // User
     case login = "http://localhost:8888/GameZen/api/users/login.php"
     case register = "http://localhost:8888/GameZen/api/users/register.php"
+    case deleteAccount = "http://localhost:8888/GameZen/api/users/delete.php"
     
     // Cart
     case getCart = "http://localhost:8888/GameZen/api/cart/get.php"

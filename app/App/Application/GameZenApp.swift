@@ -22,6 +22,12 @@ struct GameZenApp: App {
     // In this way, it's instantiated only once in the whole app life-cycle
     @StateObject private var state = AppState()
     
+    init() {
+        // Setting navigation title foreground color
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.darkBlue)]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.darkBlue)]
+    }
+    
     @ViewBuilder
     var body: some Scene {
         WindowGroup {

@@ -122,6 +122,9 @@ extension AppState {
                     // Check if the request has been completed successfully
                     if statusCode == 200 {
                         
+                        // Reload user's orders
+                        self.loadOrders()
+                        
                         // Display an alert
                         showStatusAlert(icon: "xmark.square.fill", title: "Annullato", message: "Ordine annullato con successo")
                         
@@ -136,8 +139,6 @@ extension AppState {
                 
             }
         
-        // Reload user's orders
-        self.loadOrders()
     }
     
 }

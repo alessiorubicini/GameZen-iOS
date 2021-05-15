@@ -12,9 +12,33 @@
 	// You should have received a copy of the GNU General Public License
 	// along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-	header('Content-Type: application/json');
-	require_once('../core/database.php');
-
+	// HTTP response headers
+	header('Content-Type: text/plain');
 	
+	// Including database interface class
+	require_once('../core/database.php');	
+	
+	// Check if all data has been passed
+	if(!isset($_GET["userID"])) {
+		header("HTTP/1.1 400");
+		echo "Missing user ID";
+		exit;
+	}
+
+	// Setup database interface
+	$db = new Database();
+
+	// Get passed data with GET
+	$userID = $db->makeSecure($_GET["userID"]);
+
+	// Delete user account
+	$db->queryWithoutResult("DELETE FROM users WHERE id = '$userID'");
+
+	// Close database connection
+	$db->close();
+
+	// Return HTTP response
+	header("HTTP/1.1 200");
+	echo "Account deleted successfully";
 
 ?>

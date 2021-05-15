@@ -25,11 +25,11 @@ struct AddAddressView: View {
     var body: some View {
         Form {
             TextField("Via", text: $data.address)
-            TextField("Numero civico", text: $data.civic)
+            TextField("Numero civico", text: $data.civic).keyboardType(.numberPad)
             TextField("Città", text: $data.city)
-            TextField("CAP", text: $data.CAP)
+            TextField("CAP", text: $data.CAP).keyboardType(.numberPad)
             TextField("Provincia", text: $data.province)
-            TextField("Telefono", text: $data.phone)
+            TextField("Telefono", text: $data.phone).keyboardType(.numberPad)
         }
     }
 }

@@ -24,13 +24,9 @@ struct OrderCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text("Ordine n. #\(order.id)").fontWeight(.semibold).font(.title)
+            Text("Ordine n. #\(order.id)").fontWeight(.semibold).font(.title).foregroundColor(.darkBlue)
             
-            HStack {
-                //Text(order.date)
-                Image(systemName: "bus").aspectRatio(contentMode: .fit).font(.title2)
-                Text(order.delivery).font(.title2)
-            }.padding(.vertical, 5)
+            Label("\(order.delivery)", systemImage: "bus").font(.title2).foregroundColor(.darkBlue).padding(.vertical, 5)
             
             Text(order.state).foregroundColor(orderStateColor(for: order.state)).fontWeight(.semibold)
                 .font(.title3)

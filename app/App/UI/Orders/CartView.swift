@@ -75,7 +75,7 @@ struct CartView: View {
                     
                     .actionSheet(isPresented: $selectAddress) {
                         let buttons = self.state.user!.addresses.enumerated().map { i, address in
-                            Alert.Button.default(self.deliveryAddress == 0 ? Text(address.address) : Text("✅ \(address.address)"),
+                            Alert.Button.default(self.deliveryAddress == 0 ? Text("\(address.address) \(address.civic) - \(address.city)") : Text("✅ \(address.address) \(address.civic) - \(address.city)"),
                                                  action: { self.deliveryAddress = address.id} )
                         }
                         return ActionSheet(title: Text("Indirizzo di consegna"), message: Text("Indica l'indirizzo a cui consegnare l'ordine"), buttons: buttons + [Alert.Button.cancel()])

@@ -110,7 +110,7 @@ extension AppState {
                         self.showRegistrationSheet = false
                         
                         // Display an alert
-                        showStatusAlert(icon: "", title: "Registrato con successo", message: "Inserisci le credenziali per effettuare l'accesso")
+                        showStatusAlert(icon: "person.crop.circle.fill.badge.checkmark", title: "Registrato con successo", message: "Inserisci le credenziali per effettuare l'accesso")
                         
                     } else {
                         
@@ -136,7 +136,8 @@ extension AppState {
         // Log out from account
         DispatchQueue.main.async {
             self.isLogged = false
-            self.user = nil
+            //self.user = nil
+            
         }
     }
     
@@ -144,8 +145,34 @@ extension AppState {
     func deleteAccount() {
         
         // Delete account from database through APIs
-        
-        
+        AF.request(API.deleteAccount.rawValue + "?userID=\(UserDefaults.standard.integer(forKey: "userID"))", method: .get)
+            .response { response in
+                
+                debugPrint(response)
+                
+                // Check and convert status code to non-optional value
+                if let statusCode = response.response?.statusCode {
+                    
+                    // Check if the request has been completed successfully
+                    if statusCode == 200 {
+                        
+                        // Logout
+                        self.logout()
+                        
+                        // Display an alert
+                        showStatusAlert(icon: "xmark.square.fill", title: "Eliminato", message: "Account eliminato con successo")
+                        
+                    } else {
+                        
+                        // Display an alert
+                        self.alert = (true, "Errore nella cancellazione dell'account", String(data: response.data!, encoding: .utf8)!)
+                        
+                    }
+                    
+                }
+                
+            }
+
         
     }
 }

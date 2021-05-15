@@ -29,9 +29,9 @@ struct ProductCard: View {
             
             // Info
             VStack(alignment: .leading) {
-                Text(product.name).font(.title2).fontWeight(.medium)
+                Text(product.name).font(.title2).fontWeight(.medium).foregroundColor(.bluePrimary)
                 
-                Text("\(product.price, specifier: "%.2f") €").font(.title3)
+                Text("\(product.price, specifier: "%.2f") €").font(.title3).foregroundColor(.bluePrimary)
                 
                 Text(product.available ? "Disponibile" : "Esaurito").foregroundColor(product.available ? .green : .red)
                     .padding(.vertical, 10)

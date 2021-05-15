@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 14, 2021 at 02:57 PM
+-- Generation Time: May 15, 2021 at 03:24 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -35,8 +35,7 @@ CREATE TABLE `addresses` (
 --
 
 INSERT INTO `addresses` (`id`, `address`, `civic`, `city`, `CAP`, `province`, `phone`) VALUES
-(1, 'Via Mauro Macchi', 52, 'Porto San Giorgio', '63822', 'FM', '3896970199'),
-(2, 'Via degli spacciatori', 12, 'Casabianca', '63900', 'FM', '734658976');
+(1, 'Via Mauro Macchi', 52, 'Porto San Giorgio', '63822', 'FM', '3896970199');
 
 -- --------------------------------------------------------
 
@@ -78,8 +77,7 @@ CREATE TABLE `delivery` (
 --
 
 INSERT INTO `delivery` (`user`, `address`) VALUES
-(1, 1),
-(5, 2);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -193,7 +191,7 @@ CREATE TABLE `save` (
 --
 
 INSERT INTO `save` (`user`, `product`) VALUES
-(5, 1);
+(1, 4);
 
 -- --------------------------------------------------------
 
@@ -239,7 +237,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `surname`, `password`, `email`, `birth`) VALUES
 (1, 'Alessio', 'Rubicini', '098f6bcd4621d373cade4e832627b4f6', 'alessiorubicini16@icloud.com', '2002-07-16'),
-(5, 'Andrea', 'Malloni', '098f6bcd4621d373cade4e832627b4f6', 'malloni.andrea@gmail.it', '2002-02-08');
+(7, 'Andrea', 'Malloni', '098f6bcd4621d373cade4e832627b4f6', 'malloni.andrea02@gmail.com', '2002-02-09');
 
 --
 -- Indexes for dumped tables
@@ -322,7 +320,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -358,7 +356,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

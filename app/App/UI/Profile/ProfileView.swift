@@ -54,21 +54,7 @@ struct ProfileView: View {
                     // Delete account
                     Button(action: {
                         
-                        // Authenticate user with biometric authentication
-                        authenticateWithBiometric { result in
-                            if result == false {
-                                
-                                // Biometric authentication resulted in error
-                                // Show a view to manually confirm with password
-                                self.showDeleteAccountView.toggle()
-                                
-                            } else {
-                                
-                                // Biometric authentication completed successfully
-                                self.state.deleteAccount()
-                                
-                            }
-                        }
+                        self.showDeleteAccountView.toggle()
                         
                     }, label: {
                         Text("Elimina profilo").foregroundColor(.red)
@@ -77,7 +63,7 @@ struct ProfileView: View {
                     .sheet(isPresented: $showDeleteAccountView, content: {
                         NavigationView {
                             DeleteAccountView().environmentObject(self.state)
-                                
+                                .navigationTitle("Eliminazione account")
                                 .navigationBarItems(leading: HStack {
                                     Button(action: {
                                         self.showDeleteAccountView.toggle()
@@ -85,7 +71,6 @@ struct ProfileView: View {
                                         Text("Annulla")
                                     })
                                 })
-                            
                         }
                     })
                     

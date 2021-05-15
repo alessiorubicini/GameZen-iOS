@@ -35,20 +35,15 @@ struct OrderView: View {
                 Divider()
                 
                 Group {
-                    HStack {
-                        Text("Data dell'ordine")
-                        Text("\(order.date)")
-                    }
+                    Label("Data ordine: \(order.date)", systemImage: "bag.fill")
                     
-                    HStack {
-                        Text("Consegna stimata:")
-                        Text("\(order.delivery)")
-                    }
+                    Label("Stima consegna: \(order.delivery)", systemImage: "bus")
+                    
                 }.font(.title3).padding(.vertical, 5)
 
                 Divider()
                 
-                Text("Totale: \(order.total, specifier: "%.2f") €").font(.title3)
+                Text("Totale: \(order.total, specifier: "%.2f") €").font(.title3).fontWeight(.medium).padding(.top)
                 
             }.foregroundColor(.darkBlue).padding(.vertical)
             
