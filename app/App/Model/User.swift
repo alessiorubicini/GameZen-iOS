@@ -13,6 +13,7 @@
 
 import Foundation
 
+// Identifies the user's account data
 struct User {
     
     var id: Int
@@ -23,17 +24,6 @@ struct User {
     var birthDate: String
     var addresses: [Address]
     var orders: [Order]
-    
-    init(id: Int, name: String, surname: String, email: String, password: String, birthDate: String, addresses: [Address], orders: [Order]) {
-        self.id = id
-        self.name = name
-        self.surname = surname
-        self.email = email
-        self.password = password
-        self.birthDate = birthDate
-        self.addresses = addresses
-        self.orders = orders
-    }
     
     // Coding keys used to parse the API JSON to Swift struct
     enum CodingKeys: String, CodingKey {
@@ -63,21 +53,6 @@ extension User: Decodable {
         self.addresses = try container.decode([Address].self, forKey: .addresses)
         self.orders = try container.decode([Order].self, forKey: .orders)
     }
-}
-
-extension User {
-    
-    struct Data {
-        var name = ""
-        var surname = ""
-        var email = ""
-        var birthDate = Date()
-    }
-    
-    var data: Data {
-        return Data(name: name, surname: surname, email: email, birthDate: formatter.date(from: birthDate)!)
-    }
-    
 }
 
 // Mock structure for debugging purposes

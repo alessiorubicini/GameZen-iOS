@@ -16,7 +16,6 @@ import SwiftUI
 struct OrderCard: View {
     
     // MARK: - View properties
-    
     let order: Order
     
     // MARK: - View body
@@ -31,12 +30,16 @@ struct OrderCard: View {
             Text(order.state).foregroundColor(orderStateColor(for: order.state)).fontWeight(.semibold)
                 .font(.title3)
                 .padding(.vertical, 5)
-                //.background(RoundedRectangle(cornerRadius: 10).fill(Color("Ice")).shadow(radius: 5))
+
         }
     }
     
 }
 
+
+/// Return the corresponding color of the order's state
+/// - Parameter state: order's state
+/// - Returns: SwiftUI Color
 func orderStateColor(for state: String) -> Color {
    switch state {
    case "In attesa di pagamento": return Color.red
@@ -49,16 +52,7 @@ func orderStateColor(for state: String) -> Color {
    }
 }
 
-// Order state colors
-extension Color {
-    static let waitingForPayment = Color.red
-    static let paymentReceived = Color.yellow
-    static let elaborating = Color.yellow
-    static let sent = Color.bluePrimary
-    static let delivering = Color.green
-    static let delivered = Color.green
-}
-
+// SwiftUI debugging preview
 struct OrderCard_Previews: PreviewProvider {
     static var previews: some View {
         OrderCard(order: Order.mocks[0])

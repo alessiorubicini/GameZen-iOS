@@ -21,8 +21,6 @@ struct ProfileView: View {
     // MARK: - View properties
     
     @EnvironmentObject private var state: AppState
-    
-    @State private var data = User.Data()
     @State private var showDeleteAccountView = false
     
     // MARK: - View body

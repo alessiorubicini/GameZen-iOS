@@ -25,8 +25,6 @@ struct CreditsView: View {
                 InfoRow(key: "Daniele Monaldi", value: "Sviluppatore Android")
                 InfoRow(key: "Andrea Ortolani", value: "Sviluppatore Web")
                 
-                InfoRow(key: "Prof.ssa Fabiola Farnese", value: "Supervisione")
-                InfoRow(key: "Prof. Mauro Febi", value: "Supervisione")
             }
             
             Section(header: Text("Strumenti")) {

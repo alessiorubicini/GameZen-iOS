@@ -46,8 +46,6 @@
 
 		// Run a SQL query and returns the mysqli result as a dictionary
 		public function query($query) {
-			// Prevent SQL injection
-			$query = strip_tags($query);
 			
 			// Run query
 			$result = $this->conn->query($query);

@@ -14,7 +14,7 @@
 import SwiftUI
 
 // This view displays the form to login into an existing account
-// It's displayed by default
+// It's displayed by default at the start of the app
 struct LoginView: View {
     
     // MARK: - View properties
@@ -23,7 +23,7 @@ struct LoginView: View {
     
     @AppStorage("email") private var email = ""
     @AppStorage("password") private var password = ""
-    @AppStorage("keepConnected") private var keepConnected = true
+    @AppStorage("keepConnected") private var keepConnected = false
     
     // MARK: - View body
     
@@ -77,6 +77,7 @@ struct LoginView: View {
                     SecureField("Password", text: $password).autocapitalization(.none).disableAutocorrection(true)
                         .foregroundColor(.darkBlue).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.horizontal)
                     
+                    // Registration view toggle
                     Button(action: {
                         self.state.showRegistrationSheet.toggle()
                     }, label: {
@@ -91,6 +92,7 @@ struct LoginView: View {
                 .background(Rectangle().fill(Color.white).cornerRadius(30.0).frame(height: 500))
                 
             }
+            
             // Error alert
             .alert(isPresented: self.$state.alert.0, content: {
                 Alert(title: Text(state.alert.1), message: Text(state.alert.2), dismissButton: .default(Text("Chiudi")))
@@ -101,7 +103,6 @@ struct LoginView: View {
                 NavigationView {
                     RegistrationView()
                         .navigationTitle("Registrati")
-                        
                         .navigationBarItems(leading: HStack {
                             Button(action: {
                                 self.state.showRegistrationSheet = false

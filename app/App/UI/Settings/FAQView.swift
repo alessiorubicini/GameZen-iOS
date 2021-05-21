@@ -15,10 +15,14 @@ import SwiftUI
 
 struct FAQView: View {
     
+    // MARK: - View properties
+    
     @State private var whatIs = false
     @State private var buying = false
     @State private var orders = false
     @State private var address = false
+    
+    // MARK: - View body
     
     var body: some View {
         List {
@@ -43,6 +47,7 @@ struct FAQView: View {
     }
 }
 
+// SwiftUI debugging preview
 struct FAQView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

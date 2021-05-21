@@ -13,16 +13,19 @@
 
 import SwiftUI
 
+// This view displays a list of orders
 struct OrdersListView: View {
     
     // MARK: - View properties
-    @EnvironmentObject private var state: AppState
     
+    @EnvironmentObject private var state: AppState
+
     let orders: [Order]
     
     // MARK: - View body
     
     var body: some View {
+        
         if orders.count == 0 {
             
             Group {
@@ -41,9 +44,11 @@ struct OrdersListView: View {
             }.listStyle(InsetGroupedListStyle())
             
         }
+        
     }
 }
 
+// SwiftUI debugging preview
 struct OrdersListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

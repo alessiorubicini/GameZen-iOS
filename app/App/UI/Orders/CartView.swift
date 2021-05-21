@@ -13,6 +13,8 @@
 
 import SwiftUI
 
+// This view displays the current user's cart
+// It's displayed as one of the views in the bottom tab bar
 struct CartView: View {
     
     // MARK: - View properties
@@ -30,6 +32,7 @@ struct CartView: View {
         NavigationView {
             VStack {
                 
+                // Empty cart
                 if cart.products.count == 0 {
                     
                     Group {
@@ -38,9 +41,12 @@ struct CartView: View {
                     }.padding(.vertical)
                     
                 } else {
+                    // Non-empty cart
                     
-                    Text("Totale: \(cart.totalPrice, specifier: "%.2f") €").font(.title).padding(.top)
+                    // Total price of the cart
+                    Text("Totale: \(cart.totalPrice, specifier: "%.2f") €").foregroundColor(.darkBlue).font(.title).padding(.top)
                     
+                    // Check if user has delivery addresses
                     if self.state.user!.addresses.count == 0 {
                         Text("Per effettuare un ordine è necessario aggiungere un indirizzo di consegna").multilineTextAlignment(.center).padding()
                     } else {
@@ -58,11 +64,14 @@ struct CartView: View {
                     
                     List {
                         
+                        // List of all products inside the cart
                         ForEach(cart.products) { product in
                             NavigationLink(destination: ProductView(product: product, addToCart: cart.addProduct).navigationTitle(product.name).navigationBarTitleDisplayMode(.inline)) {
                                 ProductCard(product: product).frame(height: 150)
                             }
                         }
+                        
+                        // Delete an item from the cart on swipe
                         .onDelete(perform: { indexSet in
                             withAnimation {
                                 self.cart.removeProduct(at: indexSet)
@@ -95,6 +104,7 @@ struct CartView: View {
     }
 }
 
+// SwiftUI debugging preview
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         CartView()

@@ -14,7 +14,6 @@
 import Foundation
 import StatusAlert
 
-
 /// Show a blurred alert like Apple's default apps
 /// It's used to display succesfull operations alerts to the user
 /// - Parameters:

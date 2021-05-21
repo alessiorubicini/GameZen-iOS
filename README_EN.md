@@ -20,11 +20,11 @@ NOTA: questo README è disponibile anche [in Italiano](README.md).
 
 
 # Context
-This repository contains the source code of GameZen's iOS client, an app for purchasing board games from an online store. This project was created by the student Alessio Rubicini as an elaborate for the 2020/2021 State school Exam. The application was therefore created for educational purposes only.
+This repository contains the source code of GameZen's iOS client, an iOS app for an online table games store. This project was created by the student Alessio Rubicini as an elaborate for the 2020/2021 high school State Exam. The application was therefore created for educational purposes only.
 
-For general product information, see the [docs/Product.md](docs/Product.md) file.
+For general product information, see the [Product.md](docs/Product.md) file.
 
-For information on the used technologies, see the [docs/Technology.md](docs/Technology.md) file.
+For information on the used technologies, see the [Technology.md](docs/Technology.md) file.
 
 # Repository structure
 

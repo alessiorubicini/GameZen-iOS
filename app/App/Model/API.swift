@@ -13,8 +13,6 @@
 
 import Foundation
 
-let hostname = "localhost"
-
 // HTTP API resource paths
 enum API: String {
     

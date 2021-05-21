@@ -21,7 +21,6 @@
 		CF1A3222264331600000ECAE /* ShareLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A3220264331600000ECAE /* ShareLogic.swift */; };
 		CF249FC826505CA000405300 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249FC726505CA000405300 /* OnboardingView.swift */; };
 		CF249FCA26505CAA00405300 /* OnboardingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF249FC926505CAA00405300 /* OnboardingDetail.swift */; };
-		CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */; };
 		CF27CAC6263DA990003CB88F /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27CAC5263DA990003CB88F /* FAQView.swift */; };
 		CF28B283264E73F5005B6C28 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B282264E73F5005B6C28 /* InfoRow.swift */; };
 		CF28B287264E77B4005B6C28 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28B286264E77B4005B6C28 /* DeleteAccountView.swift */; };
@@ -55,13 +54,13 @@
 		CF6B6D7C263F2B80007E88AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */; };
 		CF6B6D80263F38D5007E88AB /* CatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */; };
 		CF6EE90D26454EDF0042EE73 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6EE90C26454EDF0042EE73 /* RegistrationView.swift */; };
-		CF726361263C9FDE00D38B99 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726360263C9FDE00D38B99 /* Errors.swift */; };
 		CF726363263CA27B00D38B99 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726362263CA27B00D38B99 /* API.swift */; };
 		CF726366263CA2CC00D38B99 /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726365263CA2CC00D38B99 /* ProductCard.swift */; };
 		CF726368263CA3B600D38B99 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726367263CA3B600D38B99 /* RemoteImage.swift */; };
 		CF72636A263CA69700D38B99 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF726369263CA69700D38B99 /* Category.swift */; };
 		CF72636D263CAD4200D38B99 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72636C263CAD4200D38B99 /* ProductView.swift */; };
 		CF77E25D26501095007FA8B6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF77E25C26501095007FA8B6 /* Launch Screen.storyboard */; };
+		CF8529A92657A646002F3C92 /* PopupAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF63F3582647A7B4004ECD27 /* PopupAlert.swift */; };
 		CF9083D7263DE40B0070CA6C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9083D6263DE40B0070CA6C /* UserTests.swift */; };
 		CF9083D8263DE5F80070CA6C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353308263C8BEB00CC4A8E /* Order.swift */; };
 		CF9083D9263DE5F80070CA6C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF353304263C8BBC00CC4A8E /* Product.swift */; };
@@ -112,7 +111,6 @@
 		CF1A3220264331600000ECAE /* ShareLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLogic.swift; sourceTree = "<group>"; };
 		CF249FC726505CA000405300 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		CF249FC926505CAA00405300 /* OnboardingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDetail.swift; sourceTree = "<group>"; };
-		CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		CF27CAC5263DA990003CB88F /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		CF28B282264E73F5005B6C28 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
 		CF28B286264E77B4005B6C28 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 		CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTests.swift; sourceTree = "<group>"; };
 		CF6EE90C26454EDF0042EE73 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		CF726360263C9FDE00D38B99 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		CF726362263CA27B00D38B99 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CF726365263CA2CC00D38B99 /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
 		CF726367263CA3B600D38B99 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
@@ -244,7 +241,6 @@
 				CF9FE6F7263C992600C6577D /* LoginView.swift */,
 				CF6EE90C26454EDF0042EE73 /* RegistrationView.swift */,
 				CF353318263C8D8A00CC4A8E /* ProfileView.swift */,
-				CF27CAC2263D8E7D003CB88F /* EditProfileView.swift */,
 				CFDCA658263F0CA4007FB5D9 /* AddressesView.swift */,
 				CFDCA65A263F0FF7007FB5D9 /* AddAddressView.swift */,
 				CF28B286264E77B4005B6C28 /* DeleteAccountView.swift */,
@@ -282,7 +278,6 @@
 				CF726369263CA69700D38B99 /* Category.swift */,
 				CF726362263CA27B00D38B99 /* API.swift */,
 				CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */,
-				CF726360263C9FDE00D38B99 /* Errors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,6 +440,7 @@
 				CF650E94263C870F00B6C05A /* Sources */,
 				CF650E95263C870F00B6C05A /* Frameworks */,
 				CF650E96263C870F00B6C05A /* Resources */,
+				C96CDBD131CB76763BCDAB26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -633,6 +629,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C96CDBD131CB76763BCDAB26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameZenTests/Pods-GameZenTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameZenTests/Pods-GameZenTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GameZenTests/Pods-GameZenTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D29CD80624906968B772DC91 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -676,7 +689,6 @@
 				CF353315263C8D7B00CC4A8E /* CatalogView.swift in Sources */,
 				CFED5DD426405F0900F3DC97 /* AuthenticationLogic.swift in Sources */,
 				CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */,
-				CF726361263C9FDE00D38B99 /* Errors.swift in Sources */,
 				CF63F3592647A7B4004ECD27 /* PopupAlert.swift in Sources */,
 				CF1A321E26432F8B0000ECAE /* OrderLogic.swift in Sources */,
 				CFDCA65D263F11D4007FB5D9 /* OrderCard.swift in Sources */,
@@ -695,7 +707,6 @@
 				CF726366263CA2CC00D38B99 /* ProductCard.swift in Sources */,
 				CF353305263C8BBC00CC4A8E /* Product.swift in Sources */,
 				CF1A3221264331600000ECAE /* ShareLogic.swift in Sources */,
-				CF27CAC3263D8E7D003CB88F /* EditProfileView.swift in Sources */,
 				CF72636A263CA69700D38B99 /* Category.swift in Sources */,
 				CFDCA65F263F11E2007FB5D9 /* OrderView.swift in Sources */,
 			);
@@ -712,6 +723,7 @@
 				CF9083D8263DE5F80070CA6C /* Order.swift in Sources */,
 				CF9083D9263DE5F80070CA6C /* Product.swift in Sources */,
 				CF9DD1D32642F396001D43E8 /* AddressTest.swift in Sources */,
+				CF8529A92657A646002F3C92 /* PopupAlert.swift in Sources */,
 				CF33287326407F82009C222B /* DateFormatter.swift in Sources */,
 				CF33286B26407E54009C222B /* CartTests.swift in Sources */,
 				CF9083D7263DE40B0070CA6C /* UserTests.swift in Sources */,

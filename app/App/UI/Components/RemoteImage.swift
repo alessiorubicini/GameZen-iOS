@@ -13,7 +13,11 @@
 
 import SwiftUI
 
+// This view is used to display an image loaded from a network resource
+// It's used to display products' images from the web server
 struct RemoteImage: View {
+    
+    // MARK: - View properties
     
     @StateObject var loader: Loader
     var failure: Image
@@ -25,8 +29,11 @@ struct RemoteImage: View {
         self.imageType = type
     }
     
+    // MARK: - View body
+    
     @ViewBuilder
     var body: some View {
+        
         if loader.state == .loading {
             ProgressView()
         } else if loader.state == .failure {
@@ -38,8 +45,10 @@ struct RemoteImage: View {
                 failure
             }
         }
+        
     }
     
+    // Class responsible of loading the image
     class Loader: ObservableObject {
         
         var data = Data()
@@ -77,6 +86,7 @@ struct RemoteImage: View {
     }
 }
 
+// SwiftUI debugging preview
 struct RemoteImage_Previews: PreviewProvider {
     static var previews: some View {
         RemoteImage(type: .view, url: "http://localhost:8888/test/smerillo.jpg")

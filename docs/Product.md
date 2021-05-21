@@ -56,7 +56,7 @@ I can eventually add or remove delivery addresses.
 
 I track my current orders and I can eventually cancel one.
 
-<img src="../design/Product/Profile.png" style="border-radius: 30px;">
+<img src="../design/Product/Orders.png" style="border-radius: 30px;">
 
 
 ## Settings

@@ -13,6 +13,7 @@
 
 import SwiftUI
 
+// This view contains the detailed data of an order
 struct OrderView: View {
     
     // MARK: - View properties
@@ -75,6 +76,7 @@ struct OrderView: View {
     }
 }
 
+// SwiftUI debugging preview
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

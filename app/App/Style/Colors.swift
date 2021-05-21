@@ -14,7 +14,7 @@
 import Foundation
 import SwiftUI
 
-// Custom color palette
+// Custom color app palette
 // Colors are defined inside Assets.xcassets
 extension Color {
     

@@ -31,6 +31,7 @@ struct SettingsView: View {
             
             List {
                 
+                // General settings
                 Section(header: Text("Generale")) {
                     Toggle("Rimani collegato", isOn: $keepConnected).foregroundColor(.darkBlue)
                     
@@ -45,11 +46,14 @@ struct SettingsView: View {
                     }
                 }
                 
+                // Information about the app
                 Section(header: Text("Informazioni")) {
                     
                     Button("Domande frequenti", action: {
                         self.showFAQ.toggle()
                     })
+                    
+                    // F.A.Q. modal view
                     .sheet(isPresented: $showFAQ, content: {
                         NavigationView {
                             FAQView()
@@ -74,16 +78,21 @@ struct SettingsView: View {
                     
                 }
                 
+                // Other information about the app
                 Section {
+                    
+                    // App version number
                     HStack {
                         Text("Versione app")
                         Spacer()
                         Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
                     }.foregroundColor(.darkBlue)
                     
+                    // Link to the developer website
                     Link("Sviluppatore", destination: URL(string: "http://alessiorubicini.altervista.org")!)
                     
-                    Button("Crediti e ringraziamenti") {
+                    // Credits
+                    Button("Crediti") {
                         self.showCredits.toggle()
                     }
                     .sheet(isPresented: $showCredits, content: {
@@ -112,6 +121,7 @@ struct SettingsView: View {
     }
 }
 
+// SwiftUI debugging preview
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView().environmentObject(AppState())
