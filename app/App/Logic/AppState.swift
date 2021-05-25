@@ -25,21 +25,25 @@ class AppState: ObservableObject {
     @Published var isLogged: Bool = false
     @Published var alert = (false, "", "")
     
+    // Delegating cart and catalog management responsibility to other objects
     @Published var cartManager: CartManager
     @Published var catalogManager: CatalogManager
     
+    // Class' constructor
     init() {
         
+        // Initialize propertise
         self.cartManager = CartManager()
         self.catalogManager = CatalogManager()
         
-        // Check if "keepConnected" flag is true
+        // Check if "keepConnected" flag is true for automatic login
         if UserDefaults.standard.bool(forKey: "keepConnected") == true {
             
             // Get user's credentials from User Defaults local storage
             let email = UserDefaults.standard.string(forKey: "email") ?? "-"
             let password = UserDefaults.standard.string(forKey: "password") ?? "-"
             
+            // Call login method with user's credentials
             self.login(email: email, password: password)
         }
         

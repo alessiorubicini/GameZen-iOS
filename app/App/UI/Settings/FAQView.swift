@@ -31,7 +31,7 @@ struct FAQView: View {
                 Text("GameZen è un negozio online di giochi da tavolo")
             }
             
-            DisclosureGroup("Come posso acquistare un gioco?", isExpanded: $buying) {
+            DisclosureGroup("Come si acquista un gioco?", isExpanded: $buying) {
                 Text("Per acquistare un gioco seleziona uno o più prodotti dal catalogo e aggiungili al carrello. Una volta aggiunti, vai nel carrello per scegliere l'indirizzo di consegna e conferma l'ordine.")
             }
             
@@ -40,7 +40,7 @@ struct FAQView: View {
             }
             
             DisclosureGroup("Come gestire gli indirizzi di consegna?", isExpanded: $address) {
-                Text("Per gestire i tuoi indirizzi di consegna, visita la sezione 'Indirizzi' nel tuo profilo utente. Quando effettui un ordine, devi necessariamente scegliere un indirizzo di consegna.")
+                Text("Per gestire i tuoi indirizzi di consegna, visita la sezione 'Indirizzi' nel tuo profilo utente nella quale puoi aggiungere ed eliminare indirizzi. Quando effettui un ordine, devi necessariamente scegliere un indirizzo di consegna.")
             }
             
         }.listStyle(InsetGroupedListStyle())

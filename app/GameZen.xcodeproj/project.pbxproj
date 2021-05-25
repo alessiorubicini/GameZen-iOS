@@ -49,7 +49,6 @@
 		CF650E8B263C870E00B6C05A /* GameZenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650E8A263C870E00B6C05A /* GameZenApp.swift */; };
 		CF650E8F263C870F00B6C05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF650E8E263C870F00B6C05A /* Assets.xcassets */; };
 		CF650E92263C870F00B6C05A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF650E91263C870F00B6C05A /* Preview Assets.xcassets */; };
-		CF650E9D263C870F00B6C05A /* GameZenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650E9C263C870F00B6C05A /* GameZenTests.swift */; };
 		CF650EA8263C870F00B6C05A /* GameZenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF650EA7263C870F00B6C05A /* GameZenUITests.swift */; };
 		CF6B6D7C263F2B80007E88AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7B263F2B80007E88AB /* DateFormatter.swift */; };
 		CF6B6D80263F38D5007E88AB /* CatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */; };
@@ -135,7 +134,6 @@
 		CF650E91263C870F00B6C05A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CF650E93263C870F00B6C05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF650E98263C870F00B6C05A /* GameZenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameZenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF650E9C263C870F00B6C05A /* GameZenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameZenTests.swift; sourceTree = "<group>"; };
 		CF650E9E263C870F00B6C05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF650EA3263C870F00B6C05A /* GameZenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameZenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF650EA7263C870F00B6C05A /* GameZenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameZenUITests.swift; sourceTree = "<group>"; };
@@ -367,7 +365,6 @@
 		CF650E9B263C870F00B6C05A /* AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				CF650E9C263C870F00B6C05A /* GameZenTests.swift */,
 				CF9083D6263DE40B0070CA6C /* UserTests.swift */,
 				CF6B6D7F263F38D5007E88AB /* CatalogTests.swift */,
 				CF33286A26407E54009C222B /* CartTests.swift */,
@@ -728,7 +725,6 @@
 				CF33286B26407E54009C222B /* CartTests.swift in Sources */,
 				CF9083D7263DE40B0070CA6C /* UserTests.swift in Sources */,
 				CF0759AC2645CA9B0077EB9D /* OrderTests.swift in Sources */,
-				CF650E9D263C870F00B6C05A /* GameZenTests.swift in Sources */,
 				CF33287526407F82009C222B /* AddressLogic.swift in Sources */,
 				CF33287426407F82009C222B /* AppState.swift in Sources */,
 				CF9083DA263DE5F80070CA6C /* Address.swift in Sources */,

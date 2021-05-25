@@ -55,7 +55,7 @@ extension User: Decodable {
     }
 }
 
-// Mock structure for debugging purposes
+// Mock object for debugging purposes
 extension User {
     static let mock = User(id: 1, name: "Alessio", surname: "Rubicini", email: "alessiorubicini16@icloud.com", password: "test", birthDate: "2002-07-16", addresses: [], orders: [])
 }

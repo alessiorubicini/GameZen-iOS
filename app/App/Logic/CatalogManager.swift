@@ -15,6 +15,7 @@ import Foundation
 import SwiftUI
 import Alamofire
 
+// This object is responsible of managing the shop's catalog
 class CatalogManager: ObservableObject {
     
     // MARK: - Properties
@@ -22,6 +23,7 @@ class CatalogManager: ObservableObject {
     @Published var products: [Product] = []
     @Published var categories: [Category] = []
     
+    // Class' constructors
     init() {
         self.loadCategories()
         self.loadAllProducts()

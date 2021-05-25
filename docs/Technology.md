@@ -44,5 +44,10 @@ GameZen leverages other open-source libraries, including:
 
 ## Backend services
 
+Below, we describe the technologies with which the Backend Services are built. Then, we provide a more detailed description of each Backend Service.
+
+All backend services are implementeed in PHP 7.4.12, with MAMP as web development suite.
+
+
 
 

@@ -29,10 +29,10 @@ For information on the used technologies, see the [Technology.md](docs/Technolog
 # Repository structure
 
 
-├── api:                 HTTP API for app-database interaction<br>
-├── app:                 iOS app<br>
-├── database:            Database<br>
-├── design:              Mockups and assets<br>
+├── api:                 Backend services<br>
+├── app:                 iOS application<br>
+├── database:            Database and related documentation<br>
+├── design:              Mockups, icons and various assets<br>
 ├── docs:                Documentation<br>
 ├── README_EN.md:        English file containing information about the repository<br>
 └── README.md:           Italian file containing information about the repository

@@ -13,10 +13,11 @@
 
 import SwiftUI
 
+// This view welcomes the user at the first launch
+// It presents a list of the app's features
 struct OnboardingView: View {
     
     // MARK: - View properties
-    
     @Environment(\.presentationMode) var presentationMode
     
     // MARK: - View body
