@@ -31,6 +31,7 @@ struct OrderView: View {
             VStack {
                 
                 ProgressView("Monitoraggio ordine", value: order.getOrderProgress(), total: 6.0).padding()
+                
                 Text(order.state).foregroundColor(orderStateColor(for: order.state)).font(.title2).fontWeight(.semibold)
                 
                 Divider()

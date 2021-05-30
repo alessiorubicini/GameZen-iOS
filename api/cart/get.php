@@ -48,9 +48,13 @@
 		// Transforming boolean value from tinyint to true|false
 		foreach($products as &$product) {
 			if($products["available"] == 1) {
+
 				$product["available"] = false;
+
 			} else {
+
 				$product["available"] = true;
+				
 			}
 		}
 

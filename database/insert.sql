@@ -1,4 +1,19 @@
 
+-- insert.sql
+-- Copyright (C) 2021 Alessio Rubicini.
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+-- You should have received a copy of the GNU General Public License
+-- along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-- This file contains all the necessary SQL queries for inserting mock data into the Db tables
+
 INSERT INTO users (name, surname, email, password, birth) VALUES ('Alessio', 'Rubicini', 'alessiorubicini16@icloud.com', '098f6bcd4621d373cade4e832627b4f6', '2002-07-16');
 
 INSERT INTO addresses(address, civic, city, CAP, province, phone) VALUES('Via Mauro Macchi', 52, 'Porto San Giorgio', 63822, 'FM', 3896970199);

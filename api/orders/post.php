@@ -54,8 +54,11 @@
 	// For each order's product, add order-product relationship
 	$orderID = $db->query("SELECT id FROM orders O WHERE O.date = '$date' AND O.delivery = '$delivery' AND O.user = '$userID'")[0]["id"];
 	foreach($products as $product) {
+
 		$query = "INSERT INTO detail (orderID, product, quantity) VALUES('$orderID', '$product', '1')";
+
 		$db->queryWithoutResult($query);
+		
 	}
 
 	// Close database connection
