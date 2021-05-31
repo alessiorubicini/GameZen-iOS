@@ -29,10 +29,10 @@ class AppState: ObservableObject {
     @Published var cartManager: CartManager
     @Published var catalogManager: CatalogManager
     
-    // Class' constructor
+    // Class constructor
     init() {
         
-        // Initialize propertise
+        // Initialize properties
         self.cartManager = CartManager()
         self.catalogManager = CatalogManager()
         
